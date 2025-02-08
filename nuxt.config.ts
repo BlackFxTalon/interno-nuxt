@@ -16,22 +16,11 @@ export default defineNuxtConfig({
         { 
           rel: 'stylesheet', 
           href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
-        }
+        },
       ]  
     }
   },
-  // Enable static site generation
-  ssr: true,
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: [
-        '/',
-        '/mattresses',
-        '/wardrobes',
-        '/beds',
-        '/accessories'
-      ]
-    }
+  routeRules: {
+    '/': { prerender: true },
   }
-})
+});
