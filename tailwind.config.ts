@@ -8,8 +8,7 @@ export default {
         primary: '#0580C7',
       },
       fontFamily: {
-        // sans: ['Inter', 'system-ui', 'sans-serif'],
-        Manrope: ['Manrope', 'sans-serif'],
+        Inter: ['Inter', 'system-ui', 'sans-serif'],
       }
     }
   }

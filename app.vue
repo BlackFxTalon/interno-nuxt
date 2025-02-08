@@ -13,7 +13,7 @@ const headerMenuLinks = [
 </script>
 
 <template>
-    <header class="sticky top-0 bg-white shadow-md z-50">
+    <header class="sticky top-0 bg-white shadow-md z-50 font-Inter">
       <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
         <div class="flex items-center">
           <img src="/logo.svg" alt="DreamRest" class="h-12 animate-logo" />
@@ -102,7 +102,7 @@ const headerMenuLinks = [
         </transition>
     </header>
 
-    <main>
+    <main class="font-Inter">
       <!-- Hero Section -->
       <HeroSection />
 
@@ -212,7 +212,7 @@ const headerMenuLinks = [
       <WhatOurCustomersSay/>
     </main>
 
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12 font-Inter">
       <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-4 gap-8">
           <div>
