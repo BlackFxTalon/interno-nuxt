@@ -10,19 +10,19 @@
           <div class="flex flex-wrap justify-center gap-4 mb-8">
             <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 min-w-[100px]">
               <div class="text-3xl font-bold">{{ timer.days }}</div>
-              <div class="text-sm">Days</div>
+              <div class="text-sm">Дни</div>
             </div>
             <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 min-w-[100px]">
               <div class="text-3xl font-bold">{{ timer.hours }}</div>
-              <div class="text-sm">Hours</div>
+              <div class="text-sm">Часы</div>
             </div>
             <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 min-w-[100px]">
               <div class="text-3xl font-bold">{{ timer.minutes }}</div>
-              <div class="text-sm">Minutes</div>
+              <div class="text-sm">Минуты</div>
             </div>
             <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 min-w-[100px]">
               <div class="text-3xl font-bold">{{ timer.seconds }}</div>
-              <div class="text-sm">Seconds</div>
+              <div class="text-sm">Секунды</div>
             </div>
           </div>
           
