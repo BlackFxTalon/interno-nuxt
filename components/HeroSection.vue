@@ -13,9 +13,9 @@
                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
                 <div class="relative container mx-auto px-4 h-full flex items-center">
                   <div class="text-white max-w-2xl">
-                    <h1 class="text-5xl font-bold mb-4">Качественный сон, лучшая жизнь</h1>
+                    <p class="text-5xl font-bold mb-4">Качественный сон, лучшая жизнь</p>
                     <p class="text-xl mb-8">Откройте для себя нашу премиальную коллекцию матрасов, разработанную для максимального комфорта и поддержки.</p>
-                    <button class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition text-primary">
+                    <button class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition">
                       Купить сейчас
                     </button>
                   </div>

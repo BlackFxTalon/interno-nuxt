@@ -41,32 +41,32 @@
 
               <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-4">Информация о продукте</h3>
               <ul class="list-disc pl-5 space-y-2">
-                <li>We strive to display accurate product information</li>
-                <li>Colors may vary slightly from images</li>
-                <li>Prices and availability are subject to change</li>
+                <li>Мы стремимся отображать точную информацию о продукте</li>
+                <li>Цвета могут немного отличаться от изображений.</li>
+                <li>Цены и наличие могут быть изменены.</li>
               </ul>
 
-              <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-4">Shipping & Delivery</h3>
+              <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-4">Доставка</h3>
               <ul class="list-disc pl-5 space-y-2">
-                <li>Free delivery on orders over $500</li>
-                <li>Delivery times may vary by location</li>
-                <li>Professional setup included with premium mattresses</li>
+                <li>Бесплатная доставка при заказе на сумму более 500 долларов США</li>
+                <li>Сроки доставки могут различаться в зависимости от местоположения.</li>
+                <li>Профессиональная установка включена в комплектацию матрасов премиум-класса</li>
               </ul>
             </div>
           </section>
 
           <!-- Return Policy -->
           <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6">Return Policy</h2>
+            <h2 class="text-2xl font-bold mb-6">Политика возврата</h2>
             <div class="space-y-4 text-gray-600">
-              <p>We want you to be completely satisfied with your purchase.</p>
+              <p>Мы хотим, чтобы вы были полностью удовлетворены своей покупкой.</p>
 
-              <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-4">100-Night Trial</h3>
+              <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-4">100-дневный пробный период</h3>
               <ul class="list-disc pl-5 space-y-2">
-                <li>Try your mattress for 100 nights</li>
-                <li>Free returns within trial period</li>
-                <li>Full refund on unused products</li>
-                <li>We'll arrange pickup for returns</li>
+                <li>Испытайте свой матрас в течение 100 ночей</li>
+                <li>Бесплатный возврат в течение пробного периода</li>
+                <li>Полный возврат средств за неиспользованные товары</li>
+                <li>Мы организуем самовывоз для возврата товара</li>
               </ul>
 
               <div class="bg-primary/5 rounded-xl p-6 mt-6">
@@ -105,7 +105,7 @@
         <div class="bg-gray-50 p-8 border-t">
           <p class="text-gray-500 text-center">
             If you have any questions about our policies, please 
-            <a href="/contact" class="text-primary hover:underline">contact us</a>.
+            <a href="#" class="text-primary hover:underline">contact us</a>.
           </p>
         </div>
       </div>

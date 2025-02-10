@@ -3,14 +3,14 @@
     <section class="py-24 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold mb-4">Найдите свой идеальный матрас</h2>
+          <h1 class="text-4xl font-bold mb-4">Найдите свой идеальный матрас</h1>
           <p class="text-xl text-gray-600">Позвольте нам помочь вам подобрать идеальный матрас для вашего стиля сна.</p>
         </div>
         
         <div class="max-w-4xl mx-auto">
           <!-- Sleeping Position -->
           <div class="mb-16">
-            <h3 class="text-2xl font-semibold mb-8 text-center">Какая поза для сна вам больше всего нравится?</h3>
+            <h2 class="text-2xl font-semibold mb-8 text-center">Какая поза для сна вам больше всего нравится?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               <button 
                 @click="selectMatrass('side')"
