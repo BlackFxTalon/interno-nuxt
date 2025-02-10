@@ -1,9 +1,18 @@
 <template>
+  <Body class="font-Inter">
+  <NuxtLayout>
     <NuxtPage />
+  </NuxtLayout>
+  </Body>
 </template>
 
 <script setup>
-
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - Интерно - Магазин Матрасов и Кроватей` : 
+    'Интерно - Магазин Матрасов и Кроватей';
+  }
+});
 </script>
 
 <style>
