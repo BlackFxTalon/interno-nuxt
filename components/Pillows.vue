@@ -109,7 +109,7 @@
                     <!-- Кнопка оформления заказа -->
                     <button 
                       @click="showOrderForm = true"
-                      class="w-full bg-primary text-white px-8 py-4 rounded-md hover:bg-primary/90 transition-colors mt-12 text-lg font-medium"
+                      class="primary-btn"
                     >
                       Оформить заказ
                     </button>

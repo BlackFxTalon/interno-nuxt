@@ -18,7 +18,7 @@
                     <p class="text-xl mb-8">Откройте для себя нашу премиальную коллекцию матрасов, разработанную для максимального комфорта и поддержки.</p>
                     <button 
                       @click="openInquiryForm"
-                      class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition"
+                      class="primary-btn max-w-max"
                     >
                       Купить сейчас
                     </button>
@@ -73,7 +73,7 @@
           </div>
           <button 
             type="submit"
-            class="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors"
+            class="primary-btn"
           >
             Отправить
           </button>

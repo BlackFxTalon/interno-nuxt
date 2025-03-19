@@ -84,7 +84,7 @@ html, body {
          bg-white text-gray-700
          transition-colors duration-200
          placeholder-gray-400
-         focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20;
+         focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 h-[40px];
 }
 
 .select-container {
@@ -136,12 +136,12 @@ html, body {
   }
 }
 
-.form-submit-btn {
+.primary-btn {
   @apply w-full px-6 py-3 text-white bg-primary rounded-lg
          font-medium transition-all duration-200
          hover:bg-primary/90 hover:shadow-lg
          focus:outline-none focus:ring-2 focus:ring-primary/50
-         active:transform active:scale-[0.98];
+         active:transform active:scale-[0.98] h-[48px];
 }
 
 /* Custom Scrollbar */

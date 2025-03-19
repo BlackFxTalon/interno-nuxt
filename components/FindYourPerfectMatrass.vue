@@ -3,8 +3,7 @@
     <section class="py-24 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold mb-4">Найдите свой идеальный матрас</h2>
-          <p class="text-xl text-gray-600">Позвольте нам помочь вам подобрать идеальный матрас для вашего стиля сна.</p>
+          <h2 class="text-4xl font-bold mb-4">Подберите идеальный матрас для вашего сна.</h2>
         </div>
 
         <div class="max-w-4xl mx-auto">
@@ -14,59 +13,93 @@
               :style="{ transform: `translateX(-${currentStep * 100}%)` }"
             >
               <!-- Dynamic Steps -->
-              <div v-for="(step, index) in mattressData.steps" 
+              <div v-for="step in mattressSteps.steps" 
                 :key="step.id"
                 class="w-full flex-shrink-0"
               >
                 <h2 class="text-2xl font-semibold mb-8 text-center">{{ step.title }}</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <button 
-                    v-for="option in step.options"
-                    :key="option.id"
-                    @click="selectOption(step.id, option.id)"
-                    :class="[
-                      'p-6 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-4 hover:shadow-lg',
-                      selections[step.id] === option.id
-                        ? 'border-primary bg-primary/5 shadow-lg' 
-                        : 'border-gray-100 hover:border-primary/30'
-                    ]"
-                  >
-                    <span class="text-lg font-medium text-center">{{ option.label }}</span>
-                    <span v-if="option.size" class="text-sm text-gray-500">{{ option.size }}</span>
-                  </button>
+                <div 
+                class="grid grid-cols-2 gap-4"
+                :class="{
+                  'md:grid-cols-3': step.id === 'firmness' || step.id === 'budget',
+                  'md:grid-cols-4': step.id === 'size'
+                  }"
+                >
+                  <template v-if="step.id === 'budget'">
+                    <button 
+                      v-for="option in currentBudgetOptions"
+                      :key="option.id"
+                      @click="selectOption(step.id, option.id)"
+                      :class="[
+                        'p-6 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-4 hover:shadow-lg',
+                        selections[step.id] === option.id
+                          ? 'border-primary bg-primary/5 shadow-lg' 
+                          : 'border-gray-100 hover:border-primary/30'
+                      ]"
+                    >
+                      <span class="text-lg font-medium text-center">{{ option.label }}</span>
+                    </button>
+                  </template>
+                  <template v-else>
+                    <button 
+                      v-for="option in step.options"
+                      :key="option.id"
+                      @click="selectOption(step.id, option.id)"
+                      :class="[
+                        'p-6 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-4 hover:shadow-lg',
+                        selections[step.id] === option.id
+                          ? 'border-primary bg-primary/5 shadow-lg' 
+                          : 'border-gray-100 hover:border-primary/30'
+                      ]"
+                    >
+                      <span class="text-lg font-medium text-center">{{ option.label }}</span>
+                      <span v-if="option.size" class="text-sm text-gray-500">{{ option.size }}</span>
+                    </button>
+                  </template>
                 </div>
               </div>
 
               <!-- Final Step: Recommendation -->
               <div class="w-full flex-shrink-0">
-                <h3 class="text-2xl font-semibold mb-8 text-center">Ваш идеальный выбор</h3>
-                <div class="text-center">
-                  <h4 class="text-xl mb-4">{{ recommendedMattress?.name }}</h4>
-                  <img 
-                    :src="recommendedMattress?.image" 
-                    alt="Матрас" 
+                <h3 class="text-xl mb-4 text-center">Ваш идеальный выбор:</h3>
+                <p class="text-2xl mb-4 font-semibold text-center">{{ recommendedMattressName }}</p>
+                   <div class="grid gap-4 grid-cols-2 items-center">
+                    <NuxtImg 
+                    :src="recommendedMattressImage" 
+                    :alt="recommendedMattressName"
+                    format="webp"
                     class="w-full max-w-md mx-auto rounded-lg mb-4"
-                  >
-                  <p class="text-2xl font-bold text-primary mb-8">{{ recommendedMattress?.price }}</p>
-                  <button 
-                    @click="openMatrassForm"
-                    class="bg-primary text-white py-4 px-8 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-colors"
-                  >
-                    Оформить заказ
-                  </button>
+                    />
+                    <div class="space-y-4">
+                        <p class="text-xl font-semibold">
+                          {{ recommendedMattressDescription }}
+                        </p>
+                        <p class="text-xl font-semibold">
+                          Цена:
+                          <span class="text-2xl font-bold text-primary">{{ recommendedMattressPrice }}</span>
+                        </p>
+                    </div>
+                   </div>
+                   <div class="text-center">
+                    <button 
+                      @click="openMatrassForm"
+                      class="primary-btn max-w-max"
+                    >
+                      Оформить заказ
+                    </button>
+                </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <FindYourPerfectMatrassForm
     :show-modal="showModal"
-    :matrass-form-budget="matrassFormBudget"
-    :matrass-form-image="matrassFormImage"
-    :matrass-form-name="matrassFormName"
+    :matrass-form-price="recommendedMattressPrice"
+    :matrass-form-image="recommendedMattressImage"
+    :matrass-form-name="recommendedMattressName"
     v-model:name="findMatrassForm.name"
     v-model:phone="findMatrassForm.phone"
     @handleClose="closeMatrassForm"
@@ -76,7 +109,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import mattressData from '/data/mattress-data.json';
+import mattressSteps from '/data/mattress-steps.json';
 
 const currentStep = ref(0);
 const selections = ref({});
@@ -89,50 +122,46 @@ const findMatrassForm = ref({
 
 const selectOption = (stepId, optionId) => {
   selections.value[stepId] = optionId;
-  setTimeout(() => {
-    if (currentStep.value < mattressData.steps.length) {
-      currentStep.value++;
-    }
-  }, 300);
+  if (currentStep.value < mattressSteps.steps.length) {
+    currentStep.value++;
+  }
 };
 
+const currentBudgetOptions = computed(() => {
+  const budgetStep = mattressSteps.steps.find(step => step.id === 'budget');
+  return selections.value.forWhom ? budgetStep.options[selections.value.forWhom] : [];
+});
+
 const recommendedMattress = computed(() => {
-  // Логика подбора матраса на основе selections
-  return mattressData.recommendations.find(mattress => {
-    // Реализуйте логику сопоставления выборов пользователя
-    // с рекомендациями из базы данных
-    return true; // Временная заглушка
+  if (!selections.value.forWhom || !selections.value.firmness || 
+      !selections.value.size || !selections.value.budget) {
+    return null;
+  }
+
+  return mattressSteps.recommendations.find(mattress => {
+    return mattress.matches.forWhom.includes(selections.value.forWhom) &&
+           mattress.matches.firmness === selections.value.firmness &&
+           mattress.matches.budget === selections.value.budget;
   });
 });
 
-const matrassFormName = computed(() => {
-  const option = mattressData.mattressOptions.find(opt => 
-    (opt.position === selectedPosition.value || opt.position === '*') && 
-    opt.budget === selectedBudget.value
-  );
-  return option?.name || 'Матрас №1';
+const recommendedMattressName = computed(() => {
+  return recommendedMattress.value?.name || '';
 });
 
-const matrassFormImage = computed(() => {
-  const option = mattressData.mattressOptions.find(opt => 
-    (opt.position === selectedPosition.value || opt.position === '*') && 
-    opt.budget === selectedBudget.value
-  );
-  return option?.image || mattressData.mattressOptions[0].image;
+const recommendedMattressDescription = computed(() => {
+  return recommendedMattress.value?.description || '';
 });
 
-const matrassFormBudget = computed(() => {
-  const option = mattressData.mattressOptions.find(opt => 
-    (opt.position === selectedPosition.value || opt.position === '*') && 
-    opt.budget === selectedBudget.value
-  );
-  return option?.price || mattressData.mattressOptions[0].price;
+const recommendedMattressImage = computed(() => {
+  return recommendedMattress.value?.image || '';
 });
 
-const canProceed = computed(() => {
-  if (currentStep.value === 0) return selectedPosition.value;
-  if (currentStep.value === 1) return selectedBudget.value;
-  return true;
+const recommendedMattressPrice = computed(() => {
+  if (!recommendedMattress.value || !selections.value.size) {
+    return '';
+  }
+  return recommendedMattress.value.prices[selections.value.size];
 });
 
 const openMatrassForm = () => {
@@ -141,8 +170,7 @@ const openMatrassForm = () => {
 
 const resetForm = () => {
   currentStep.value = 0;
-  selectedPosition.value = null;
-  selectedBudget.value = null;
+  selections.value = {};
 };
 
 const closeMatrassForm = () => {

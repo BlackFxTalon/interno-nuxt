@@ -80,7 +80,7 @@
               </div>
               <button 
                 type="submit"
-                class="form-submit-btn"
+                class="primary-btn"
               >
                 Отправить заявку
               </button>
