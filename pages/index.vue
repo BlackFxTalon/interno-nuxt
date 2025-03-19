@@ -11,6 +11,9 @@
 
       <Matrasses />
 
+      <!-- Pillows -->
+      <Pillows/>
+
       <!-- Categories -->
       <!-- <section class="py-16">
         <div class="container mx-auto px-4">
@@ -73,6 +76,9 @@
 
        <!-- Beds -->
       <Beds/>
+
+      <!-- Children Beds -->
+      <ChildrenBeds/>
 
       <!-- Features -->
       <section class="bg-gray-50 py-16">

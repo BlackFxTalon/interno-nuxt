@@ -2,6 +2,14 @@
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## Roadmap
+
+<ul>
+<li>
+сгенерить картинки для слайдера (под шапкой)
+</li>
+</ul>
+
 ## Setup
 
 Make sure to install dependencies:

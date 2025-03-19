@@ -15,7 +15,7 @@ useHead({
 });
 </script>
 
-<style>
+<style lang="scss">
 
 html, body {
   scroll-behavior: smooth;
@@ -87,11 +87,53 @@ html, body {
          focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20;
 }
 
+.select-container {
+  @apply relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateY(-50%);
+    transition: transform 0.2s ease;
+    pointer-events: none;
+  }
+  
+  &:focus-within::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%234f46e5' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
 .form-select {
-  @apply appearance-none bg-no-repeat;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 0.5rem center;
-  background-size: 1.5em 1.5em;
+  @apply appearance-none w-full px-4 py-3 border-2 border-gray-300 rounded-md 
+         bg-white text-gray-700 cursor-pointer;
+  padding-right: 2.5rem;
+  text-indent: 1px;
+  text-overflow: '';
+  
+  &::-ms-expand {
+    display: none;
+  }
+  
+  &:focus {
+    @apply outline-none ring-2 ring-primary/20 border-primary;
+  }
+  
+  &:hover:not(:focus) {
+    @apply border-primary/50;
+  }
+
+  option {
+    @apply py-2;
+  }
 }
 
 .form-submit-btn {
@@ -100,6 +142,38 @@ html, body {
          hover:bg-primary/90 hover:shadow-lg
          focus:outline-none focus:ring-2 focus:ring-primary/50
          active:transform active:scale-[0.98];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/60;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #f3f4f6;
+}
+
+:root {
+  --primary-color: rgb(5, 128, 199);
 }
 
 </style>
