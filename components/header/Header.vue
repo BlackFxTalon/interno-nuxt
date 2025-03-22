@@ -16,7 +16,7 @@ const headerMenuLinks = [
 </script>
 
 <template>
-    <header class="sticky top-0 bg-white shadow-md z-50">
+    <header class="sticky top-0 bg-white shadow-md z-10">
       <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
         <NuxtLink class="flex items-center" to="/">
             <img src="/logo.svg" alt="DreamRest" class="h-[26px] animate-logo" />

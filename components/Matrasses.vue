@@ -6,7 +6,7 @@
             <ProductCard
             v-for="(mattress, index) in displayedMattresses" 
             :key="index"
-            :mattress="mattress"
+            :item="mattress"
             @handleBtn="openModal(mattress)"
             />
         </div>
@@ -21,8 +21,6 @@
         </div>
       </div>
 
-      <!-- Inquiry Form Modal -->
-      
       <DetailModal
       v-model="showModal"
       :selectedMattress="selectedMattress"
@@ -73,58 +71,47 @@
       </div>
       </Transition>
     </section>
+
+    <Teleport to="#teleports">
+      <Loader
+      v-if="isLoading"
+      />
+    </Teleport>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
+import matrassesData from '/data/matrasses.json';
+import Loader from './Loader.vue';
 
+const isLoading = ref(false);
 const showModal = ref(false);
 const showOrderForm = ref(false);
 const selectedMattress = ref({});
 const itemsPerPage = 6;
 const currentPage = ref(1);
 
-const mattresses = [
-  {
-    title: 'Матрас №1',
-    image: 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80',
-    oldPrice: '1,299',
-    newPrice: '899',
-    description: 'Традиционный комфорт с передовой технологией пружин для превосходной поддержки. Имеет индивидуально обернутые пружины, которые минимизируют передачу движения и обеспечивают целевую поддержку вашего тела.'
-  },
-  {
-    title: 'Матрас №2',
-    image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80',
-    oldPrice: '1,799',
-    newPrice: '1,299',
-    description: 'Комфортное прилегание к телу для спокойного сна и снятия давления. Премиальная пена с эффектом памяти адаптируется к форме вашего тела, обеспечивая оптимальную поддержку и регуляцию температуры.'
-  },
-  {
-    title: 'Матрас №3',
-    image: 'https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80',
-    oldPrice: '1,999',
-    newPrice: '1,499',
-    description: 'Лучшее из двух миров с технологией пены с эффектом памяти и пружин. Сочетает в себе снятие давления пены с эффектом памяти с отзывчивой поддержкой карманных пружин.'
-  },
-  {
-    title: 'Матрас №4',
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80',
-    oldPrice: '3,299',
-    newPrice: '2,499',
-    description: 'Премиальные материалы и мастерство для максимальной роскоши. Содержит несколько слоев высококачественных материалов, включая натуральный латекс, пену с эффектом памяти и высококачественные карманные пружины.'
-  }
-];
+const matrasses = ref(matrassesData.matrasses);
 
 const displayedMattresses = computed(() => {
-  return mattresses.slice(0, currentPage.value * itemsPerPage);
+  return matrasses.value.slice(0, currentPage.value * itemsPerPage);
 });
 
 const hasMoreMattresses = computed(() => {
-  return displayedMattresses.value.length < mattresses.length;
+  return displayedMattresses.value.length < matrasses.value.length;
 });
 
-const loadMore = () => {
-  currentPage.value++;
+const loadMore = async () => {
+    try {
+        isLoading.value = true;
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        currentPage.value++;
+    } catch(error) {
+      throw new Error(error);
+      
+    } finally {
+        isLoading.value = false;
+    }
 };
 
 const openModal = (mattress) => {
@@ -157,6 +144,14 @@ const submitInquiry = () => {
 
 watch(showModal, (isOpen) => {
   if (isOpen) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+});
+
+watch(isLoading, (newVal) => {
+  if(newVal === true) {
     document.body.style.overflow = 'hidden';
   } else {
     document.body.style.overflow = '';

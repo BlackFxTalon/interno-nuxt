@@ -3,7 +3,6 @@
       <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
         <Transition name="modal">
           <div v-if="showModal" class="bg-white w-full h-full relative">
-            <!-- Кнопка закрытия -->
             <button 
               @click="showModal = false" 
               class="absolute top-6 right-6 text-gray-500 hover:text-gray-700 z-10"
@@ -16,69 +15,49 @@
             <div class="h-full overflow-y-auto p-8">
               <div class="container mx-auto">
                 <div class="flex justify-between items-start gap-12">
-                  <!-- Левая часть с изображением -->
                   <div class="w-1/2">
-                    <img :src="selectedMattress?.image" :alt="selectedMattress?.title" class="w-full h-[600px] object-cover rounded-lg"/>
+                    <NuxtImg 
+                    :src="selectedItem.image" 
+                    :alt="selectedItem.name"
+                    format="webp"
+                    class="w-full h-[600px] object-cover rounded-lg"
+                    />
                   </div>
                   
-                  <!-- Правая часть с информацией -->
                   <div class="w-1/2">
-                    <h3 class="text-3xl font-semibold">{{ selectedMattress?.title }}</h3>
+                    <p class="text-3xl font-semibold">{{ selectedItem.name }}</p>
                     
                     <div class="flex items-center gap-3 mt-4">
-                      <span class="text-4xl font-bold text-primary">{{ selectedMattress?.newPrice }}₽</span>
-                      <span class="text-2xl text-gray-400 line-through">{{ selectedMattress?.oldPrice }}₽</span>
+                      <p class="text-3xl font-semibold">Цена:</p>
+                      <p class="text-4xl font-bold text-primary">{{ selectedItemPrice }} ₽</p>
                     </div>
 
-                    <!-- Высота матраса -->
-                    <div class="mt-8">
-                      <h4 class="text-xl font-medium mb-4">Высота матраса</h4>
-                      <div class="radio-group">
-                        <label v-for="height in heights" :key="height.value">
-                          <input 
-                            type="radio" 
-                            v-model="detailForm.height" 
-                            :value="height.value"
-                            class="form-radio"
-                          />
-                          <span class="text-lg">{{ height.name }}</span>
-                        </label>
-                      </div>
+                    <div class="mt-8" v-if="selectedItem.height">
+                      <p class="text-xl font-medium mb-4">Высота матраса:</p>
+                      <p class="text-xl font-medium">{{ selectedItem.height }} см</p>
                     </div>
 
-                    <!-- Чехол матраса -->
-                    <div class="mt-8">
-                      <h4 class="text-xl font-medium mb-4">Чехол матраса</h4>
-                      <div class="radio-group">
-                        <label v-for="cover in covers" :key="cover.id">
-                          <input 
-                            type="radio" 
-                            v-model="detailForm.cover" 
-                            :value="cover.id"
-                            class="form-radio"
-                          />
-                          <span class="text-lg">{{ cover.name }} {{ cover.price > 0 ? `(+${cover.price}₽)` : '' }}</span>
-                        </label>
-                      </div>
+                    <div class="mt-8" v-if="selectedItem.case">
+                      <p class="text-xl font-medium mb-4">Чехол матраса:</p>
+                      <p class="text-xl font-medium mb-4">{{ selectedItem.case }}</p>
                     </div>
 
-                    <!-- Размер матраса -->
-                    <div class="mt-8">
-                      <h4 class="text-xl font-medium mb-4">Размер матраса</h4>
+                    <div class="mt-8" v-if="selectedItem.sizes">
+                      <h4 class="text-xl font-medium mb-4">Размеры:</h4>
                       <select 
-                        v-model="detailForm.size"
+                        v-model="currentSize"
                         required
                         class="form-select w-full text-lg"
                       >
-                        <option value="">Выберите размер</option>
-                        <option value="twin">Twin (90 × 190)</option>
-                        <option value="full">Full (140 × 190)</option>
-                        <option value="queen">Queen (160 × 200)</option>
-                        <option value="king">King (180 × 200)</option>
+                      <option 
+                      v-for="selectedItemSize in selectedItem.sizes"
+                      :value="selectedItemSize.label"
+                      >
+                      {{ selectedItemSize.label }}
+                      </option>
                       </select>
                     </div>
 
-                    <!-- Кнопка оформления заказа -->
                     <button 
                       @click="showOrderForm = true"
                       class="primary-btn"
@@ -88,40 +67,44 @@
                   </div>
                 </div>
 
-                <!-- Табы -->
                 <div class="mt-16">
                   <div class="flex border-b justify-around">
                     <button 
                       @click="activeTab = 'description'"
-                      :class="['px-6 py-3 text-lg font-medium', activeTab === 'description' ? 'text-primary border-b-2 border-primary' : 'text-gray-500']"
+                      :class="['px-6 py-3 text-lg font-medium', activeTab === 'description' ? 
+                      'text-primary border-b-2 border-primary' : 'text-gray-500']"
                     >
                       Описание
                     </button>
                     <button 
                       @click="activeTab = 'specifications'"
-                      :class="['px-6 py-3 text-lg font-medium ml-8', activeTab === 'specifications' ? 'text-primary border-b-2 border-primary' : 'text-gray-500']"
+                      :class="['px-6 py-3 text-lg font-medium ml-8', activeTab === 'specifications' ? 
+                      'text-primary border-b-2 border-primary' : 'text-gray-500']"
                     >
                       Характеристики
                     </button>
                   </div>
                   
                   <div class="py-8">
-                    <!-- Описание -->
-                    <div v-if="activeTab === 'description'" class="text-gray-600 text-lg">
-                      {{ selectedMattress?.description }}
+                    <div v-show="activeTab === 'description'" class="text-gray-600 text-lg">
+                      {{ selectedItem.description }}
                     </div>
                     
-                    <!-- Характеристики -->
-                    <div v-if="activeTab === 'specifications'" class="space-y-4">
-                      <div class="flex text-lg">
-                        <span class="font-medium w-1/3">Материал:</span>
-                        <span class="text-gray-600">Высококачественный пенополиуретан</span>
+                    <div v-show="activeTab === 'specifications'" class="space-y-4">
+                      <div class="flex text-lg" v-if="selectedItem.materials">
+                        <p class="font-medium w-1/3">Материалы:</p>
+                        <div class="flex flex-wrap">
+                          <p class="text-gray-600" 
+                          v-for="material in selectedItem.materials">
+                            {{ material }}
+                          </p>
+                        </div>
                       </div>
-                      <div class="flex text-lg">
-                        <span class="font-medium w-1/3">Основание:</span>
-                        <span class="text-gray-600">Независимые пружины</span>
+                      <div class="flex text-lg" v-if="selectedItem.foundation">
+                        <p class="font-medium w-1/3">Основание:</p>
+                        <p class="text-gray-600">{{ selectedItem.foundation }}</p>
                       </div>
-                      <div class="flex text-lg">
+                      <div class="flex text-lg" v-if="selectedItem.">
                         <span class="font-medium w-1/3">Жесткость:</span>
                         <span class="text-gray-600">Средняя</span>
                       </div>
@@ -142,35 +125,29 @@
 
 <script setup>
 
-const activeTab = ref('description');
-
-const showModal = defineModel();
-
 const props = defineProps({
-  selectedMattress: {
+  selectedItem: {
     type: [Object, Set, Map, Array],
     required: true
   }
 });
 
-const covers = [
-  { id: 'basic', name: 'Базовый чехол', price: 0 },
-  { id: 'premium', name: 'Премиум чехол', price: 5000 }
-];
+const activeTab = ref('description');
 
-const heights = [
-  { value: '20', name: '20 см' },
-  { value: '25', name: '25 см' },
-  { value: '30', name: '30 см' }
-];
+const showModal = defineModel();
 
-const detailForm = ref({
-  name: '',
-  phone: '',
-  size: '',
-  cover: 'basic',
-  height: '20'
-});
+const selectedItemPrice = ref(selectedItem.prices["80x190"]);
+
+const currentSize = ref(selectedItem.sizes[0].label);
+
+
+// const detailForm = ref({
+//   name: '',
+//   phone: '',
+//   size: '',
+//   cover: 'basic',
+//   height: '20'
+// });
 
 </script>
 

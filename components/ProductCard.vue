@@ -1,17 +1,22 @@
 <template>
     <div class="product-card">
-              <img :src="mattress.image" :alt="mattress.title" class="card-image"/>
+                <NuxtImg 
+                :src="item.image" 
+                :alt="item.name"
+                format="webp"
+                class="card-image"
+                />
               <div class="card-content">
-                <h3 class="text-2xl font-semibold mb-4">{{ mattress.title }}</h3>
+                <h3 class="text-2xl font-semibold mb-4">{{ item.name }}</h3>
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center gap-2 mb-4">
-                    <span class="text-2xl font-bold text-primary">{{ mattress.newPrice }}₽</span>
-                    <span class="text-md text-gray-400 line-through">{{ mattress.oldPrice }}₽</span>
+                    <span class="text-2xl font-bold text-primary">{{ item.prices["80x190"] }} ₽</span>-
+                    <span class="text-2xl font-bold text-primary">{{ item.prices["200x190"] }} ₽</span>
                   </div>
                 </div>
                 <button 
-                  @click="handleBtn(mattress)"
-                  class="w-full bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition-colors"
+                  @click="handleBtn(item)"
+                  class="primary-btn"
                 >
                   Узнать подробнее
                 </button>
@@ -22,7 +27,7 @@
 <script setup>
 
 const props = defineProps({
-   mattress: {
+   item: {
     type: [Object, Set, Array, Map],
     required: true
    }
@@ -30,8 +35,8 @@ const props = defineProps({
 
 const emit = defineEmits(['handleBtn']);
 
-const handleBtn = (mattress) => {
-  emit('handleBtn', mattress);
+const handleBtn = (item) => {
+  emit('handleBtn', item);
 }
 
 </script>
@@ -39,7 +44,7 @@ const handleBtn = (mattress) => {
 <style lang="scss" scoped>
 
 .product-card {
-  @apply relative rounded-lg shadow-lg overflow-hidden h-[400px] max-w-[350px];
+  @apply relative rounded-lg shadow-lg overflow-hidden h-[350px] max-w-[350px] p-[10px];
 }
 
 .card-image {
