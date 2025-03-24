@@ -1,33 +1,59 @@
 <script setup lang="ts">
+import matrassesData from '/data/matrasses.json'
+import toppersData from '/data/toppers.json'
+
+useHead({
+  meta: [
+    {
+      name: 'description',
+      content: 'Официальный сайт Интерно. Купить матрасы, кровати, подушки и товары для сна от производителя с доставкой в Екатеринбурге и РФ.',
+    },
+  ],
+})
+const matrasses = matrassesData.matrasses
+const toppers = toppersData.toppers
 </script>
 
 <template>
+  <main>
+    <!-- Hero Section -->
+    <HeroSection />
 
-    <main>
-      <!-- Hero Section -->
-      <HeroSection />
+    <FindYourPerfectMatrass />
 
-      <FindYourPerfectMatrass/>
+    <ProductsListSection
+      id="mattresses"
+      class="bg-gray-50"
+      title="Матрасы"
+      :items-data="matrasses"
+    />
 
-      <Matrasses />
+    <ProductsListSection
+      id="toppers"
+      class="bg-white"
+      title="Топперы"
+      :items-data="toppers"
+    />
 
-      <!-- Pillows -->
-      <Pillows/>
+    <!-- <Matrasses/> -->
 
-      <!-- Features -->
-      <Features/>
+    <!-- Pillows -->
+    <!-- <Pillows/> -->
 
-      <!-- LimitedTimeOffer -->
-      <!-- <LimitedTimeOffer/> -->
+    <!-- Features -->
+    <!-- <Features/> -->
 
-       <!-- Beds -->
-      <Beds/>
+    <!-- LimitedTimeOffer -->
+    <!-- <LimitedTimeOffer/> -->
 
-      <!-- Children Beds -->
-      <ChildrenBeds/>
+    <!-- Beds -->
+    <!-- <Beds/> -->
 
-      <WhatOurCustomersSay/>
-    </main>
+    <!-- Children Beds -->
+    <!-- <ChildrenBeds/> -->
+
+    <!-- <WhatOurCustomersSay/> -->
+  </main>
 </template>
 
 <style>

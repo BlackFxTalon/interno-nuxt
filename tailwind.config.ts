@@ -9,7 +9,7 @@ export default {
       },
       fontFamily: {
         Inter: ['Inter', 'system-ui', 'sans-serif'],
-      }
-    }
-  }
+      },
+    },
+  },
 } satisfies Config

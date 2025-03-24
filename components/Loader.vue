@@ -1,7 +1,23 @@
+<script setup>
+const isLoading = defineModel()
+
+watch(isLoading, (newVal) => {
+  if (newVal === true) {
+    document.body.style.overflow = 'hidden'
+  }
+  else {
+    document.body.style.overflow = ''
+  }
+})
+</script>
+
 <template>
-    <div class="loader">
-        <div class="pulse"></div>
-    </div>
+  <div
+    v-if="isLoading"
+    class="loader"
+  >
+    <div class="pulse" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
