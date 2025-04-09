@@ -147,16 +147,19 @@ function openModal(item) {
     id: item.id,
     name: item.name,
     description: item.description,
+    advantages: item.advantages,
     image: item.image,
     sizes: item.sizes,
     prices: item.prices,
     weights: item.weights,
     height: item.height,
+    depth: item.depth,
     foundation: item.foundation,
     materials: item.materials,
     firmness: item.firmness,
     case: item.case,
     side: item.side,
+    pressure: item.pressure,
   }
   // console.log(selectedItem.value)
   if (item.sizes && item.sizes.length > 0) {

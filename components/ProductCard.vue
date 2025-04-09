@@ -28,7 +28,7 @@ function handleBtn(item) {
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2 mb-4">
           <span class="text-2xl font-bold text-primary">{{ Object.values(props.item.prices)[0] }} ₽</span>-
-          <span class="text-2xl font-bold text-primary">{{ Object.values(props.item.prices)[7] }} ₽</span>
+          <span class="text-2xl font-bold text-primary">{{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽</span>
         </div>
       </div>
       <UiButton

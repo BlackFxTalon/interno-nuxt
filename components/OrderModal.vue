@@ -17,17 +17,30 @@ const weight = ref(0)
 
 // Следим за изменениями selectedItem
 watch(() => props.selectedItem, (newItem) => {
-  // console.log('Selected item changed:', newItem)
-  // console.log('currentSize', currentSize.value)
-  price.value = Object.values(newItem.prices)[0]
-  weight.value = Object.values(newItem.weights)[0]
+  if (!newItem)
+    return
+
+  const firstPrice = Object.values(newItem.prices ?? {})[0] ?? 0
+  const firstWeight = Object.values(newItem.weights ?? {})[0] ?? 0
+
+  price.value = newItem.prices?.[currentSize.value] ?? firstPrice
+  weight.value = newItem.weights?.[currentSize.value] ?? firstWeight
 }, { deep: true })
 
 // Следим за изменениями размера
 watch(currentSize, (newSize) => {
-  // Если newSize пустой, берем первый доступный размер
-  price.value = props.selectedItem.prices[newSize]
-  weight.value = props.selectedItem.weights[newSize]
+  if (!newSize) {
+    newSize = props.selectedItem.sizes[0]?.label || ''
+  }
+  if (props.selectedItem.prices && props.selectedItem.prices[newSize] !== undefined) {
+    price.value = props.selectedItem.prices[newSize]
+    weight.value = props.selectedItem.weights?.[newSize]
+  }
+  else {
+    console.warn(`No price found for size ${newSize}`)
+    price.value = 0
+    weight.value = 0
+  }
 })
 
 const orderForm = ref({

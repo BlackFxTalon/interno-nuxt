@@ -8,7 +8,7 @@ const props = defineProps({
 
 const emit = defineEmits(['handleOrderBtn'])
 
-const activeTab = ref('description')
+const activeTab = ref('specifications')
 
 const showModal = defineModel()
 
@@ -19,17 +19,30 @@ const weight = ref(0)
 
 // Следим за изменениями selectedItem
 watch(() => props.selectedItem, (newItem) => {
-  // console.log('Selected item changed:', newItem)
-  // console.log('currentSize', currentSize.value)
-  price.value = Object.values(newItem.prices)[0]
-  weight.value = Object.values(newItem.weights)[0]
+  if (!newItem)
+    return
+
+  const firstPrice = Object.values(newItem.prices ?? {})[0] ?? 0
+  const firstWeight = Object.values(newItem.weights ?? {})[0] ?? 0
+
+  price.value = newItem.prices?.[currentSize.value] ?? firstPrice
+  weight.value = newItem.weights?.[currentSize.value] ?? firstWeight
 }, { deep: true })
 
 // Следим за изменениями размера
 watch(currentSize, (newSize) => {
-  // Если newSize пустой, берем первый доступный размер
-  price.value = props.selectedItem.prices[newSize]
-  weight.value = props.selectedItem.weights[newSize]
+  if (!newSize) {
+    newSize = props.selectedItem.sizes[0]?.label || ''
+  }
+  if (props.selectedItem.prices && props.selectedItem.prices[newSize] !== undefined) {
+    price.value = props.selectedItem.prices[newSize]
+    weight.value = props.selectedItem.weights?.[newSize]
+  }
+  else {
+    console.warn(`No price found for size ${newSize}`)
+    price.value = 0
+    weight.value = 0
+  }
 })
 
 watch(showModal, (isOpen) => {
@@ -86,32 +99,9 @@ function handleOrderBtn() {
                     </p>
                   </div>
 
-                  <div v-if="selectedItem.height" class="mt-8">
-                    <p class="text-xl font-medium mb-4">
-                      Высота:
-                    </p>
-                    <p class="text-xl font-medium">
-                      {{ selectedItem.height }} см
-                    </p>
-                  </div>
-
-                  <div class="mt-8">
-                    <p class="text-xl font-medium mb-4">
-                      Вес
-                    </p>
-                    <p class="text-xl font-medium">
-                      {{ weight }} кг
-                    </p>
-                  </div>
-
-                  <div v-if="selectedItem.case" class="mt-8">
-                    <p class="text-xl font-medium mb-4">
-                      Чехол:
-                    </p>
-                    <p class="text-xl font-medium mb-4">
-                      {{ selectedItem.case }}
-                    </p>
-                  </div>
+                  <p v-if="selectedItem.description" class="text-xl font-medium mb-4 mt-8">
+                    {{ selectedItem.description }}
+                  </p>
 
                   <div v-if="selectedItem.sizes" class="mt-8">
                     <p class="text-xl font-medium mb-4">
@@ -145,27 +135,47 @@ function handleOrderBtn() {
               <div class="mt-16">
                 <div class="flex border-b justify-around">
                   <button
-                    class="px-6 py-3 text-lg font-medium" :class="[activeTab === 'description'
-                      ? 'text-primary border-b-2 border-primary' : 'text-gray-500']"
-                    @click="activeTab = 'description'"
-                  >
-                    Описание
-                  </button>
-                  <button
                     class="px-6 py-3 text-lg font-medium ml-8" :class="[activeTab === 'specifications'
                       ? 'text-primary border-b-2 border-primary' : 'text-gray-500']"
                     @click="activeTab = 'specifications'"
                   >
                     Характеристики
                   </button>
+                  <button
+                    class="px-6 py-3 text-lg font-medium" :class="[activeTab === 'advantages'
+                      ? 'text-primary border-b-2 border-primary' : 'text-gray-500']"
+                    @click="activeTab = 'advantages'"
+                  >
+                    Преимущества
+                  </button>
                 </div>
 
                 <div class="py-8">
-                  <div v-show="activeTab === 'description'" class="text-gray-600 text-lg">
-                    {{ selectedItem.description }}
-                  </div>
-
                   <div v-show="activeTab === 'specifications'" class="space-y-4">
+                    <div v-if="weight" class="flex text-lg">
+                      <p class="font-medium w-1/3">
+                        Вес
+                      </p>
+                      <p class="text-gray-600">
+                        {{ weight }} кг
+                      </p>
+                    </div>
+                    <div v-if="selectedItem.height" class="flex text-lg">
+                      <span class="font-medium w-1/3">Высота:</span>
+                      <span class="text-gray-600">{{ selectedItem.height }} см</span>
+                    </div>
+                    <div v-if="selectedItem.depth" class="flex text-lg">
+                      <span class="font-medium w-1/3">Толщина:</span>
+                      <span class="text-gray-600">{{ selectedItem.depth }} см</span>
+                    </div>
+                    <div v-if="selectedItem.case" class="flex text-lg">
+                      <p class="font-medium w-1/3">
+                        Чехол:
+                      </p>
+                      <p class="text-gray-600">
+                        {{ selectedItem.case }}
+                      </p>
+                    </div>
                     <div v-if="selectedItem.materials" class="flex text-lg">
                       <p class="font-medium w-1/3">
                         Материалы:
@@ -197,7 +207,40 @@ function handleOrderBtn() {
                       <span class="text-gray-600">18 месяцев</span>
                     </div>
                   </div>
+                  <div v-show="activeTab === 'advantages'" class="text-gray-600 text-lg">
+                    <ul class="list-decimal grid gap-y-2">
+                      <li
+                        v-for="(advantage, index) in selectedItem.advantages"
+                        :key="advantage + index"
+                      >
+                        {{ advantage }}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
+              </div>
+
+              <div>
+                <p class="text-xl font-medium mb-4 text-red-600">
+                  Обращаем ваше внимание:
+                </p>
+                <p class="mb-4">
+                  Новый матрас после вскрытия упаковки может иметь специфический, производственный запах.
+                  Запах не вреден и не токсичен и со временем исчезне После снятия упаковки (пакетов) перед эксплуатацией изделие
+                  необходимо проветрить в просторном помещении не менее 1 недели, чтобы удалить производственный запах.
+                </p>
+                <p class="mb-4">
+                  Чистка пылесосом помогут быстрее устранить запах. В дневное время рекомендуется освободить матрас от постельных принадлежностей.
+                </p>
+                <p class="mb-4">
+                  После соблюдения всех рекомендаций интенсивность запаха снизится, через 14 дней он станет минимальным.
+                </p>
+                <p class="mb-4">
+                  Производитель оставляет за собой право менять рисунок стежки чехла; допуск по высоте составляет +- 1,5 см.
+                  На изображении представлен образец, фактический внешний вид может отличаться от представленного на
+                  изображении с сохранением всех заявленных технических характеристик, в т.ч. учитывая особенности цветопередачи,
+                  ракурсов и иных условий съемки и воспроизведения изображения
+                </p>
               </div>
             </div>
           </div>
