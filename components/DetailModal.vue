@@ -232,7 +232,7 @@ function handleOrderBtn() {
                     </div>
                   </div>
                   <div v-show="activeTab === 'advantages'" class="md:text-lg">
-                    <ul class="list-decimal grid gap-y-2 px-[2rem]">
+                    <ul class="list-disc grid gap-y-2 px-[2rem]">
                       <li
                         v-for="(advantage, index) in selectedItem.advantages"
                         :key="advantage + index"
