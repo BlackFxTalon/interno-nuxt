@@ -63,7 +63,7 @@ function handleOrderBtn() {
   <Transition name="modal-backdrop">
     <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <Transition name="modal">
-        <div v-if="showModal" class="bg-white w-full h-full relative">
+        <div v-if="showModal" class="bg-white w-full h-full overflow-y-auto relative">
           <button
             class="absolute top-6 right-6 text-gray-500 hover:text-gray-700 z-10"
             @click="showModal = false"
@@ -73,7 +73,7 @@ function handleOrderBtn() {
             </svg>
           </button>
 
-          <div class="h-full overflow-y-auto p-8">
+          <div class="h-full p-8">
             <div class="container mx-auto">
               <div class="flex flex-col md:flex-row justify-between items-start gap-12">
                 <div class="w-full md:w-1/2">
@@ -81,35 +81,35 @@ function handleOrderBtn() {
                     :src="selectedItem.image"
                     :alt="selectedItem.name"
                     format="webp"
-                    class="w-full h-[350px] min-[500px]:h-[500px] md:h-[300px] min-[1020px]:max-w-[300px] xl:h-[350px] xl:max-w-[350px]"
+                    class="w-full"
                   />
                 </div>
 
-                <div class="w-full md:w-1/2">
-                  <p class="text-2xl md:text-3xl font-semibold">
+                <div class="w-full md:w-1/2 flex flex-col">
+                  <p class="text-2xl xl:text-3xl font-semibold">
                     {{ selectedItem.name }}
                   </p>
 
-                  <div class="flex items-center gap-3 mt-4">
-                    <p class="text-2xl md:text-3xl font-semibold">
+                  <div class="flex items-center gap-3 mt-4 max-[769px]:order-4">
+                    <p class="text-2xl xl:text-3xl font-semibold">
                       Цена:
                     </p>
-                    <p class="text-2xl md:text-3xl xl:text-4xl font-bold text-primary">
+                    <p class="text-2xl xl:text-3xl font-bold text-primary">
                       {{ price }} ₽
                     </p>
                   </div>
 
-                  <p v-if="selectedItem.description" class="md:text-xl font-medium mb-4 mt-8">
+                  <p v-if="selectedItem.description" class="xl:text-xl font-medium mb-4 mt-8">
                     {{ selectedItem.description }}
                   </p>
 
-                  <div v-if="selectedItem.sizes" class="mt-8">
-                    <p class="md:text-xl font-medium mb-4">
+                  <div v-if="selectedItem.sizes" class="mt-8 max-[769px]:order-4">
+                    <p class="xl:text-xl font-medium mb-4">
                       Размеры:
                     </p>
                     <UiSelect
                       v-model="currentSize"
-                      class="w-full md:text-lg"
+                      class="w-full xl:text-xl"
                     >
                       <template #options>
                         <option
@@ -124,7 +124,7 @@ function handleOrderBtn() {
                   </div>
                   <UiButton
                     type="button"
-                    class="mt-8"
+                    class="mt-8 max-[769px]:order-5"
                     @click="handleOrderBtn"
                   >
                     Оформить заказ

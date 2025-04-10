@@ -59,12 +59,12 @@
         "image":"/images/pillows/lavabile.png",
         "sizes": [
           {
-            "id":"67×42×12",
-            "label":"67×42×12"
+            "id":"60×40×15",
+            "label":"60×40×15"
           },
           {
-            "id":"60×40×15",
-            "label":"60×40x15"
+            "id":"67×42×12",
+            "label":"67×42×12"
           }
         ],
         "prices": {
