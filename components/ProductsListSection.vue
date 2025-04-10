@@ -25,9 +25,6 @@ const items = ref(props.itemsData)
 
 async function handleSearchQuery(value) {
   try {
-    // console.log('Received value:', value)
-    // проверяем входящее значение
-
     isLoading.value = true
     await new Promise(resolve => setTimeout(resolve, 1000))
     const query = value?.toLowerCase().trim()
@@ -97,7 +94,7 @@ async function sortItems(items, order) {
   }
   catch (error) {
     console.error(error)
-    return items // Возвращаем несортированный массив в случае ошибки
+    return items
   }
   finally {
     isLoading.value = true
@@ -151,15 +148,21 @@ function openModal(item) {
     image: item.image,
     sizes: item.sizes,
     prices: item.prices,
-    weights: item.weights,
-    height: item.height,
-    depth: item.depth,
-    foundation: item.foundation,
-    materials: item.materials,
-    firmness: item.firmness,
-    case: item.case,
-    side: item.side,
-    pressure: item.pressure,
+    weights: item.weights ?? null,
+    height: item.height ?? null,
+    depth: item.depth ?? null,
+    foundation: item.foundation ?? null,
+    materials: item.materials ?? null,
+    firmness: item.firmness ?? null,
+    case: item.case ?? null,
+    side: item.side ?? null,
+    pressure: item.pressure ?? null,
+    packageCount: item.packageCount ?? null,
+    foamColor: item.foamColor ?? null,
+    width: item.width ?? null,
+    length: item.length ?? null,
+    compound: item.compound ?? null,
+    textile: item.textile ?? null,
   }
   // console.log(selectedItem.value)
   if (item.sizes && item.sizes.length > 0) {
@@ -177,20 +180,24 @@ function handleOrderSubmit() {
 </script>
 
 <template>
-  <section class="py-16 pb-[3rem]">
+  <section class="py-8 md:py-16 pb-[3rem]">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-start mb-12">
-        <h2 class="text-3xl font-bold">
+      <div class="flex items-center flex-wrap xl:justify-start gap-4 mb-4 md:mb-8 xl:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold">
           {{ title }}
         </h2>
-        <div class="flex gap-4 ms-auto">
+        <div 
+        class="flex flex-wrap gap-4 md:ms-auto"
+        v-if="items.length > 6"
+        >
           <UiInput
-            class="max-w-max"
+            class="sm:max-w-max"
             type="text"
             placeholder="Поиск по названию"
             @change="(event) => handleSearchQuery(event.target.value)"
           />
           <UiSelect
+            class="sm:max-w-max"
             v-model="sortOrder"
           >
             <template #options>

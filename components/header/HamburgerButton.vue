@@ -16,7 +16,7 @@ function handleBtn() {
 <template>
   <!-- Hamburger Button -->
   <button
-    class="md:hidden p-2 rounded-lg hover:bg-gray-100 relative z-50"
+    class="lg:hidden p-2 rounded-lg hover:bg-gray-100 relative z-50"
     aria-label="Toggle menu"
     @click="handleBtn"
   >

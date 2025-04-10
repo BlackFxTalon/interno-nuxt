@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="hidden md:flex space-x-8">
+  <div class="hidden lg:flex space-x-8">
     <NuxtLink
       v-for="(link, index) in headerMenuLinks"
       :key="index"

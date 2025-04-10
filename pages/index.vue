@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import matrassesData from '/data/matrasses.json'
 import toppersData from '/data/toppers.json'
+import pillowsData from '/data/pillows.json'
 
 useHead({
   meta: [
@@ -12,11 +13,11 @@ useHead({
 })
 const matrasses = matrassesData.matrasses
 const toppers = toppersData.toppers
+const pillows = pillowsData.pillows
 </script>
 
 <template>
   <main>
-    <!-- Hero Section -->
     <HeroSection />
 
     <FindYourPerfectMatrass />
@@ -35,13 +36,14 @@ const toppers = toppersData.toppers
       :items-data="toppers"
     />
 
-    <!-- <Matrasses/> -->
+    <Features/>
 
-    <!-- Pillows -->
-    <!-- <Pillows/> -->
-
-    <!-- Features -->
-    <!-- <Features/> -->
+    <ProductsListSection
+      id="pillows"
+      class="bg-white"
+      title="Подушки"
+      :items-data="pillows"
+    />
 
     <!-- LimitedTimeOffer -->
     <!-- <LimitedTimeOffer/> -->

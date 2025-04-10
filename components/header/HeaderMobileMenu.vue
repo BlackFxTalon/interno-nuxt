@@ -21,7 +21,7 @@ const isMenuOpen = defineModel()
   >
     <div
       v-if="isMenuOpen"
-      class="absolute top-0 left-0 right-0 bg-white shadow-xl py-4 px-4 md:hidden z-40 mt-20"
+      class="absolute top-0 left-0 right-0 bg-white shadow-xl py-4 px-4 lg:hidden z-40 mt-[4.5rem]"
     >
       <div class="flex flex-col space-y-1">
         <NuxtLink

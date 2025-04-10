@@ -27,8 +27,19 @@ function handleBtn(item) {
       </h3>
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2 mb-4">
-          <span class="text-2xl font-bold text-primary">{{ Object.values(props.item.prices)[0] }} ₽</span>-
-          <span class="text-2xl font-bold text-primary">{{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽</span>
+          <span 
+          class="text-2xl font-bold text-primary"
+          v-if="Object.values(props.item.prices)[0]"
+          >
+          {{ Object.values(props.item.prices)[0] }} ₽
+          </span>
+          <span v-if="Object.values(props.item.prices).length > 1">-</span>
+          <span 
+          class="text-2xl font-bold text-primary"
+          v-if="Object.values(props.item.prices).length > 1"
+          >
+          {{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽
+          </span>
         </div>
       </div>
       <UiButton
@@ -43,7 +54,7 @@ function handleBtn(item) {
 
 <style lang="scss" scoped>
 .product-card {
-  @apply relative rounded-lg shadow-lg overflow-hidden h-[350px] max-w-[350px] p-[10px];
+  @apply relative rounded-lg shadow-lg overflow-hidden h-[350px] min-[500px]:h-[500px] md:h-[300px] min-[1020px]:max-w-[300px] xl:h-[350px] xl:max-w-[350px] p-[10px];
 }
 
 .card-image {

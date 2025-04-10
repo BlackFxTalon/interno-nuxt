@@ -50,12 +50,18 @@ onMounted(() => {
   new Splide(splide.value, {
     type: 'fade',
     rewind: true,
-    arrows: true,
+    arrows: false,
     pagination: true,
     autoplay: true,
     interval: 5000,
     speed: 1000,
     pauseOnHover: false,
+    mediaQuery: 'min',
+    breakpoints: {
+      768: {
+        arrows: true,
+      },
+    }
   }).mount()
 })
 </script>
@@ -66,7 +72,7 @@ onMounted(() => {
       <div class="splide__track">
         <ul class="splide__list">
           <li v-for="(image, index) in images" :key="index" class="splide__slide">
-            <div class="relative h-[600px]">
+            <div class="relative h-[300px] md:h-[400px] xl:h-[600px]">
               <NuxtImg
                 :src="image"
                 alt="image"
@@ -76,10 +82,10 @@ onMounted(() => {
               <div class="absolute inset-0 bg-black bg-opacity-40" />
               <div class="relative container mx-auto px-4 h-full flex items-center">
                 <div class="text-white max-w-2xl">
-                  <h1 class="text-5xl font-bold mb-4">
+                  <h1 class="text-3xl md:text-4xl xl:text-5xl font-bold mb-4">
                     Качественный сон, лучшая жизнь
                   </h1>
-                  <p class="text-xl mb-8">
+                  <p class="xl:text-xl mb-8">
                     Откройте для себя нашу премиальную коллекцию матрасов, разработанную для максимального комфорта и поддержки.
                   </p>
                   <UiButton

@@ -168,6 +168,14 @@ function handleOrderBtn() {
                       <span class="font-medium w-1/3">Толщина:</span>
                       <span class="text-gray-600">{{ selectedItem.depth }} см</span>
                     </div>
+                    <div v-if="selectedItem.width" class="flex text-lg">
+                      <span class="font-medium w-1/3">Ширина:</span>
+                      <span class="text-gray-600">{{ selectedItem.width }} см</span>
+                    </div>
+                    <div v-if="selectedItem.length" class="flex text-lg">
+                      <span class="font-medium w-1/3">Длина:</span>
+                      <span class="text-gray-600">{{ selectedItem.length }} см</span>
+                    </div>
                     <div v-if="selectedItem.case" class="flex text-lg">
                       <p class="font-medium w-1/3">
                         Чехол:
@@ -202,13 +210,29 @@ function handleOrderBtn() {
                       <span class="font-medium w-1/3">Боковая сторона:</span>
                       <span class="text-gray-600">{{ selectedItem.side }}</span>
                     </div>
+                    <div v-if="selectedItem.packageCount" class="flex text-lg">
+                      <span class="font-medium w-1/3">Кол-во в упаковке:</span>
+                      <span class="text-gray-600">{{ selectedItem.packageCount }}</span>
+                    </div>
+                    <div v-if="selectedItem.foamColor" class="flex text-lg">
+                      <span class="font-medium w-1/3">Цвет поролона:</span>
+                      <span class="text-gray-600">{{ selectedItem.foamColor }}</span>
+                    </div>
+                    <div v-if="selectedItem.compound" class="flex text-lg">
+                      <span class="font-medium w-1/3">Состав изделия:</span>
+                      <span class="text-gray-600">{{ selectedItem.compound }}</span>
+                    </div>
+                    <div v-if="selectedItem.textile" class="flex text-lg">
+                      <span class="font-medium w-1/3">Ткань:</span>
+                      <span class="text-gray-600">{{ selectedItem.textile }}</span>
+                    </div>
                     <div class="flex text-lg">
                       <span class="font-medium w-1/3">Гарантия:</span>
                       <span class="text-gray-600">18 месяцев</span>
                     </div>
                   </div>
-                  <div v-show="activeTab === 'advantages'" class="text-gray-600 text-lg">
-                    <ul class="list-decimal grid gap-y-2">
+                  <div v-show="activeTab === 'advantages'" class="text-lg">
+                    <ul class="list-decimal grid gap-y-2 px-[2rem]">
                       <li
                         v-for="(advantage, index) in selectedItem.advantages"
                         :key="advantage + index"

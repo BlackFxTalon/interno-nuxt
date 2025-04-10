@@ -49,7 +49,7 @@ const headerMenuLinks = [
     >
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 bg-black bg-opacity-20 md:hidden z-30"
+        class="fixed inset-0 bg-black bg-opacity-20 lg:hidden z-30"
         @click="isMenuOpen = false"
       />
     </transition>

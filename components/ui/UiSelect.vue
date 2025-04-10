@@ -15,7 +15,7 @@ const select = defineModel()
 
 <style scoped>
 .select-container {
-  @apply relative;
+  @apply relative w-full;
 
   &::after {
     content: '';

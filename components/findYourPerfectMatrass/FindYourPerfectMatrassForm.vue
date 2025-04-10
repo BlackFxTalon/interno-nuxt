@@ -39,7 +39,7 @@ function handleSubmit() {
       <Transition name="modal">
         <div
           v-if="props.showModal"
-          class="grid grid-cols-2 auto-rows-max gap-x-[1rem] bg-white rounded-lg p-8 max-w-[49rem] w-full mx-4 max-h-[550px] overflow-y-scroll overflow-x-hidden [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
+          class="grid grid-cols-1 md:grid-cols-2 auto-rows-max gap-x-[1rem] bg-white rounded-lg p-8 max-w-[49rem] w-full mx-4 max-h-[550px] overflow-y-scroll overflow-x-hidden [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
         >
           <div class="flex justify-between items-center mb-4 col-[span_2]">
             <button class="text-gray-500 hover:text-gray-700 ml-auto" @click="handleClose">
@@ -48,8 +48,8 @@ function handleSubmit() {
               </svg>
             </button>
           </div>
-          <div>
-            <p class="text-2xl font-semibold text-center">
+          <div class="col-[span_2] md:col-[span_1]">
+            <p class="text-xl xl:text-2xl font-semibold text-center">
               {{ props.matrassFormName }}
             </p>
             <NuxtImg
@@ -58,11 +58,11 @@ function handleSubmit() {
               loading="lazy"
               decoding="async"
               format="webp"
-              class="w-full rounded-md"
+              class="w-full rounded-md col-[span_2]"
             />
             <p class="text-xl font-semibold">
               Цена:
-              <span class="text-2xl font-bold text-primary">{{ props.matrassFormPrice }}</span>
+              <span class="text-xl xl:text-2xl font-bold text-primary">{{ props.matrassFormPrice }}</span>
             </p>
           </div>
           <div class="space-y-4 my-8">
@@ -72,30 +72,31 @@ function handleSubmit() {
               Для более подробной информации заполните форму и наши специалисты свяжутся с вами
             </p>
             <form class="space-y-4" @submit.prevent="handleSubmit">
-              <div class="form-group">
-                <label class="form-label">Имя</label>
-                <input
+              <div>
+                <UiLabel for="name">Имя</UiLabel>
+                  <UiInput
                   v-model="name"
                   type="text"
-                  required
+                  id="name"
                   class="form-input"
-                >
+                  required
+                />
               </div>
               <div>
-                <label class="form-label">Телефон</label>
-                <input
+                <UiLabel for="phone">Телефон</UiLabel>
+                  <UiInput
                   v-model="phone"
                   type="tel"
-                  required
+                  id="phone"
                   class="form-input"
-                >
+                  required
+                />
               </div>
-              <button
-                type="submit"
-                class="primary-btn"
-              >
-                Отправить
-              </button>
+              <UiButton
+              type="submit"
+            >
+            Отправить
+            </UiButton>
             </form>
           </div>
         </div>
