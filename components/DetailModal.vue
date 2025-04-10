@@ -75,41 +75,41 @@ function handleOrderBtn() {
 
           <div class="h-full overflow-y-auto p-8">
             <div class="container mx-auto">
-              <div class="flex justify-between items-start gap-12">
-                <div class="w-1/2">
+              <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+                <div class="w-full md:w-1/2">
                   <NuxtImg
                     :src="selectedItem.image"
                     :alt="selectedItem.name"
                     format="webp"
-                    class="w-full h-[600px]"
+                    class="w-full h-[350px] min-[500px]:h-[500px] md:h-[300px] min-[1020px]:max-w-[300px] xl:h-[350px] xl:max-w-[350px]"
                   />
                 </div>
 
-                <div class="w-1/2">
-                  <p class="text-3xl font-semibold">
+                <div class="w-full md:w-1/2">
+                  <p class="text-2xl md:text-3xl font-semibold">
                     {{ selectedItem.name }}
                   </p>
 
                   <div class="flex items-center gap-3 mt-4">
-                    <p class="text-3xl font-semibold">
+                    <p class="text-2xl md:text-3xl font-semibold">
                       Цена:
                     </p>
-                    <p class="text-4xl font-bold text-primary">
+                    <p class="text-2xl md:text-3xl xl:text-4xl font-bold text-primary">
                       {{ price }} ₽
                     </p>
                   </div>
 
-                  <p v-if="selectedItem.description" class="text-xl font-medium mb-4 mt-8">
+                  <p v-if="selectedItem.description" class="md:text-xl font-medium mb-4 mt-8">
                     {{ selectedItem.description }}
                   </p>
 
                   <div v-if="selectedItem.sizes" class="mt-8">
-                    <p class="text-xl font-medium mb-4">
+                    <p class="md:text-xl font-medium mb-4">
                       Размеры:
                     </p>
                     <UiSelect
                       v-model="currentSize"
-                      class="w-full text-lg"
+                      class="w-full md:text-lg"
                     >
                       <template #options>
                         <option
@@ -135,14 +135,14 @@ function handleOrderBtn() {
               <div class="mt-16">
                 <div class="flex border-b justify-around">
                   <button
-                    class="px-6 py-3 text-lg font-medium ml-8" :class="[activeTab === 'specifications'
+                    class="px-6 py-3 md:text-lg font-medium md:ml-2 lg:ml-4 xl:ml-8" :class="[activeTab === 'specifications'
                       ? 'text-primary border-b-2 border-primary' : 'text-gray-500']"
                     @click="activeTab = 'specifications'"
                   >
                     Характеристики
                   </button>
                   <button
-                    class="px-6 py-3 text-lg font-medium" :class="[activeTab === 'advantages'
+                    class="px-6 py-3 md:text-lg font-medium" :class="[activeTab === 'advantages'
                       ? 'text-primary border-b-2 border-primary' : 'text-gray-500']"
                     @click="activeTab = 'advantages'"
                   >
@@ -150,9 +150,9 @@ function handleOrderBtn() {
                   </button>
                 </div>
 
-                <div class="py-8">
+                <div class="py-4 md:py-8">
                   <div v-show="activeTab === 'specifications'" class="space-y-4">
-                    <div v-if="weight" class="flex text-lg">
+                    <div v-if="weight" class="grid grid-cols-2 lg:flex md:text-lg">
                       <p class="font-medium w-1/3">
                         Вес
                       </p>
@@ -160,23 +160,23 @@ function handleOrderBtn() {
                         {{ weight }} кг
                       </p>
                     </div>
-                    <div v-if="selectedItem.height" class="flex text-lg">
+                    <div v-if="selectedItem.height" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Высота:</span>
                       <span class="text-gray-600">{{ selectedItem.height }} см</span>
                     </div>
-                    <div v-if="selectedItem.depth" class="flex text-lg">
+                    <div v-if="selectedItem.depth" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Толщина:</span>
                       <span class="text-gray-600">{{ selectedItem.depth }} см</span>
                     </div>
-                    <div v-if="selectedItem.width" class="flex text-lg">
+                    <div v-if="selectedItem.width" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Ширина:</span>
                       <span class="text-gray-600">{{ selectedItem.width }} см</span>
                     </div>
-                    <div v-if="selectedItem.length" class="flex text-lg">
+                    <div v-if="selectedItem.length" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Длина:</span>
                       <span class="text-gray-600">{{ selectedItem.length }} см</span>
                     </div>
-                    <div v-if="selectedItem.case" class="flex text-lg">
+                    <div v-if="selectedItem.case" class="grid grid-cols-2 lg:flex md:text-lg">
                       <p class="font-medium w-1/3">
                         Чехол:
                       </p>
@@ -184,7 +184,7 @@ function handleOrderBtn() {
                         {{ selectedItem.case }}
                       </p>
                     </div>
-                    <div v-if="selectedItem.materials" class="flex text-lg">
+                    <div v-if="selectedItem.materials" class="grid grid-cols-2 lg:flex md:text-lg">
                       <p class="font-medium w-1/3">
                         Материалы:
                       </p>
@@ -194,7 +194,7 @@ function handleOrderBtn() {
                         </p>
                       </div>
                     </div>
-                    <div v-if="selectedItem.foundation" class="flex text-lg">
+                    <div v-if="selectedItem.foundation" class="grid grid-cols-2 lg:flex md:text-lg">
                       <p class="font-medium w-1/3">
                         Основание:
                       </p>
@@ -202,36 +202,36 @@ function handleOrderBtn() {
                         {{ selectedItem.foundation }}
                       </p>
                     </div>
-                    <div v-if="selectedItem.firmness" class="flex text-lg">
+                    <div v-if="selectedItem.firmness" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Жесткость:</span>
                       <span class="text-gray-600">{{ selectedItem.firmness }}</span>
                     </div>
-                    <div v-if="selectedItem.side" class="flex text-lg">
+                    <div v-if="selectedItem.side" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Боковая сторона:</span>
                       <span class="text-gray-600">{{ selectedItem.side }}</span>
                     </div>
-                    <div v-if="selectedItem.packageCount" class="flex text-lg">
+                    <div v-if="selectedItem.packageCount" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Кол-во в упаковке:</span>
                       <span class="text-gray-600">{{ selectedItem.packageCount }}</span>
                     </div>
-                    <div v-if="selectedItem.foamColor" class="flex text-lg">
+                    <div v-if="selectedItem.foamColor" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Цвет поролона:</span>
                       <span class="text-gray-600">{{ selectedItem.foamColor }}</span>
                     </div>
-                    <div v-if="selectedItem.compound" class="flex text-lg">
+                    <div v-if="selectedItem.compound" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Состав изделия:</span>
                       <span class="text-gray-600">{{ selectedItem.compound }}</span>
                     </div>
-                    <div v-if="selectedItem.textile" class="flex text-lg">
+                    <div v-if="selectedItem.textile" class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Ткань:</span>
                       <span class="text-gray-600">{{ selectedItem.textile }}</span>
                     </div>
-                    <div class="flex text-lg">
+                    <div class="grid grid-cols-2 lg:flex md:text-lg">
                       <span class="font-medium w-1/3">Гарантия:</span>
                       <span class="text-gray-600">18 месяцев</span>
                     </div>
                   </div>
-                  <div v-show="activeTab === 'advantages'" class="text-lg">
+                  <div v-show="activeTab === 'advantages'" class="md:text-lg">
                     <ul class="list-decimal grid gap-y-2 px-[2rem]">
                       <li
                         v-for="(advantage, index) in selectedItem.advantages"
@@ -245,7 +245,7 @@ function handleOrderBtn() {
               </div>
 
               <div>
-                <p class="text-xl font-medium mb-4 text-red-600">
+                <p class="text-lg md:text-xl font-medium mb-4 text-red-600">
                   Обращаем ваше внимание:
                 </p>
                 <p class="mb-4">
