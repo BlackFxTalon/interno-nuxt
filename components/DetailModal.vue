@@ -124,7 +124,7 @@ function handleOrderBtn() {
                   </div>
                   <UiButton
                     type="button"
-                    class="mt-8 max-[769px]:order-5"
+                    class="mt-8 max-[769px]:order-5 h-[48px]"
                     @click="handleOrderBtn"
                   >
                     Оформить заказ

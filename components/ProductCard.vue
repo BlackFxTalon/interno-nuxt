@@ -22,20 +22,20 @@ function handleBtn(item) {
       class="card-image"
     />
     <div class="card-content">
-      <h3 class="text-2xl font-semibold mb-4">
+      <h3 class="text-base md:text-xl font-semibold mb-4">
         {{ props.item.name }}
       </h3>
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2 mb-4">
           <span 
-          class="text-2xl font-bold text-primary"
+          class="text-base md:text-xl font-bold text-primary"
           v-if="Object.values(props.item.prices)[0]"
           >
           {{ Object.values(props.item.prices)[0] }} ₽
           </span>
           <span v-if="Object.values(props.item.prices).length > 1">-</span>
           <span 
-          class="text-2xl font-bold text-primary"
+          class="text-base md:text-xl font-bold text-primary"
           v-if="Object.values(props.item.prices).length > 1"
           >
           {{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽
@@ -43,6 +43,7 @@ function handleBtn(item) {
         </div>
       </div>
       <UiButton
+      class="h-[40px]"
         type="button"
         @click="handleBtn(props.item)"
       >
@@ -54,21 +55,37 @@ function handleBtn(item) {
 
 <style lang="scss" scoped>
 .product-card {
-  @apply relative rounded-lg shadow-lg overflow-hidden h-[350px] min-[500px]:h-[500px] md:h-[300px] min-[1020px]:max-w-[300px] xl:h-[350px] xl:max-w-[350px] p-[10px];
+    min-width: 320px;
+    width: 100%;
+    min-height: 420px;
+    border-radius: 0.5rem;
+    padding: 10px;
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+      min-width: 100%;
+      max-width: 320px;
+      min-height: 320px;
+    }
 }
 
 .card-image {
-  @apply w-full h-full;
+  width: 100%;
+  height: 250px;
+  max-width: 300px;
+
+  @media (max-width: 768px) {
+      height: 150px;
+      max-width: 150px;
+      margin: auto;
+  }
 }
 
 .card-content {
-  @apply p-6 absolute w-full bg-white;
-  bottom: 0;
-  transform: translateY(100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-.product-card:hover .card-content {
-  transform: translateY(0);
+  @apply w-full;
 }
 </style>

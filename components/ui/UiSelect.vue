@@ -13,7 +13,7 @@ const select = defineModel()
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .select-container {
   @apply relative w-full;
 
@@ -39,15 +39,19 @@ const select = defineModel()
   }
 }
 .ui-select {
-    @apply w-full px-4 py-3 border-2
+    @apply w-full px-4 border-2
          bg-white text-gray-700
          transition-colors duration-200
          placeholder-gray-400
          focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none  border-gray-300 rounded-md
-         cursor-pointer h-[50px];
+         cursor-pointer h-[40px];
          padding-right: 2.5rem;
         text-indent: 1px;
         text-overflow: '';
+
+        @media (max-width: 768px) {
+        font-size: 14px;
+    }  
 
         &::-ms-expand {
     display: none;

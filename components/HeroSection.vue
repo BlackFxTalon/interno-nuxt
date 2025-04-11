@@ -82,14 +82,14 @@ onMounted(() => {
               <div class="absolute inset-0 bg-black bg-opacity-40" />
               <div class="relative container mx-auto px-4 h-full flex items-center">
                 <div class="text-white max-w-2xl">
-                  <h1 class="text-3xl md:text-4xl xl:text-5xl font-bold mb-4">
+                  <h1 class="text-2xl md:text-3xl xl:text-5xl font-bold mb-4">
                     Качественный сон, лучшая жизнь
                   </h1>
                   <p class="xl:text-xl mb-8">
                     Откройте для себя нашу премиальную коллекцию матрасов, разработанную для максимального комфорта и поддержки.
                   </p>
                   <UiButton
-                    class="max-w-max"
+                    class="max-w-max h-[48px]"
                     @click="openInquiryForm"
                   >
                     Купить сейчас

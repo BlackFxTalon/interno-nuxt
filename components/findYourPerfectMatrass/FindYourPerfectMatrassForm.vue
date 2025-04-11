@@ -49,7 +49,7 @@ function handleSubmit() {
             </button>
           </div>
           <div class="col-[span_2] md:col-[span_1]">
-            <p class="text-xl xl:text-2xl font-semibold text-center">
+            <p class="text-xl font-semibold text-center">
               {{ props.matrassFormName }}
             </p>
             <NuxtImg
@@ -58,16 +58,16 @@ function handleSubmit() {
               loading="lazy"
               decoding="async"
               format="webp"
-              class="w-full rounded-md col-[span_2]"
+              class="w-full max-w-[300px] rounded-md col-[span_2]"
             />
             <p class="text-xl font-semibold">
               Цена:
-              <span class="text-xl xl:text-2xl font-bold text-primary">{{ props.matrassFormPrice }}</span>
+              <span class="text-xl font-bold text-primary">{{ props.matrassFormPrice }}</span>
             </p>
           </div>
           <div class="space-y-4 my-8">
             <p
-              class="font-semibold text-base"
+              class="font-semibold"
             >
               Для более подробной информации заполните форму и наши специалисты свяжутся с вами
             </p>
@@ -93,6 +93,7 @@ function handleSubmit() {
                 />
               </div>
               <UiButton
+              class="h-[48px]"
               type="submit"
             >
             Отправить

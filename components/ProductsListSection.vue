@@ -23,6 +23,40 @@ const currentPage = ref(1)
 
 const items = ref(props.itemsData)
 
+const firmnessFilter = ref('')
+
+async function applyFirmnessFilter() {
+  try {
+    isLoading.value = true
+    await new Promise(resolve => setTimeout(resolve, 1000))
+
+    const itemsArray = Array.isArray(props.itemsData)
+      ? props.itemsData
+      : Object.values(props.itemsData)
+
+      if (!firmnessFilter.value || firmnessFilter.value === 'Все') {
+        items.value = itemsArray
+        return
+      } else {
+        items.value = itemsArray.filter(item => {
+          if (!item.firmness) return false
+          return item.firmness.toLowerCase() === firmnessFilter.value.toLowerCase()
+        })
+      }
+      currentPage.value = 1
+  } catch (error) {
+    console.error('Ошибка при поиске:', error)
+    items.value = Array.isArray(props.itemsData)
+      ? props.itemsData
+      : Object.values(props.itemsData)
+  } finally {
+    isLoading.value = false
+  }
+}
+
+watch(firmnessFilter, () => applyFirmnessFilter())
+
+
 async function handleSearchQuery(value) {
   try {
     isLoading.value = true
@@ -188,17 +222,28 @@ function handleOrderSubmit() {
         </h2>
         <div 
         class="flex flex-wrap gap-4 md:ms-auto"
-        v-if="items.length > 6"
         >
-          <UiInput
+        <div 
+        class="flex flex-wrap items-center gap-4"
+        v-if="props.title === 'Матрасы' || props.title === 'Топперы'"
+        >
+          <p>По степени жёсткости:</p>
+        <UiSelect
             class="sm:max-w-max"
-            type="text"
-            placeholder="Поиск по названию"
-            @change="(event) => handleSearchQuery(event.target.value)"
-          />
+            v-model="firmnessFilter"
+          >
+            <template #options>
+              <option value="">Все</option>
+              <option value="ниже средней жёсткости">Ниже средней</option>
+              <option value="средняя жёсткость">Средняя</option>
+              <option value="выше средней жёсткости">Выше средней</option>
+            </template>
+        </UiSelect>
+       </div>
           <UiSelect
             class="sm:max-w-max"
             v-model="sortOrder"
+            v-if="props.title === 'Матрасы'"
           >
             <template #options>
               <option value="">
@@ -212,9 +257,16 @@ function handleOrderSubmit() {
               </option>
             </template>
           </UiSelect>
+          <UiInput
+            class="sm:max-w-max"
+            type="text"
+            placeholder="Поиск по названию"
+            @change="(event) => handleSearchQuery(event.target.value)"
+            v-if="props.title === 'Матрасы'"
+          />
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(3,_max-content)] gap-8 items-center justify-center">
+      <div class="grid grid-cols-2 lg:grid-cols-[repeat(3,_max-content)] gap-8 items-center justify-center">
         <ProductCard
           v-for="item in displayedItems"
           :key="item.id"
@@ -226,7 +278,7 @@ function handleOrderSubmit() {
       <div v-if="hasMoreItems" class="text-center mt-8">
         <UiButton
           type="button"
-          class="max-w-max"
+          class="max-w-max h-[48px] mx-auto"
           @click="loadMore"
         >
           Показать еще

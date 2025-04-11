@@ -92,8 +92,8 @@ watch(showModal, (isOpen) => {
   <!-- Find Your Perfect Mattress Section -->
   <section class="py-8 md:py-16 xl:py-24 bg-white">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-4 md:mb-8 xl:mb-16">
-        <h2 class="text-2xl md:text-3xl xl:text-4xl font-bold mb-4">
+      <div class="text-center mb-4 md:mb-8">
+        <h2 class="text-2xl xl:text-3xl font-bold">
           Подберите идеальный матрас для вашего сна.
         </h2>
       </div>
@@ -111,7 +111,7 @@ watch(showModal, (isOpen) => {
               :key="step.id"
               class="w-full flex-shrink-0"
             >
-              <p class="text-xl md:text-2xl font-semibold mb-8 text-center">
+              <p class="text-xl font-semibold mb-8 text-center">
                 {{ step.title }}
               </p>
               <div
@@ -125,28 +125,28 @@ watch(showModal, (isOpen) => {
                   <button
                     v-for="option in currentBudgetOptions"
                     :key="option.id"
-                    class="p-3 md:p-4 xl:p-6 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-4 hover:shadow-lg" :class="[
+                    class="p-3 md:p-4 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-4 hover:shadow-lg" :class="[
                       selections[step.id] === option.id
                         ? 'border-primary bg-primary/5 shadow-lg'
                         : 'border-gray-100 hover:border-primary/30',
                     ]"
                     @click="selectOption(step.id, option.id)"
                   >
-                    <span class="md:text-lg font-medium text-center">{{ option.label }}</span>
+                    <span class="font-medium text-center">{{ option.label }}</span>
                   </button>
                 </template>
                 <template v-else>
                   <button
                     v-for="option in step.options"
                     :key="option.id"
-                    class="p-3 md:p-4 xl:p-6 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-4 hover:shadow-lg" :class="[
+                    class="p-3 md:p-4 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-4 hover:shadow-lg" :class="[
                       selections[step.id] === option.id
                         ? 'border-primary bg-primary/5 shadow-lg'
                         : 'border-gray-100 hover:border-primary/30',
                     ]"
                     @click="selectOption(step.id, option.id)"
                   >
-                    <span class="md:text-lg font-medium text-center">{{ option.label }}</span>
+                    <span class="font-medium text-center">{{ option.label }}</span>
                     <span v-if="option.size" class="text-sm text-gray-500">{{ option.size }}</span>
                   </button>
                 </template>
@@ -158,7 +158,7 @@ watch(showModal, (isOpen) => {
               <p class="md:text-xl mb-4 text-center">
                 Ваш идеальный выбор:
               </p>
-              <p class="md:text-xl xl:text-2xl mb-4 font-semibold text-center">
+              <p class="md:text-xl mb-4 font-semibold text-center">
                 {{ recommendedMattressName }}
               </p>
               <div class="grid gap-4 grid-cols-1 md:grid-cols-2 items-center">
@@ -166,22 +166,22 @@ watch(showModal, (isOpen) => {
                   :src="recommendedMattressImage"
                   :alt="recommendedMattressName"
                   format="webp"
-                  class="w-full max-w-md mx-auto rounded-lg mb-4"
+                  class="w-full max-w-[300px] mx-auto rounded-lg mb-4"
                 />
                 <div class="space-y-4">
-                  <p class="md:text-xl font-semibold">
+                  <p class="text-base md:text-lg font-semibold">
                     {{ recommendedMattressDescription }}
                   </p>
-                  <p class="md:text-xl font-semibold">
+                  <p class="text-base md:text-lg font-semibold">
                     Цена:
-                    <span class="md:text-xl xl:text-2xl font-bold text-primary">{{ recommendedMattressPrice }}</span>
+                    <span class="text-base md:text-lg font-bold text-primary">{{ recommendedMattressPrice }}</span>
                   </p>
                 </div>
               </div>
               <div class="text-center">
                 <UiButton
                   type="button"
-                  class="max-w-max"
+                  class="max-w-max h-[48px] mx-auto"
                   @click="openMatrassForm"
                 >
                   Оформить заказ
