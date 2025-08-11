@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import matrassesData from '/data/matrasses.json'
 import toppersData from '/data/toppers.json'
 import pillowsData from '/data/pillows.json'
