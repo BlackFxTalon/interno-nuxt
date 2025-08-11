@@ -1,8 +1,15 @@
 <script setup>
+import { computed } from 'vue'
+import { useMediaQuery } from '@vueuse/core'
+
 const props = defineProps({
   item: {
     type: [Object, Set, Array, Map],
     required: true,
+  },
+  cardClass: {
+    type: String,
+    default: '',
   },
 })
 
@@ -11,10 +18,24 @@ const emit = defineEmits(['handleBtn'])
 function handleBtn(item) {
   emit('handleBtn', item)
 }
+
+const isMobile = useMediaQuery('(max-width: 768px)', {
+  ssrWidth: 768,
+})
+
+const btnText = computed(() => {
+  if (isMobile.value) {
+    return 'Подробнее'
+  }
+  return 'Узнать подробнее'
+})
 </script>
 
 <template>
-  <div class="product-card">
+  <div 
+  class="product-card"
+  :class="props.cardClass"
+  >
     <NuxtImg
       :src="props.item.image"
       :alt="props.item.name"
@@ -28,14 +49,14 @@ function handleBtn(item) {
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2 mb-4">
           <span 
-          class="text-base md:text-xl font-bold text-primary"
+          class="text-xs sm:text-sm md:text-base font-bold text-primary"
           v-if="Object.values(props.item.prices)[0]"
           >
           {{ Object.values(props.item.prices)[0] }} ₽
           </span>
           <span v-if="Object.values(props.item.prices).length > 1">-</span>
           <span 
-          class="text-base md:text-xl font-bold text-primary"
+          class="text-xs sm:text-sm md:text-base font-bold text-primary"
           v-if="Object.values(props.item.prices).length > 1"
           >
           {{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽
@@ -47,7 +68,7 @@ function handleBtn(item) {
         type="button"
         @click="handleBtn(props.item)"
       >
-        Узнать подробнее
+        {{ btnText }}
       </UiButton>
     </div>
   </div>
@@ -71,6 +92,10 @@ function handleBtn(item) {
       max-width: 320px;
       min-height: 320px;
     }
+}
+
+.product-card .card-image {
+  @apply object-contain;
 }
 
 .card-image {

@@ -2,6 +2,7 @@
 import matrassesData from '/data/matrasses.json'
 import toppersData from '/data/toppers.json'
 import pillowsData from '/data/pillows.json'
+import bedsData from '/data/beds.json'
 
 useHead({
   meta: [
@@ -14,6 +15,7 @@ useHead({
 const matrasses = matrassesData.matrasses
 const toppers = toppersData.toppers
 const pillows = pillowsData.pillows
+const beds = bedsData.beds
 </script>
 
 <template>
@@ -43,6 +45,13 @@ const pillows = pillowsData.pillows
       class="bg-white"
       title="Подушки"
       :items-data="pillows"
+    />
+
+    <ProductsListSection
+      id="beds"
+      class="bg-gray-50"
+      title="Кровати"
+      :items-data="beds"
     />
 
     <!-- LimitedTimeOffer -->

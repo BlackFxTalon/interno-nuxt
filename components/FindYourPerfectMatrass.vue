@@ -6,11 +6,6 @@ const currentStep = ref(0)
 const selections = ref({})
 const showModal = ref(false)
 
-const findMatrassForm = ref({
-  name: '',
-  phone: '',
-})
-
 function selectOption(stepId, optionId) {
   selections.value[stepId] = optionId
   if (currentStep.value < mattressSteps.steps.length) {
@@ -66,26 +61,12 @@ function resetForm() {
 
 function closeMatrassForm() {
   showModal.value = false
-  findMatrassForm.value = {
-    name: '',
-    phone: '',
-  }
   resetForm()
 }
 
 function submitForm() {
   closeMatrassForm()
-  // alert('Заявка успешно отправлена!')
 }
-
-watch(showModal, (isOpen) => {
-  if (isOpen) {
-    document.body.style.overflow = 'hidden'
-  }
-  else {
-    document.body.style.overflow = ''
-  }
-})
 </script>
 
 <template>
@@ -93,7 +74,7 @@ watch(showModal, (isOpen) => {
   <section class="py-8 md:py-16 xl:py-24 bg-white">
     <div class="container mx-auto px-4">
       <div class="text-center mb-4 md:mb-8">
-        <h2 class="text-2xl xl:text-3xl font-bold">
+        <h2 class="text-xl sm:text-2xl xl:text-3xl font-bold">
           Подберите идеальный матрас для вашего сна.
         </h2>
       </div>
@@ -111,7 +92,7 @@ watch(showModal, (isOpen) => {
               :key="step.id"
               class="w-full flex-shrink-0"
             >
-              <p class="text-xl font-semibold mb-8 text-center">
+              <p class="text-base sm:text-xl font-semibold mb-8 text-center">
                 {{ step.title }}
               </p>
               <div
@@ -132,7 +113,7 @@ watch(showModal, (isOpen) => {
                     ]"
                     @click="selectOption(step.id, option.id)"
                   >
-                    <span class="font-medium text-center">{{ option.label }}</span>
+                    <span class="font-medium text-center text-sm sm:text-base">{{ option.label }}</span>
                   </button>
                 </template>
                 <template v-else>
@@ -146,8 +127,8 @@ watch(showModal, (isOpen) => {
                     ]"
                     @click="selectOption(step.id, option.id)"
                   >
-                    <span class="font-medium text-center">{{ option.label }}</span>
-                    <span v-if="option.size" class="text-sm text-gray-500">{{ option.size }}</span>
+                    <span class="font-medium text-center text-sm sm:text-base">{{ option.label }}</span>
+                    <span v-if="option.size" class="text-sm sm:text-base text-gray-500">{{ option.size }}</span>
                   </button>
                 </template>
               </div>
@@ -158,7 +139,7 @@ watch(showModal, (isOpen) => {
               <p class="md:text-xl mb-4 text-center">
                 Ваш идеальный выбор:
               </p>
-              <p class="md:text-xl mb-4 font-semibold text-center">
+              <p class="text-sm sm:text-base md:text-xl mb-4 font-semibold text-center">
                 {{ recommendedMattressName }}
               </p>
               <div class="grid gap-4 grid-cols-1 md:grid-cols-2 items-center">
@@ -166,26 +147,24 @@ watch(showModal, (isOpen) => {
                   :src="recommendedMattressImage"
                   :alt="recommendedMattressName"
                   format="webp"
-                  class="w-full max-w-[300px] mx-auto rounded-lg mb-4"
+                  class="w-full max-w-[150px] h-[150px] md:max-w-[300px] md:h-auto mx-auto rounded-lg mb-4"
                 />
                 <div class="space-y-4">
-                  <p class="text-base md:text-lg font-semibold">
+                  <p class="text-sm sm:text-base md:text-lg font-semibold">
                     {{ recommendedMattressDescription }}
                   </p>
-                  <p class="text-base md:text-lg font-semibold">
+                  <p class="text-sm sm:text-base md:text-lg font-semibold">
                     Цена:
-                    <span class="text-base md:text-lg font-bold text-primary">{{ recommendedMattressPrice }}</span>
+                    <span class="text-sm sm:text-base md:text-lg font-bold text-primary">{{ recommendedMattressPrice }}</span>
                   </p>
+                  <UiButton
+                    type="button"
+                    class="h-[48px]"
+                    @click="openMatrassForm"
+                  >
+                    Оформить заказ
+                  </UiButton>
                 </div>
-              </div>
-              <div class="text-center">
-                <UiButton
-                  type="button"
-                  class="max-w-max h-[48px] mx-auto"
-                  @click="openMatrassForm"
-                >
-                  Оформить заказ
-                </UiButton>
               </div>
             </div>
           </div>
@@ -195,9 +174,7 @@ watch(showModal, (isOpen) => {
   </section>
 
   <FindYourPerfectMatrassForm
-    v-model:name="findMatrassForm.name"
-    v-model:phone="findMatrassForm.phone"
-    :show-modal="showModal"
+    v-model:show-modal="showModal"
     :matrass-form-price="recommendedMattressPrice"
     :matrass-form-image="recommendedMattressImage"
     :matrass-form-name="recommendedMattressName"

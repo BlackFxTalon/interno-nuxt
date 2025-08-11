@@ -179,9 +179,9 @@ function openModal(item) {
     name: item.name,
     description: item.description,
     advantages: item.advantages,
-    image: item.image,
-    sizes: item.sizes,
-    prices: item.prices,
+    image: item.image ?? null,
+    sizes: item.sizes ?? null,
+    prices: item.prices ?? null,
     weights: item.weights ?? null,
     height: item.height ?? null,
     depth: item.depth ?? null,
@@ -221,10 +221,10 @@ function handleOrderSubmit() {
           {{ title }}
         </h2>
         <div 
-        class="flex flex-wrap gap-4 md:ms-auto"
+        class="flex flex-wrap gap-4 xl:ms-auto"
         >
         <div 
-        class="flex flex-wrap items-center gap-4"
+        class="flex flex-wrap items-center gap-4 w-full sm:w-auto"
         v-if="props.title === 'Матрасы' || props.title === 'Топперы'"
         >
           <p>По степени жёсткости:</p>
@@ -258,7 +258,7 @@ function handleOrderSubmit() {
             </template>
           </UiSelect>
           <UiInput
-            class="sm:max-w-max"
+            class="w-full xl:w-auto xl:max-w-max order-[-1]"
             type="text"
             placeholder="Поиск по названию"
             @change="(event) => handleSearchQuery(event.target.value)"
@@ -266,11 +266,12 @@ function handleOrderSubmit() {
           />
         </div>
       </div>
-      <div class="grid grid-cols-2 lg:grid-cols-[repeat(3,_max-content)] gap-8 items-center justify-center">
+      <div class="grid grid-cols-2 lg:grid-cols-[repeat(3,_max-content)] gap-4 sm:gap-8 items-center justify-center">
         <ProductCard
           v-for="item in displayedItems"
           :key="item.id"
           :item="item"
+          :card-class="props.title === 'Кровати' ? 'beds' : ''"
           @handle-btn="openModal(item)"
         />
       </div>
@@ -278,7 +279,7 @@ function handleOrderSubmit() {
       <div v-if="hasMoreItems" class="text-center mt-8">
         <UiButton
           type="button"
-          class="max-w-max h-[48px] mx-auto"
+          class="lg:max-w-max h-[48px] mx-auto"
           @click="loadMore"
         >
           Показать еще

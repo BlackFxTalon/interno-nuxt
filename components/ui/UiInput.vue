@@ -1,8 +1,40 @@
 <script setup>
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: ''
+  },
+  type: {
+    type: String,
+    default: 'text'
+  },
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  required: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const emit = defineEmits(['update:modelValue'])
+
+const handleInput = (event) => {
+  const target = event.target
+  emit('update:modelValue', target.value)
+}
 </script>
 
 <template>
-  <input class="ui-input">
+  <input
+    :type="type"
+    :placeholder="placeholder"
+    :required="required"
+    :value="modelValue"
+    @input="handleInput"
+    class="ui-input"
+  >
 </template>
 
 <style scoped lang="scss">

@@ -1,10 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/image',
-    '@nuxt/eslint',
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/eslint', '@vueuse/nuxt'],
   devtools: { enabled: false },
   app: {
     head: {
@@ -25,7 +21,6 @@ export default defineNuxtConfig({
     '/about': { prerender: true },
     '/policy': { prerender: true },
   },
-  compatibilityDate: '2024-11-01',
   eslint: {
     config: {
       standalone: false,

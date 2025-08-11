@@ -15,14 +15,10 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .primary-btn {
-  @apply w-full text-white bg-primary rounded-lg
+  @apply w-full text-white text-xs sm:text-sm md:text-base bg-primary rounded-lg
          font-medium transition-all duration-200
          hover:bg-primary/90 hover:shadow-lg
          focus:outline-none focus:ring-2 focus:ring-primary/50
          active:transform active:scale-[0.98] flex items-center justify-center px-5;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
 }
 </style>
