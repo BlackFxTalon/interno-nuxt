@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     '/about': { prerender: true },
     '/policy': { prerender: true },
   },
+  compatibilityDate: '2025-08-11',
   eslint: {
     config: {
       standalone: false,
