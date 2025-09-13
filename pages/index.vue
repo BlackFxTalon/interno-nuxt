@@ -1,9 +1,4 @@
 <script setup>
-import matrassesData from '/data/matrasses.json'
-import toppersData from '/data/toppers.json'
-import pillowsData from '/data/pillows.json'
-import bedsData from '/data/beds.json'
-
 useHead({
   meta: [
     {
@@ -12,10 +7,14 @@ useHead({
     },
   ],
 })
-const matrasses = matrassesData.matrasses
-const toppers = toppersData.toppers
-const pillows = pillowsData.pillows
-const beds = bedsData.beds
+
+const { data: productData } = await useFetch('/api/products')
+
+const matrasses = computed(() => productData.value?.matrasses ?? [])
+const toppers = computed(() => productData.value?.toppers ?? [])
+const pillows = computed(() => productData.value?.pillows ?? [])
+const beds = computed(() => productData.value?.beds ?? [])
+
 </script>
 
 <template>

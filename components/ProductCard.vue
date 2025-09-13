@@ -13,10 +13,10 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['handleBtn'])
+const router = useRouter()
 
 function handleBtn(item) {
-  emit('handleBtn', item)
+  router.push(`/product/${item.id}`)
 }
 
 const isMobile = useMediaQuery('(max-width: 768px)', {
@@ -37,8 +37,8 @@ const btnText = computed(() => {
   :class="props.cardClass"
   >
     <NuxtImg
-      :src="props.item.image"
-      :alt="props.item.name"
+      :src="props.item.images[0].url"
+      :alt="props.item.images[0].alt"
       format="webp"
       class="card-image"
     />
@@ -49,14 +49,14 @@ const btnText = computed(() => {
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2 mb-4">
           <span 
-          class="text-xs sm:text-sm md:text-base font-bold text-primary"
+          class="text-sm md:text-base font-bold text-primary"
           v-if="Object.values(props.item.prices)[0]"
           >
           {{ Object.values(props.item.prices)[0] }} ₽
           </span>
           <span v-if="Object.values(props.item.prices).length > 1">-</span>
           <span 
-          class="text-xs sm:text-sm md:text-base font-bold text-primary"
+          class="text-sm md:text-base font-bold text-primary"
           v-if="Object.values(props.item.prices).length > 1"
           >
           {{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽

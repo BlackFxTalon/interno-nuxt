@@ -57,7 +57,7 @@ function openInquiryForm() {
                   <h1 class="text-2xl md:text-3xl xl:text-5xl font-bold mb-4">
                     Качественный сон, лучшая жизнь
                   </h1>
-                  <p class="text-xs sm:text-sm md:text-base xl:text-xl mb-8">
+                  <p class="text-sm md:text-base xl:text-xl mb-8">
                     Откройте для себя нашу премиальную коллекцию матрасов, разработанную для максимального комфорта и поддержки.
                   </p>
                   <UiButton

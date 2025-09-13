@@ -15,7 +15,13 @@
             "не комкуется",
             "гипоаллергенные свойства"
         ],
-        "image":"/images/pillows/uniq-foa.png",
+        "images": [
+          {
+            "id": "uniq-foa",
+            "url": "/images/pillows/uniq-foa.png",
+            "alt": "Подушка UNIQ-FOA"
+          }
+        ],
         "sizes": [
           {
             "id":"60×40×12",
@@ -56,7 +62,13 @@
             "подходит для отдыха в любом положении",
             "обладает антибактериальными и противоклещевыми свойствами"
         ],
-        "image":"/images/pillows/lavabile.png",
+        "images": [
+          {
+            "id": "lavabile",
+            "url": "/images/pillows/lavabile.png",
+            "alt": "Подушка LAVABILE"
+          }
+        ],
         "sizes": [
           {
             "id":"60×40×15",
@@ -94,7 +106,13 @@
             "Материалы высокого качества, использованные при изготовлении, обеспечивают долговечность подушки",
             "Легкость в уходе - съемный чехол легко стирается в машине, что помогает поддерживать подушку в идеальном состоянии без лишних хлопот"
         ],
-        "image":"/images/pillows/exchange.png",
+        "images": [
+          {
+            "id": "exchange",
+            "url": "/images/pillows/exchange.png",
+            "alt": "Подушка EXCHANGE"
+          }
+        ],
         "sizes": [
           {
             "id":"60×40×15",
@@ -132,7 +150,13 @@
             "Это универсальная модель, которая создана для ценителей комфортного сна",
             "Подходит для взрослых и подростков"
         ],
-        "image":"/images/pillows/trestfom.png",
+        "images": [
+          {
+            "id": "trestfom",
+            "url": "/images/pillows/trestfom.png",
+            "alt": "Подушка Трестфом"
+          }
+        ],
         "sizes": [
           {
             "id":"50×70",
@@ -158,7 +182,13 @@
             "Уменьшение рефлекса Моро (непроизвольное вздрагивание)",
             "Снижение риска плагиоцефалии (деформации черепа)"
         ],
-        "image":"/images/pillows/baby-cocon.png",
+        "images": [
+          {
+            "id": "baby-cocon",
+            "url": "/images/pillows/baby-cocon.png",
+            "alt": "Подушка Baby-Кокон"
+          }
+        ],
         "sizes": [
           {
             "id":"74×38×6",

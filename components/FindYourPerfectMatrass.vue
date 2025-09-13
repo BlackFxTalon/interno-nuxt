@@ -150,12 +150,12 @@ function submitForm() {
                   class="w-full max-w-[150px] h-[150px] md:max-w-[300px] md:h-auto mx-auto rounded-lg mb-4"
                 />
                 <div class="space-y-4">
-                  <p class="text-sm sm:text-base md:text-lg font-semibold">
+                  <p class="text-sm sm:text-base font-semibold">
                     {{ recommendedMattressDescription }}
                   </p>
-                  <p class="text-sm sm:text-base md:text-lg font-semibold">
+                  <p class="text-sm sm:text-base font-semibold">
                     Цена:
-                    <span class="text-sm sm:text-base md:text-lg font-bold text-primary">{{ recommendedMattressPrice }}</span>
+                    <span class="text-sm sm:text-base font-bold text-primary">{{ recommendedMattressPrice }}</span>
                   </p>
                   <UiButton
                     type="button"

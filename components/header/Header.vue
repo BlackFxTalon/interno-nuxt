@@ -8,11 +8,11 @@ const handleMenuOpen = () => isMenuOpen.value = !isMenuOpen.value
 // Mobile menu links
 const headerMenuLinks = [
   { to: '/about', text: 'О нас' },
-  { to: '#mattresses', text: 'Матрасы' },
-  { to: '#toppers', text: 'Топперы' },
-  { to: '#pillows', text: 'Подушки' },
-  { to: '#beds', text: 'Кровати' },
-  { to: '#children-beds', text: 'Детские кровати' },
+  { to: '/#mattresses', text: 'Матрасы' },
+  { to: '/#toppers', text: 'Топперы' },
+  { to: '/#pillows', text: 'Подушки' },
+  { to: '/#beds', text: 'Кровати' },
+  { to: '/#children-beds', text: 'Детские кровати' },
 ]
 </script>
 

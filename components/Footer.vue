@@ -11,7 +11,7 @@
             О нас
           </h4>
           <p class="text-gray-400">
-            Предоставляем качественные решения для сна с 1990 года
+            ООО "Интерно" - предоставляем качественные решения для сна
           </p>
         </div>
         <div>
@@ -19,10 +19,10 @@
             Категории
           </h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white">Матрасы</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white">Шкафы</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white">Кровати</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white">Аксессуары</a></li>
+            <li><NuxtLink to="#mattresses" class="text-gray-400 hover:text-white">Матрасы</NuxtLink></li>
+            <li><NuxtLink to="#toppers" class="text-gray-400 hover:text-white">Топперы</NuxtLink></li>
+            <li><NuxtLink to="#pillows" class="text-gray-400 hover:text-white">Подушки</NuxtLink></li>
+            <li><NuxtLink to="#beds" class="text-gray-400 hover:text-white">Кровати</NuxtLink></li>
           </ul>
         </div>
         <div>
@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; 2024 Магазин матрасов и шкафов. Все права защищены.</p>
+        <p>&copy; {{ new Date().getFullYear() }} ООО "Интерно". Все права защищены.</p>
       </div>
     </div>
   </footer>

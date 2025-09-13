@@ -14,9 +14,6 @@ const props = defineProps({
 })
 
 const isLoading = ref(false)
-const showModal = ref(false)
-const showOrderForm = ref(false)
-const selectedItem = ref({})
 
 const itemsPerPage = 6
 const currentPage = ref(1)
@@ -171,79 +168,38 @@ async function loadMore() {
   }
 }
 
-const currentSize = ref('')
 
-function openModal(item) {
-  selectedItem.value = {
-    id: item.id,
-    name: item.name,
-    description: item.description,
-    advantages: item.advantages,
-    image: item.image ?? null,
-    sizes: item.sizes ?? null,
-    prices: item.prices ?? null,
-    weights: item.weights ?? null,
-    height: item.height ?? null,
-    depth: item.depth ?? null,
-    foundation: item.foundation ?? null,
-    materials: item.materials ?? null,
-    firmness: item.firmness ?? null,
-    case: item.case ?? null,
-    side: item.side ?? null,
-    pressure: item.pressure ?? null,
-    packageCount: item.packageCount ?? null,
-    foamColor: item.foamColor ?? null,
-    width: item.width ?? null,
-    length: item.length ?? null,
-    compound: item.compound ?? null,
-    textile: item.textile ?? null,
-  }
-  // console.log(selectedItem.value)
-  if (item.sizes && item.sizes.length > 0) {
-    currentSize.value = item.sizes[0].label
-  }
-  showModal.value = true
-}
 
-const openOrderModal = () => showOrderForm.value = true
-
-function handleOrderSubmit() {
-  showOrderForm.value = false
-  showModal.value = false
-}
 </script>
 
 <template>
   <section class="py-8 md:py-16 pb-[3rem]">
     <div class="container mx-auto px-4">
-      <div class="flex items-center flex-wrap xl:justify-start gap-4 mb-4 md:mb-8 xl:mb-12">
+      <div class="flex items-center flex-wrap xl:justify-between xl:max-w-[1020px] xl:ml-auto xl:mr-auto gap-4 mb-4 md:mb-8 xl:mb-12">
         <h2 class="text-2xl md:text-3xl font-bold">
           {{ title }}
         </h2>
         <div 
         class="flex flex-wrap gap-4 xl:ms-auto"
         >
-        <div 
-        class="flex flex-wrap items-center gap-4 w-full sm:w-auto"
-        v-if="props.title === 'Матрасы' || props.title === 'Топперы'"
-        >
-          <p>По степени жёсткости:</p>
         <UiSelect
             class="sm:max-w-max"
             v-model="firmnessFilter"
+            v-if="props.title === 'Матрасы' || props.title === 'Топперы'"
           >
             <template #options>
-              <option value="">Все</option>
+              <option value="" disabled>
+                По степени жёсткости:
+              </option>
+              <option value="Все">Все</option>
               <option value="ниже средней жёсткости">Ниже средней</option>
               <option value="средняя жёсткость">Средняя</option>
               <option value="выше средней жёсткости">Выше средней</option>
             </template>
-        </UiSelect>
-       </div>
+          </UiSelect>
           <UiSelect
             class="sm:max-w-max"
             v-model="sortOrder"
-            v-if="props.title === 'Матрасы'"
           >
             <template #options>
               <option value="">
@@ -272,7 +228,6 @@ function handleOrderSubmit() {
           :key="item.id"
           :item="item"
           :card-class="props.title === 'Кровати' ? 'beds' : ''"
-          @handle-btn="openModal(item)"
         />
       </div>
 
@@ -286,20 +241,6 @@ function handleOrderSubmit() {
         </UiButton>
       </div>
     </div>
-
-    <DetailModal
-      v-model="showModal"
-      v-model:current-size="currentSize"
-      :selected-item="selectedItem"
-      @handle-order-btn="openOrderModal"
-    />
-
-    <OrderModal
-      v-model="showOrderForm"
-      v-model:current-size="currentSize"
-      :selected-item="selectedItem"
-      @handle-submit="handleOrderSubmit"
-    />
 
     <Teleport to="#teleports">
       <Loader

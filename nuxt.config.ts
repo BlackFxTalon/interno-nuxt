@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/eslint', '@vueuse/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/eslint', '@vueuse/nuxt', 'floating-vue/nuxt'],
   devtools: { enabled: false },
   app: {
     head: {
@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/about': { prerender: true },
     '/policy': { prerender: true },
+    '/product/**': { prerender: true },
   },
   compatibilityDate: '2025-08-11',
   eslint: {
