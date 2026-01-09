@@ -31,28 +31,31 @@ async function applyFirmnessFilter() {
       ? props.itemsData
       : Object.values(props.itemsData)
 
-      if (!firmnessFilter.value || firmnessFilter.value === 'Все') {
-        items.value = itemsArray
-        return
-      } else {
-        items.value = itemsArray.filter(item => {
-          if (!item.firmness) return false
-          return item.firmness.toLowerCase() === firmnessFilter.value.toLowerCase()
-        })
-      }
-      currentPage.value = 1
-  } catch (error) {
+    if (!firmnessFilter.value || firmnessFilter.value === 'Все') {
+      items.value = itemsArray
+      return
+    }
+    else {
+      items.value = itemsArray.filter((item) => {
+        if (!item.firmness)
+          return false
+        return item.firmness.toLowerCase() === firmnessFilter.value.toLowerCase()
+      })
+    }
+    currentPage.value = 1
+  }
+  catch (error) {
     console.error('Ошибка при поиске:', error)
     items.value = Array.isArray(props.itemsData)
       ? props.itemsData
       : Object.values(props.itemsData)
-  } finally {
+  }
+  finally {
     isLoading.value = false
   }
 }
 
 watch(firmnessFilter, () => applyFirmnessFilter())
-
 
 async function handleSearchQuery(value) {
   try {
@@ -167,9 +170,6 @@ async function loadMore() {
     isLoading.value = false
   }
 }
-
-
-
 </script>
 
 <template>
@@ -179,27 +179,35 @@ async function loadMore() {
         <h2 class="text-2xl md:text-3xl font-bold">
           {{ title }}
         </h2>
-        <div 
-        class="flex flex-wrap gap-4 xl:ms-auto"
+        <div
+          class="flex flex-wrap gap-4 xl:ms-auto"
         >
-        <UiSelect
-            class="sm:max-w-max"
-            v-model="firmnessFilter"
+          <UiSelect
             v-if="props.title === 'Матрасы' || props.title === 'Топперы'"
+            v-model="firmnessFilter"
+            class="sm:max-w-max"
           >
             <template #options>
               <option value="" disabled>
                 По степени жёсткости:
               </option>
-              <option value="Все">Все</option>
-              <option value="ниже средней жёсткости">Ниже средней</option>
-              <option value="средняя жёсткость">Средняя</option>
-              <option value="выше средней жёсткости">Выше средней</option>
+              <option value="Все">
+                Все
+              </option>
+              <option value="ниже средней жёсткости">
+                Ниже средней
+              </option>
+              <option value="средняя жёсткость">
+                Средняя
+              </option>
+              <option value="выше средней жёсткости">
+                Выше средней
+              </option>
             </template>
           </UiSelect>
           <UiSelect
-            class="sm:max-w-max"
             v-model="sortOrder"
+            class="sm:max-w-max"
           >
             <template #options>
               <option value="">
@@ -214,11 +222,11 @@ async function loadMore() {
             </template>
           </UiSelect>
           <UiInput
+            v-if="props.title === 'Матрасы'"
             class="w-full xl:w-auto xl:max-w-max order-[-1]"
             type="text"
             placeholder="Поиск по названию"
             @change="(event) => handleSearchQuery(event.target.value)"
-            v-if="props.title === 'Матрасы'"
           />
         </div>
       </div>

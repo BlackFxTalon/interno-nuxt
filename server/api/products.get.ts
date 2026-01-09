@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   try {
     // Import all product data
     const matrasses = await import('~/data/matrasses.json')
@@ -10,13 +10,14 @@ export default defineEventHandler(async (event) => {
       matrasses: matrasses.default.matrasses || [],
       beds: beds.default.beds || [],
       pillows: pillows.default.pillows || [],
-      toppers: toppers.default.toppers || []
+      toppers: toppers.default.toppers || [],
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error loading product data:', error)
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to load product data'
+      statusMessage: 'Failed to load product data',
     })
   }
 })

@@ -13,16 +13,23 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "images:install": "node install-image-tools.js",
+    "images:optimize": "node optimize-images.js",
+    "images:compress": "node compress-images.js"
   },
   "dependencies": {
+    "@dargmuesli/nuxt-cookie-control": "^9.1.12",
     "@nuxt/image": "^1.9.0",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@splidejs/splide": "^4.1.4",
+    "@vite-pwa/assets-generator": "^1.0.2",
+    "@vite-pwa/nuxt": "^1.0.7",
     "@vueuse/nuxt": "^13.6.0",
     "floating-vue": "^5.2.2",
+    "lucide-vue-next": "^0.553.0",
     "maska": "^3.2.0",
-    "nuxt": "^4.0.3",
+    "nuxt": "^4.2.2",
     "vue": "latest",
     "vue-image-zoomer": "^2.4.4",
     "vue-router": "latest"
@@ -32,6 +39,7 @@
     "@nuxt/eslint": "^1.2.0",
     "eslint": "^9.23.0",
     "sass-embedded": "^1.85.1",
+    "sharp": "^0.33.5",
     "typescript": "^5.8.2"
   }
 }

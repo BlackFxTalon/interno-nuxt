@@ -1,5 +1,11 @@
-<script setup lang="ts">
+<script setup>
+import { ref } from 'vue'
 
+const showInquiryModal = ref(false)
+
+function openInquiryForm() {
+  showInquiryModal.value = true
+}
 </script>
 
 <template>
@@ -19,10 +25,26 @@
             Категории
           </h4>
           <ul class="space-y-2">
-            <li><NuxtLink to="#mattresses" class="text-gray-400 hover:text-white">Матрасы</NuxtLink></li>
-            <li><NuxtLink to="#toppers" class="text-gray-400 hover:text-white">Топперы</NuxtLink></li>
-            <li><NuxtLink to="#pillows" class="text-gray-400 hover:text-white">Подушки</NuxtLink></li>
-            <li><NuxtLink to="#beds" class="text-gray-400 hover:text-white">Кровати</NuxtLink></li>
+            <li>
+              <NuxtLink to="#mattresses" class="text-gray-400 hover:text-white">
+                Матрасы
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="#toppers" class="text-gray-400 hover:text-white">
+                Топперы
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="#pillows" class="text-gray-400 hover:text-white">
+                Подушки
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="#beds" class="text-gray-400 hover:text-white">
+                Кровати
+              </NuxtLink>
+            </li>
           </ul>
         </div>
         <div>
@@ -30,20 +52,40 @@
             Служба поддержки
           </h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white">Связаться с нами</a></li>
+            <li>
+              <button
+                type="button"
+                class="text-gray-400 hover:text-white cursor-pointer"
+                @click="openInquiryForm"
+              >
+                Связаться с нами
+              </button>
+            </li>
             <li>
               <NuxtLink to="/policy" class="text-gray-400 hover:text-white">
                 Политика конфиденциальности
               </NuxtLink>
             </li>
-            <li><a href="#" class="text-gray-400 hover:text-white">Возвраты</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white">Часто задаваемые вопросы</a></li>
+            <li>
+              <NuxtLink to="/returns" class="text-gray-400 hover:text-white">
+                Возвраты
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/faq" class="text-gray-400 hover:text-white">
+                Часто задаваемые вопросы
+              </NuxtLink>
+            </li>
           </ul>
         </div>
         <div>
-          <h4 class="text-lg font-semibold mb-4">
+          <button
+            type="button"
+            class="text-lg font-semibold mb-4 cursor-pointer hover:text-gray-300 transition-colors text-left block w-full"
+            @click="openInquiryForm"
+          >
             Свяжитесь с нами
-          </h4>
+          </button>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white">
               <span class="sr-only">Facebook</span>
@@ -65,6 +107,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- Модальное окно формы обратной связи -->
+  <InquiryFormModal v-model:show-modal="showInquiryModal" />
 </template>
 
 <style scoped>

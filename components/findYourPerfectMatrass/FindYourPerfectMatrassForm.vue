@@ -16,7 +16,7 @@ const props = defineProps({
 
 const emit = defineEmits(['handleClose', 'handleSubmit'])
 
-const showModal = defineModel('showModal', { type: Boolean });
+const showModal = defineModel('showModal', { type: Boolean })
 
 const findMatrassForm = ref({
   name: '',
@@ -93,40 +93,46 @@ watch(showModal, (isOpen) => {
             </p> -->
             <form action="#" method="post" class="space-y-4 mt-4 md:mt-0" @submit.prevent="handleSubmit">
               <div class="form-group">
-                <UiLabel for="name">Имя</UiLabel>
-                  <UiInput
+                <UiLabel for="name">
+                  Имя
+                </UiLabel>
+                <UiInput
+                  id="name"
                   v-model="findMatrassForm.name"
                   placeholder="Введите ваше имя"
-                  id="name"
                   required
                 />
               </div>
               <div class="form-group">
-                <UiLabel for="email">Email</UiLabel>
+                <UiLabel for="email">
+                  Email
+                </UiLabel>
                 <UiInput
+                  id="email"
                   v-model="findMatrassForm.email"
                   placeholder="Введите вашу почту"
-                  id="email"
                   type="email"
                   required
                 />
               </div>
               <div class="form-group">
-                <UiLabel for="phone">Телефон</UiLabel>
+                <UiLabel for="phone">
+                  Телефон
+                </UiLabel>
                 <UiInput
+                  id="phone"
                   v-model="findMatrassForm.phone"
                   v-maska="'+7(9##)###-##-##'"
                   placeholder="+7(9XX)XXX-XX-XX"
-                  id="phone"
                   required
                 />
               </div>
               <UiButton
-              class="h-[48px]"
-              type="submit"
-            >
-            Отправить
-            </UiButton>
+                class="h-[48px]"
+                type="submit"
+              >
+                Отправить
+              </UiButton>
             </form>
           </div>
         </div>

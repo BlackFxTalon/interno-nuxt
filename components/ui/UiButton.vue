@@ -4,11 +4,19 @@ const props = defineProps({
     type: String,
     default: 'button',
   },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  type: {
+    type: String,
+    default: 'button',
+  },
 })
 </script>
 
 <template>
-  <component :is="props.tag" class="primary-btn">
+  <component :is="props.tag" :type="props.type" :disabled="props.disabled" class="primary-btn">
     <slot />
   </component>
 </template>
@@ -20,5 +28,12 @@ const props = defineProps({
          hover:bg-primary/90 hover:shadow-lg
          focus:outline-none focus:ring-2 focus:ring-primary/50
          active:transform active:scale-[0.98] flex items-center justify-center px-5;
+
+  &:disabled {
+    @apply bg-gray-400 cursor-not-allowed opacity-60;
+    &:hover {
+      @apply bg-gray-400 shadow-none;
+    }
+  }
 }
 </style>

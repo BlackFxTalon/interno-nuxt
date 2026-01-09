@@ -27,7 +27,7 @@ onMounted(() => {
       768: {
         arrows: true,
       },
-    }
+    },
   }).mount()
 })
 
@@ -73,8 +73,8 @@ function openInquiryForm() {
         </ul>
       </div>
     </div>
-    <InquiryFormModal 
-    v-model:showModal="showModal"
+    <InquiryFormModal
+      v-model:show-modal="showModal"
     />
   </section>
 </template>

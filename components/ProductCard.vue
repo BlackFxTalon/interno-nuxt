@@ -1,6 +1,6 @@
 <script setup>
-import { computed } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
+import { computed } from 'vue'
 
 const props = defineProps({
   item: {
@@ -15,7 +15,7 @@ const props = defineProps({
 
 const router = useRouter()
 
-function handleBtn(item) {
+function handleRoute(item) {
   router.push(`/product/${item.id}`)
 }
 
@@ -32,41 +32,45 @@ const btnText = computed(() => {
 </script>
 
 <template>
-  <div 
-  class="product-card"
-  :class="props.cardClass"
+  <div
+    class="product-card"
+    :class="props.cardClass"
   >
     <NuxtImg
       :src="props.item.images[0].url"
       :alt="props.item.images[0].alt"
       format="webp"
-      class="card-image"
+      class="card-image cursor-pointer"
+      @click="handleRoute(props.item)"
     />
     <div class="card-content">
-      <h3 class="text-base md:text-xl font-semibold mb-4">
+      <h3
+        class="text-base md:text-xl font-semibold mb-4 cursor-pointer"
+        @click="handleRoute(props.item)"
+      >
         {{ props.item.name }}
       </h3>
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2 mb-4">
-          <span 
-          class="text-sm md:text-base font-bold text-primary"
-          v-if="Object.values(props.item.prices)[0]"
+          <span
+            v-if="Object.values(props.item.prices)[0]"
+            class="text-sm md:text-base font-bold text-primary"
           >
-          {{ Object.values(props.item.prices)[0] }} ₽
+            {{ Object.values(props.item.prices)[0] }} ₽
           </span>
           <span v-if="Object.values(props.item.prices).length > 1">-</span>
-          <span 
-          class="text-sm md:text-base font-bold text-primary"
-          v-if="Object.values(props.item.prices).length > 1"
+          <span
+            v-if="Object.values(props.item.prices).length > 1"
+            class="text-sm md:text-base font-bold text-primary"
           >
-          {{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽
+            {{ Object.values(props.item.prices)[Object.values(props.item.prices).length - 1] }} ₽
           </span>
         </div>
       </div>
       <UiButton
-      class="h-[40px]"
+        class="h-[40px]"
         type="button"
-        @click="handleBtn(props.item)"
+        @click="handleRoute(props.item)"
       >
         {{ btnText }}
       </UiButton>

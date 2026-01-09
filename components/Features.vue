@@ -5,7 +5,7 @@
 <template>
   <section class="bg-gray-50 py-8 md:py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 ёmd:mb-8 xl:mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 md:mb-8 xl:mb-12">
         Почему выбирают нас
       </h2>
       <div class="grid md:grid-cols-3 gap-8">

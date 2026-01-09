@@ -14,7 +14,6 @@ const matrasses = computed(() => productData.value?.matrasses ?? [])
 const toppers = computed(() => productData.value?.toppers ?? [])
 const pillows = computed(() => productData.value?.pillows ?? [])
 const beds = computed(() => productData.value?.beds ?? [])
-
 </script>
 
 <template>
@@ -37,7 +36,7 @@ const beds = computed(() => productData.value?.beds ?? [])
       :items-data="toppers"
     />
 
-    <Features/>
+    <Features />
 
     <ProductsListSection
       id="pillows"

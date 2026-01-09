@@ -51,7 +51,7 @@ const select = defineModel()
 
         @media (max-width: 768px) {
         font-size: 14px;
-    }  
+    }
 
         &::-ms-expand {
     display: none;

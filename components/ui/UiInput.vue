@@ -2,25 +2,33 @@
 const props = defineProps({
   modelValue: {
     type: String,
-    default: ''
+    default: '',
   },
   type: {
     type: String,
-    default: 'text'
+    default: 'text',
   },
   placeholder: {
     type: String,
-    default: ''
+    default: '',
   },
   required: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  name: {
+    type: String,
+    default: '',
+  },
 })
 
 const emit = defineEmits(['update:modelValue'])
 
-const handleInput = (event) => {
+function handleInput(event) {
   const target = event.target
   emit('update:modelValue', target.value)
 }
@@ -28,12 +36,14 @@ const handleInput = (event) => {
 
 <template>
   <input
-    :type="type"
-    :placeholder="placeholder"
-    :required="required"
-    :value="modelValue"
-    @input="handleInput"
+    :type="props.type"
+    :placeholder="props.placeholder"
+    :required="props.required"
+    :disabled="props.disabled"
+    :name="props.name"
+    :value="props.modelValue"
     class="ui-input"
+    @input="handleInput"
   >
 </template>
 
@@ -47,6 +57,10 @@ const handleInput = (event) => {
 
     @media (max-width: 768px) {
         font-size: 14px;
-    }    
+    }
+
+    &:disabled {
+        @apply bg-gray-100 cursor-not-allowed opacity-60;
+    }
 }
 </style>

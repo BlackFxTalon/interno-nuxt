@@ -1,12 +1,9 @@
 <script setup>
 import Splide from '@splidejs/splide'
-import '@splidejs/splide/dist/css/splide.min.css'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { VueImageZoomer } from 'vue-image-zoomer'
+import '@splidejs/splide/dist/css/splide.min.css'
 import 'vue-image-zoomer/dist/style.css'
-import { onMounted, ref, watch, nextTick, computed, onUnmounted } from 'vue'
-import { useMediaQuery } from '@vueuse/core'
-
-const isMobile = useMediaQuery('(max-width: 768px)');
 
 const props = defineProps({
   images: {
@@ -60,23 +57,26 @@ const hasMultipleImages = computed(() => {
 })
 
 // Go to specific slide
-const goToSlide = (index) => {
+function goToSlide(index) {
   if (mainSplideInstance.value && index >= 0 && index < props.images.length) {
     try {
       mainSplideInstance.value.go(index)
       currentSlide.value = index
-    } catch (error) {
+    }
+    catch (error) {
       console.warn('Error navigating to slide:', error)
     }
   }
 }
 
-// Handle thumbnail click
-const handleThumbnailClick = (index) => {
-  if (index < 0 || index >= props.images.length) return
-  
-  currentSlide.value = index
-  
+// Handle thumbnail click - used by parent or for manual navigation
+function handleThumbnailClick(index) {
+  if (index < 0 || index >= props.images.length)
+    return
+
+  // Navigate to the slide
+  goToSlide(index)
+
   // Emit color change event
   if (props.images[index] && props.images[index].label) {
     emit('colorChange', props.images[index].label)
@@ -84,13 +84,14 @@ const handleThumbnailClick = (index) => {
 }
 
 // Initialize thumbnail carousel separately
-const initThumbnailCarousel = (mainCarousel) => {
-  if (!thumbnailSplide.value || thumbnailSplideInstance.value) return
-  
+function initThumbnailCarousel(mainCarousel) {
+  if (!thumbnailSplide.value || thumbnailSplideInstance.value)
+    return
+
   try {
     const thumbnails = new Splide(thumbnailSplide.value, {
-      fixedWidth: parseInt(props.thumbnailSize),
-      fixedHeight: parseInt(props.thumbnailSize),
+      fixedWidth: Number.parseInt(props.thumbnailSize),
+      fixedHeight: Number.parseInt(props.thumbnailSize),
       gap: '0.5rem',
       pagination: false,
       isNavigation: true,
@@ -98,35 +99,31 @@ const initThumbnailCarousel = (mainCarousel) => {
       focus: 0,
       breakpoints: {
         768: {
-          fixedWidth: Math.min(80, parseInt(props.thumbnailSize)),
-          fixedHeight: Math.min(80, parseInt(props.thumbnailSize)),
+          fixedWidth: Math.min(80, Number.parseInt(props.thumbnailSize)),
+          fixedHeight: Math.min(80, Number.parseInt(props.thumbnailSize)),
         },
-      }
+      },
     })
 
     // Store the thumbnail instance
     thumbnailSplideInstance.value = thumbnails
 
-    // Add click event listeners to thumbnails
-    thumbnails.on('click', (splide, index) => {
-      handleThumbnailClick(index)
-    })
-
-    // Mount and sync
+    // Mount thumbnail carousel
     thumbnails.mount()
+    // Sync with main carousel
     if (mainCarousel) {
       mainCarousel.sync(thumbnails)
     }
-    
-    console.log('Thumbnail carousel initialized successfully')
-  } catch (error) {
+  }
+  catch (error) {
     console.warn('Error in fallback thumbnail initialization:', error)
   }
 }
 
 // Initialize Splide carousel
-const initCarousel = () => {
-  if (!hasMultipleImages.value || !mainSplide.value) return
+function initCarousel() {
+  if (!hasMultipleImages.value || !mainSplide.value)
+    return
   // Wait for next tick to ensure DOM is fully rendered
   nextTick(() => {
     try {
@@ -144,7 +141,7 @@ const initCarousel = () => {
           1200: {
             drag: false,
           },
-        }
+        },
       })
 
       // Store the instance
@@ -163,61 +160,55 @@ const initCarousel = () => {
         main.mount()
       }
 
-                             // Thumbnail carousel - initialize after main carousel is mounted
-         if (props.showThumbnails && thumbnailSplide.value && thumbnailSplide.value.querySelector('.splide__list')) {
-           console.log('Starting thumbnail initialization')
-           // Add a small delay to ensure main carousel is fully initialized
-           setTimeout(() => {
-            try {
-              const thumbnails = new Splide(thumbnailSplide.value, {
-                fixedWidth: parseInt(props.thumbnailSize),
-                fixedHeight: parseInt(props.thumbnailSize),
-                gap: '0.5rem',
-                rewind: true,
-                pagination: false,
-                isNavigation: true,
-                arrows: false,
-                focus: 0,
-                breakpoints: {
-                  768: {
-                    fixedWidth: 40,
-                    fixedHeight: 40,
-                  },
-                }
-              })
+      // Thumbnail carousel - initialize after main carousel is mounted
+      if (props.showThumbnails && thumbnailSplide.value && thumbnailSplide.value.querySelector('.splide__list')) {
+        // Add a small delay to ensure main carousel is fully initialized
+        setTimeout(() => {
+          try {
+            const thumbnails = new Splide(thumbnailSplide.value, {
+              fixedWidth: Number.parseInt(props.thumbnailSize),
+              fixedHeight: Number.parseInt(props.thumbnailSize),
+              gap: '0.5rem',
+              rewind: true,
+              pagination: false,
+              isNavigation: true,
+              arrows: false,
+              focus: 0,
+              breakpoints: {
+                768: {
+                  fixedWidth: 40,
+                  fixedHeight: 40,
+                },
+              },
+            })
 
-              // Store the thumbnail instance
-              thumbnailSplideInstance.value = thumbnails
+            // Store the thumbnail instance
+            thumbnailSplideInstance.value = thumbnails
 
-              // Add click event listeners to thumbnails
-              thumbnails.on('click', (splide, index) => {
-                handleThumbnailClick(index)
-              })
+            // Mount thumbnail carousel
+            thumbnails.mount()
 
-              // Mount thumbnail carousel first, then sync
-              thumbnails.mount()
-              
-              // Sync after both are mounted
-              if (main && thumbnails) {
-                main.sync(thumbnails)
-                console.log('Thumbnail carousel synced with main carousel')
-              }
-            } catch (error) {
-              console.warn('Error initializing thumbnail carousel:', error)
+            // Sync after both are mounted
+            if (main && thumbnails) {
+              main.sync(thumbnails)
             }
-          }, 200) // Increased delay to ensure main carousel is fully ready
-        }
-        
-        // Fallback: if thumbnail carousel wasn't initialized, try again after a longer delay
-        if (props.showThumbnails && !thumbnailSplideInstance.value) {
-          setTimeout(() => {
-            if (!thumbnailSplideInstance.value && thumbnailSplide.value) {
-              console.log('Attempting fallback thumbnail initialization')
-              initThumbnailCarousel(main)
-            }
-          }, 500)
-        }
-    } catch (error) {
+          }
+          catch (error) {
+            console.warn('Error initializing thumbnail carousel:', error)
+          }
+        }, 200) // Increased delay to ensure main carousel is fully ready
+      }
+
+      // Fallback: if thumbnail carousel wasn't initialized, try again after a longer delay
+      if (props.showThumbnails && !thumbnailSplideInstance.value) {
+        setTimeout(() => {
+          if (!thumbnailSplideInstance.value && thumbnailSplide.value) {
+            initThumbnailCarousel(main)
+          }
+        }, 500)
+      }
+    }
+    catch (error) {
       console.warn('Error initializing main carousel:', error)
     }
   })
@@ -225,7 +216,8 @@ const initCarousel = () => {
 
 // Expose methods to parent component
 defineExpose({
-  goToSlide
+  goToSlide,
+  handleThumbnailClick,
 })
 
 // Watch for images changes
@@ -240,7 +232,7 @@ watch(() => props.images, () => {
       thumbnailSplideInstance.value.destroy()
       thumbnailSplideInstance.value = null
     }
-    
+
     // Wait for DOM update then reinitialize
     nextTick(() => {
       if (mainSplide.value) {
@@ -278,12 +270,14 @@ onUnmounted(() => {
     <div v-if="hasMultipleImages" ref="mainSplide" class="splide main-carousel">
       <div class="splide__track">
         <ul class="splide__list">
-          <li v-for="(image, index) in images" :key="index" class="splide__slide">
+          <li v-for="(image, index) in props.images" :key="index" class="splide__slide">
             <ClientOnly>
               <VueImageZoomer
                 :regular="image.url"
                 :show-message="false"
                 :show-message-touch="false"
+                :right-click="false"
+                :lazyload="index > 0"
               />
             </ClientOnly>
           </li>
@@ -292,14 +286,21 @@ onUnmounted(() => {
     </div>
 
     <!-- Single Image Fallback -->
-    <div v-else class="single-image">
+    <div v-else-if="images.length > 0" class="single-image">
       <ClientOnly>
-      <VueImageZoomer
-        :regular="images[0].url"
-        :show-message="false"
-        :show-message-touch="false"
-      />
-    </ClientOnly>
+        <VueImageZoomer
+          :regular="images[0].url"
+          :show-message="false"
+          :show-message-touch="false"
+          :right-click="false"
+        />
+      </ClientOnly>
+    </div>
+    <!-- No Images Fallback -->
+    <div v-else class="no-images">
+      <p class="text-gray-400">
+        Изображение отсутствует
+      </p>
     </div>
 
     <!-- Thumbnails Carousel -->
@@ -351,7 +352,7 @@ onUnmounted(() => {
 
   .single-image {
     @media (max-width: 768px) {
-       display: flex; 
+       display: flex;
        align-items: center;
        justify-content: center;
     }
@@ -359,6 +360,9 @@ onUnmounted(() => {
 
   .single-image :deep(img) {
     @media (max-width: 768px) {
+      max-width: 500px;
+    }
+    @media (max-width: 500px) {
       max-width: 300px;
     }
   }
@@ -366,8 +370,11 @@ onUnmounted(() => {
 
 .main-carousel :deep(.splide__slide img) {
   @media (max-width: 768px) {
-    max-width: 300px;
-  }
+      max-width: 500px;
+    }
+    @media (max-width: 500px) {
+      max-width: 300px;
+    }
 }
 
 // Splide carousel custom styles
@@ -380,7 +387,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  
+
   svg {
     width: 20px;
     height: 20px;
@@ -415,7 +422,7 @@ onUnmounted(() => {
   .splide__slide {
     opacity: 0.6;
     transition: opacity 0.3s ease;
-    
+
     &.is-active {
       opacity: 0.8;
     }
@@ -431,7 +438,7 @@ onUnmounted(() => {
   :deep(.splide__arrow) {
     width: 20px;
     height: 20px;
-    
+
     svg {
       width: 10px;
       height: 10px;

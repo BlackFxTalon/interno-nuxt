@@ -5,6 +5,16 @@ const isMenuOpen = ref(false)
 
 const handleMenuOpen = () => isMenuOpen.value = !isMenuOpen.value
 
+if (import.meta.client) {
+  watch(isMenuOpen, (newValue) => {
+    document.body.classList.toggle('overflow-hidden', newValue)
+  })
+
+  onBeforeUnmount(() => {
+    document.body.classList.remove('overflow-hidden')
+  })
+}
+
 // Mobile menu links
 const headerMenuLinks = [
   { to: '/about', text: 'О нас' },
