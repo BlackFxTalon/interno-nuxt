@@ -1,10 +1,6 @@
 [build]
 command = "npm run generate"
-publish = "dist"
-
-[build.environment]
-NODE_VERSION = "20.19.0"
-NPM_VERSION = "10.2.4"
+publish = ".output/public"
 
 [[redirects]]
 from = "/*"
