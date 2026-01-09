@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@dargmuesli/nuxt-cookie-control',
   ],
-  ssr: true,
+  ssr: false,
   devtools: { enabled: false },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
@@ -37,14 +37,6 @@ export default defineNuxtConfig({
       // eslint-disable-next-line node/prefer-global/process
       web3formsAccessKeyTwo: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY_TWO || '',
     },
-  },
-  routeRules: {
-    '/': { prerender: true },
-    '/about': { prerender: true },
-    '/policy': { prerender: true },
-    '/returns': { prerender: true },
-    '/faq': { prerender: true },
-    '/product/**': { prerender: true },
   },
   compatibilityDate: '2025-08-11',
   nitro: {
