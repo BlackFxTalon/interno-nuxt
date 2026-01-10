@@ -36,20 +36,30 @@ const btnText = computed(() => {
     class="product-card"
     :class="props.cardClass"
   >
-    <NuxtImg
-      :src="props.item.images[0].url"
-      :alt="props.item.images[0].alt"
-      loading="lazy"
-      decoding="async"
-      class="card-image cursor-pointer"
-      @click="handleRoute(props.item)"
-    />
+    <div class="relative">
+      <NuxtImg
+        :src="props.item.images[0].url"
+        :alt="props.item.images[0].alt"
+        loading="lazy"
+        decoding="async"
+        class="card-image cursor-pointer"
+        @click="handleRoute(props.item)"
+      />
+      <NuxtLink
+        :to="`/product/${props.item.id}`"
+        class="absolute inset-0"
+      />
+    </div>
     <div class="card-content">
       <h3
         class="text-base md:text-xl font-semibold mb-4 cursor-pointer"
         @click="handleRoute(props.item)"
       >
-        {{ props.item.name }}
+        <NuxtLink
+          :to="`/product/${props.item.id}`"
+        >
+          {{ props.item.name }}
+        </NuxtLink>
       </h3>
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-2 mb-4">
@@ -71,9 +81,12 @@ const btnText = computed(() => {
       <UiButton
         class="h-[40px]"
         type="button"
-        @click="handleRoute(props.item)"
       >
         {{ btnText }}
+        <NuxtLink
+          :to="`/product/${props.item.id}`"
+          class="absolute inset-0"
+        />
       </UiButton>
     </div>
   </div>

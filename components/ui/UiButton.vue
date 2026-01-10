@@ -27,7 +27,7 @@ const props = defineProps({
          font-medium transition-all duration-200
          hover:bg-primary/90 hover:shadow-lg
          focus:outline-none focus:ring-2 focus:ring-primary/50
-         active:transform active:scale-[0.98] flex items-center justify-center px-5;
+         active:transform active:scale-[0.98] flex items-center justify-center px-5 relative;
 
   &:disabled {
     @apply bg-gray-400 cursor-not-allowed opacity-60;
