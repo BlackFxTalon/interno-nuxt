@@ -35,6 +35,8 @@ const headerMenuLinks = [
           src="/logo.svg"
           alt="interno logo"
           class="h-[26px] animate-logo"
+          width="125"
+          height="26"
         >
       </NuxtLink>
 
