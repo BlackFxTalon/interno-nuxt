@@ -185,7 +185,7 @@ onUnmounted(() => {
   </Transition>
 
   <!-- Модальное окно успеха -->
-  <SuccessModal
+  <LazySuccessModal
     v-model:show="showSuccessModal"
     title="Спасибо!"
     message="Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время."
