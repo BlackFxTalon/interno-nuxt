@@ -1,7 +1,6 @@
 <script setup>
 import { vTooltip } from 'floating-vue'
 import ImageCarousel from '@/components/ImageCarousel.vue'
-import OrderModal from '@/components/OrderModal.vue'
 import RelatedProductsSlider from '@/components/RelatedProductsSlider.vue'
 import 'floating-vue/dist/style.css'
 
@@ -535,7 +534,7 @@ function generateColorImages(colorLabel) {
       </div>
     </div>
 
-    <OrderModal
+    <LazyOrderModal
       v-model="showOrderForm"
       :current-size="currentSize"
       :price="price"
