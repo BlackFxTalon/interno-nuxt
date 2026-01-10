@@ -111,26 +111,6 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-  image: {
-    formats: {
-      webp: { quality: 80 },
-      png: { quality: 80 },
-      jpg: { quality: 80 },
-    },
-    providers: {
-      ipx: {
-        name: 'ipx',
-        provider: 'ipx',
-        options: {
-          baseURL: '/images',
-          modifiers: {
-            quality: 80,
-            format: 'webp',
-          },
-        },
-      },
-    },
-  },
   pwa: {
     registerType: 'autoUpdate',
     manifest: {

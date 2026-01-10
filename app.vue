@@ -16,9 +16,9 @@ useHead({
 
 <template>
   <Body class="font-Inter">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <Header />
+    <NuxtPage />
+    <Footer />
     <ClientOnly>
       <CookieControl locale="ru" />
     </ClientOnly>

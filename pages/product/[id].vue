@@ -22,8 +22,21 @@ const imageCarouselRef = ref(null)
 const showOrderForm = ref(false)
 const currentImages = ref([])
 
-// Get product data based on route params
-const { data: productData } = await useFetch('/api/products')
+const { data: productData } = await useAsyncData('products', async () => {
+  const [matrasses, beds, pillows, toppers] = await Promise.all([
+    import('~/data/matrasses.json'),
+    import('~/data/beds.json'),
+    import('~/data/pillows.json'),
+    import('~/data/toppers.json'),
+  ])
+
+  return {
+    matrasses: matrasses.default.matrasses || [],
+    beds: beds.default.beds || [],
+    pillows: pillows.default.pillows || [],
+    toppers: toppers.default.toppers || [],
+  }
+})
 
 // Function to determine product category
 const getProductCategory = computed(() => {
@@ -196,7 +209,7 @@ function generateColorImages(colorLabel) {
   const generatedImages = views.map(view => ({
     id: `${bedId}-${colorCode}-${view}`,
     label: colorLabel,
-    url: `/images/beds/${bedId}/${bedId}-${colorCode}-${view}.png`,
+    url: `/images/optimized/public/images/beds/${bedId}/${bedId}-${colorCode}-${view}.webp`,
     alt: `${selectedItem.value.name} - ${getViewName(view)}`,
   }))
 

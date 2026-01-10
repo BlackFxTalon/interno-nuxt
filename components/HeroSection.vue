@@ -4,10 +4,10 @@ import { onMounted, ref } from 'vue'
 import '@splidejs/splide/dist/css/splide.min.css'
 
 const images = [
-  '/images/heroSection/herosection-img-1.png',
-  '/images/heroSection/herosection-img-2.png',
-  '/images/heroSection/herosection-img-3.png',
-  '/images/heroSection/herosection-img-4.png',
+  '/images/optimized/heroSection/herosection-img-1.webp',
+  '/images/optimized/heroSection/herosection-img-2.webp',
+  '/images/optimized/heroSection/herosection-img-3.webp',
+  '/images/optimized/heroSection/herosection-img-4.webp',
 ]
 
 const splide = ref(null)
@@ -47,8 +47,10 @@ function openInquiryForm() {
             <div class="relative h-[300px] md:h-[400px] xl:h-[600px]">
               <NuxtImg
                 :src="image"
+                :loading="index === 0 ? 'eager' : 'lazy'"
+                :fetchpriority="index === 0 ? 'high' : 'auto'"
                 alt="image"
-                format="webp"
+                decoding="async"
                 class="absolute inset-0 w-full h-full object-cover"
               />
               <div class="absolute inset-0 bg-black bg-opacity-40" />

@@ -146,7 +146,8 @@ function submitForm() {
                 <NuxtImg
                   :src="recommendedMattressImage"
                   :alt="recommendedMattressName"
-                  format="webp"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full max-w-[150px] h-[150px] md:max-w-[300px] md:h-auto mx-auto rounded-lg mb-4"
                 />
                 <div class="space-y-4">

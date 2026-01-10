@@ -8,7 +8,7 @@
       "images": [
         {
           "id": "laticce",
-          "url": "/images/matrasses/laticce.png",
+          "url": "/images/optimized/public/images/matrasses/laticce.webp",
           "alt": "Laticce матрас"
         }
       ],
@@ -82,7 +82,7 @@
       "images": [
         {
           "id": "coco-massage",
-          "url": "/images/matrasses/coco-massage.png",
+          "url": "/images/optimized/public/images/matrasses/coco-massage.webp",
           "alt": "Coco Massage матрас"
         }
       ],
@@ -155,7 +155,7 @@
       "images": [
         {
           "id": "paraloni",
-          "url": "/images/matrasses/paraloni.png",
+          "url": "/images/optimized/public/images/matrasses/paraloni.webp",
           "alt": "Paraloni матрас"
         }
       ],
@@ -228,7 +228,7 @@
       "images": [
         {
           "id": "coco-20",
-          "url": "/images/matrasses/coco-20.png",
+          "url": "/images/optimized/public/images/matrasses/coco-20.webp",
           "alt": "Coco 20 матрас"
         }
       ],
@@ -301,7 +301,7 @@
       "images": [
         {
           "id": "coco-ppu-20",
-          "url": "/images/matrasses/coco-ppu-20.png",
+          "url": "/images/optimized/public/images/matrasses/coco-ppu-20.webp",
           "alt": "Coco PPU 20 матрас"
         }
       ],
@@ -374,7 +374,7 @@
       "images": [
         {
           "id": "holcon-coco",
-          "url": "/images/matrasses/holcon-coco.png",
+          "url": "/images/optimized/public/images/matrasses/holcon-coco.webp",
           "alt": "Strutto Coco матрас"
         }
       ],
@@ -447,7 +447,7 @@
       "images": [
         {
           "id": "coco-10",
-          "url": "/images/matrasses/coco-10.png",
+          "url": "/images/optimized/public/images/matrasses/coco-10.webp",
           "alt": "Coco 10 матрас"
         }
       ],
@@ -519,7 +519,7 @@
       "images": [
         {
           "id": "summer",
-          "url": "/images/matrasses/summer.png",
+          "url": "/images/optimized/public/images/matrasses/summer.webp",
           "alt": "Summer матрас"
         }
       ],
@@ -592,7 +592,7 @@
       "images": [
         {
           "id": "royal-queen-m",
-          "url": "/images/matrasses/royal-queen-m.png",
+          "url": "/images/optimized/public/images/matrasses/royal-queen-m.webp",
           "alt": "Royal Queen M матрас"
         }
       ],
@@ -666,7 +666,7 @@
       "images": [
         {
           "id": "summer-m",
-          "url": "/images/matrasses/summer-m.png",
+          "url": "/images/optimized/public/images/matrasses/summer-m.webp",
           "alt": "Summer M матрас"
         }
       ],
@@ -739,7 +739,7 @@
       "images": [
         {
           "id": "holcon-coco-m",
-          "url": "/images/matrasses/holcon-coco-m.png",
+          "url": "/images/optimized/public/images/matrasses/holcon-coco-m.webp",
           "alt": "Aredo Holcon Coco M матрас"
         }
       ],
@@ -811,7 +811,7 @@
       "images": [
         {
           "id": "laticce-m",
-          "url": "/images/matrasses/laticce-m.png",
+          "url": "/images/optimized/public/images/matrasses/laticce-m.webp",
           "alt": "Laticce M матрас"
         }
       ],
@@ -884,7 +884,7 @@
       "images": [
         {
           "id": "paladium-king-m",
-          "url": "/images/matrasses/paladium-king-m.png",
+          "url": "/images/optimized/public/images/matrasses/paladium-king-m.webp",
           "alt": "Palladium King M матрас"
         }
       ],
@@ -958,7 +958,7 @@
       "images": [
         {
           "id": "imperial-holc",
-          "url": "/images/matrasses/imperial-holc.png",
+          "url": "/images/optimized/public/images/matrasses/imperial-holc.webp",
           "alt": "Imperial Holc матрас"
         }
       ],
@@ -1030,7 +1030,7 @@
       "images": [
         {
           "id": "imperial-latex",
-          "url": "/images/matrasses/imperial-latex.png",
+          "url": "/images/optimized/public/images/matrasses/imperial-latex.webp",
           "alt": "Imperial Latex матрас"
         }
       ],

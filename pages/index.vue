@@ -8,7 +8,21 @@ useHead({
   ],
 })
 
-const { data: productData } = await useFetch('/api/products')
+const { data: productData } = await useAsyncData('products', async () => {
+  const [matrasses, beds, pillows, toppers] = await Promise.all([
+    import('~/data/matrasses.json'),
+    import('~/data/beds.json'),
+    import('~/data/pillows.json'),
+    import('~/data/toppers.json'),
+  ])
+
+  return {
+    matrasses: matrasses.default.matrasses || [],
+    beds: beds.default.beds || [],
+    pillows: pillows.default.pillows || [],
+    toppers: toppers.default.toppers || [],
+  }
+})
 
 const matrasses = computed(() => productData.value?.matrasses ?? [])
 const toppers = computed(() => productData.value?.toppers ?? [])

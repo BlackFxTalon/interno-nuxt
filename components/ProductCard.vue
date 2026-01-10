@@ -39,7 +39,8 @@ const btnText = computed(() => {
     <NuxtImg
       :src="props.item.images[0].url"
       :alt="props.item.images[0].alt"
-      format="webp"
+      loading="lazy"
+      decoding="async"
       class="card-image cursor-pointer"
       @click="handleRoute(props.item)"
     />
