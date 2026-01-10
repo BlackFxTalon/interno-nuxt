@@ -109,7 +109,7 @@ function openInquiryForm() {
   </footer>
 
   <!-- Модальное окно формы обратной связи -->
-  <InquiryFormModal v-model:show-modal="showInquiryModal" />
+  <LazyInquiryFormModal v-model:show-modal="showInquiryModal" />
 </template>
 
 <style scoped>

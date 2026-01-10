@@ -75,7 +75,7 @@ function openInquiryForm() {
         </ul>
       </div>
     </div>
-    <InquiryFormModal
+    <LazyInquiryFormModal
       v-model:show-modal="showModal"
     />
   </section>

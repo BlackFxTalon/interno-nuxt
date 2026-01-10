@@ -12,6 +12,7 @@ useHead({
       <img
         src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80"
         alt="About DreamRest"
+        decoding="async"
         class="absolute inset-0 w-full h-full object-cover"
       >
       <div class="absolute inset-0 bg-black bg-opacity-50" />
@@ -46,6 +47,7 @@ useHead({
             <img
               src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80"
               alt="Our Workshop"
+              decoding="async"
               class="absolute inset-0 w-full h-full object-cover"
             >
           </div>
