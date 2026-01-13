@@ -112,6 +112,7 @@ export default defineNuxtConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,json,webp}'],
+      globIgnores: ['**/_payload.json'],
       maximumFileSizeToCacheInBytes: 10485760, // 10 MB limit to cache large images
       runtimeCaching: [
         {
