@@ -8,7 +8,7 @@
       "images": [
         {
           "id": "topper-econom",
-          "url": "/images/optimized/public/images/toppers/topper-econom.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/toppers/topper-econom.webp",
           "alt": "Topper Econom"
         }
       ],
@@ -68,7 +68,7 @@
       "images": [
         {
           "id": "topper-latex",
-          "url": "/images/optimized/public/images/toppers/topper-latex.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/toppers/topper-latex.webp",
           "alt": "Topper Latex"
         }
       ],
@@ -138,7 +138,7 @@
       "images": [
         {
           "id": "topper-latex-coco",
-          "url": "/images/optimized/public/images/toppers/topper-latex-coco.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/toppers/topper-latex-coco.webp",
           "alt": "Topper Latex Coco"
         }
       ],
@@ -209,7 +209,7 @@
       "images": [
         {
           "id": "topper-strutto",
-          "url": "/images/optimized/public/images/toppers/topper-strutto.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/toppers/topper-strutto.webp",
           "alt": "Topper Strutto"
         }
       ],
@@ -279,7 +279,7 @@
       "images": [
         {
           "id": "topper-strutto-coco",
-          "url": "/images/optimized/public/images/toppers/topper-strutto-coco.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/toppers/topper-strutto-coco.webp",
           "alt": "Topper Strutto Coco"
         }
       ],

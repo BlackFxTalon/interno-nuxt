@@ -75,20 +75,6 @@ export default defineNuxtConfig({
         console.log(`[Prerender] Will generate ${productRoutes.length} product pages`)
       }
     },
-    'build:before': async function () {
-      console.log('🚀 Начинаем оптимизацию изображений перед сборкой...\n')
-
-      // Импортируем и запускаем оптимизацию
-      try {
-        const { optimizeImages } = await import('./utils/image-optimizer.js')
-        await optimizeImages()
-        console.log('✅ Оптимизация изображений завершена\n')
-      }
-      catch (error: unknown) {
-        console.warn('⚠️ Не удалось оптимизировать изображения:', (error as Error).message)
-        // Не прерываем сборку из-за ошибки оптимизации
-      }
-    },
   },
   cookieControl: {
     barPosition: 'bottom-full',

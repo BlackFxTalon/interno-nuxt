@@ -4,10 +4,10 @@ import { onMounted, ref } from 'vue'
 import '@splidejs/splide/dist/css/splide.min.css'
 
 const images = [
-  '/images/optimized/heroSection/herosection-img-1.webp',
-  '/images/optimized/heroSection/herosection-img-2.webp',
-  '/images/optimized/heroSection/herosection-img-3.webp',
-  '/images/optimized/heroSection/herosection-img-4.webp',
+  'https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-1.webp',
+  'https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-2.webp',
+  'https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-3.webp',
+  'https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-4.webp',
 ]
 
 const splide = ref(null)

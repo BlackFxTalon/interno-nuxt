@@ -208,7 +208,7 @@ function generateColorImages(colorLabel) {
   const generatedImages = views.map(view => ({
     id: `${bedId}-${colorCode}-${view}`,
     label: colorLabel,
-    url: `/images/optimized/public/images/beds/${bedId}/${bedId}-${colorCode}-${view}.webp`,
+    url: `https://storage.yandexcloud.net/interno-images/optimized/public/images/beds/${bedId}/${bedId}-${colorCode}-${view}.webp`,
     alt: `${selectedItem.value.name} - ${getViewName(view)}`,
   }))
 

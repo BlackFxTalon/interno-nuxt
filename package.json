@@ -13,10 +13,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "images:install": "node install-image-tools.js",
-    "images:optimize": "node optimize-images.js",
-    "images:compress": "node compress-images.js"
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@dargmuesli/nuxt-cookie-control": "^9.1.12",

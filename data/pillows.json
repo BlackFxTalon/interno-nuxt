@@ -18,7 +18,7 @@
       "images": [
         {
           "id": "uniq-foa",
-          "url": "/images/optimized/public/images/pillows/uniq-foa.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/pillows/uniq-foa.webp",
           "alt": "Подушка UNIQ-FOA"
         }
       ],
@@ -65,7 +65,7 @@
       "images": [
         {
           "id": "lavabile",
-          "url": "/images/optimized/public/images/pillows/lavabile.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/pillows/lavabile.webp",
           "alt": "Подушка LAVABILE"
         }
       ],
@@ -109,7 +109,7 @@
       "images": [
         {
           "id": "exchange",
-          "url": "/images/optimized/public/images/pillows/exchange.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/pillows/exchange.webp",
           "alt": "Подушка EXCHANGE"
         }
       ],
@@ -153,7 +153,7 @@
       "images": [
         {
           "id": "trestfom",
-          "url": "/images/optimized/public/images/pillows/trestfom.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/pillows/trestfom.webp",
           "alt": "Подушка Трестфом"
         }
       ],
@@ -185,7 +185,7 @@
       "images": [
         {
           "id": "baby-cocon",
-          "url": "/images/optimized/public/images/pillows/baby-cocon.webp",
+          "url": "https://storage.yandexcloud.net/interno-images/optimized/public/images/pillows/baby-cocon.webp",
           "alt": "Подушка Baby-Кокон"
         }
       ],
