@@ -1,0 +1,51 @@
+name: Deploy to Timeweb Cloud
+
+on:
+  push:
+    branches: [ main ] # Запускать при пуше в ветку main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Получаем код из репозитория
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Устанавливаем Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*' # Последняя версия из актуального LTS-канала[citation:1]
+          cache: 'npm'
+
+      # 3. Устанавливаем зависимости и собираем проект
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run generate
+        #env:
+          # Если нужны переменные для сборки, используйте secrets
+          # PUBLIC_API_BASE: ${{ secrets.PUBLIC_API_BASE }}
+
+      # 4. Деплой на сервер через SSH
+      - name: Deploy to Server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ".output/public/*"
+          target: ${{ secrets.DEPLOY_PATH }}
+          strip_components: 2 # Важно! Исключает из пути папки .output/public
+
+      # (Опционально) Можно перезагрузить Nginx
+      - name: Reload Nginx
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo nginx -t && sudo systemctl reload nginx
