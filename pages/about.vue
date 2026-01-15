@@ -9,12 +9,13 @@ useHead({
   <div>
     <!-- Hero Section -->
     <section class="relative h-[400px]">
-      <img
-        src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80"
-        alt="About DreamRest"
+      <NuxtImg
+        src="https://storage.yandexcloud.net/interno-images/optimized/public/images/about-us/about-us-img-1.webp"
+        alt="about us image"
+        loading="lazy"
         decoding="async"
         class="absolute inset-0 w-full h-full object-cover"
-      >
+      />
       <div class="absolute inset-0 bg-black bg-opacity-50" />
       <div class="relative container mx-auto px-4 h-full flex items-center">
         <div class="text-white max-w-2xl">
@@ -44,12 +45,13 @@ useHead({
             </p>
           </div>
           <div class="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-            <img
-              src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80"
+            <NuxtImg
+              src="https://storage.yandexcloud.net/interno-images/optimized/public/images/about-us/about-us-img-2.webp"
               alt="Our Workshop"
+              loading="lazy"
               decoding="async"
               class="absolute inset-0 w-full h-full object-cover"
-            >
+            />
           </div>
         </div>
       </div>
