@@ -40,9 +40,6 @@ export default defineNuxtConfig({
       // eslint-disable-next-line node/prefer-global/process
       smartcaptchaClientKey: process.env.NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY || '',
     },
-    // Серверный ключ (не публичный!)
-    // eslint-disable-next-line node/prefer-global/process
-    smartcaptchaServerKey: process.env.NUXT_PUBLIC_SMARTCAPTCHA_SERVER_KEY || '',
   },
   compatibilityDate: '2025-08-11',
   nitro: {
