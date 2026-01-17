@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
 const showModal = defineModel('showModal', { default: false })
 const config = useRuntimeConfig()
@@ -14,6 +14,8 @@ const isLoading = ref(false)
 const submitStatus = ref('idle')
 const errorMessage = ref('')
 const showSuccessModal = ref(false)
+const captchaToken = ref('')
+const captchaWidgetId = ref(null)
 
 function resetForm() {
   inquiryForm.value = {
@@ -70,26 +72,74 @@ async function submitInquiry() {
 }
 
 // Callback для SmartCaptcha
-function onCaptchaSuccess() {
+function onCaptchaSuccess(token) {
+  captchaToken.value = token
   errorMessage.value = ''
   submitStatus.value = 'idle'
 }
 
-watch(showModal, (isOpen) => {
+// Инициализация капчи
+function initCaptcha() {
+  if (import.meta.client && window.smartCaptcha) {
+    const container = document.getElementById('captcha-container')
+    if (container && !captchaWidgetId.value) {
+      try {
+        captchaWidgetId.value = window.smartCaptcha.render(container, {
+          sitekey: config.public.smartcaptchaClientKey,
+          hl: 'ru',
+          callback: onCaptchaSuccess,
+        })
+      }
+      catch (error) {
+        console.error('Ошибка инициализации капчи:', error)
+      }
+    }
+  }
+}
+
+// Уничтожение капчи
+function destroyCaptcha() {
+  if (import.meta.client && window.smartCaptcha && captchaWidgetId.value !== null) {
+    try {
+      window.smartCaptcha.destroy(captchaWidgetId.value)
+      captchaWidgetId.value = null
+      captchaToken.value = ''
+    }
+    catch (error) {
+      console.error('Ошибка уничтожения капчи:', error)
+    }
+  }
+}
+
+watch(showModal, async (isOpen) => {
   updateBodyOverflow(isOpen)
   if (isOpen) {
     resetForm()
+    await nextTick()
+    // Даем время на загрузку скрипта, если он еще не загружен
+    setTimeout(() => {
+      initCaptcha()
+    }, 100)
+  }
+  else {
+    destroyCaptcha()
   }
 })
 
 onMounted(() => {
   if (showModal.value) {
     updateBodyOverflow(true)
+    nextTick(() => {
+      setTimeout(() => {
+        initCaptcha()
+      }, 100)
+    })
   }
 })
 
 onUnmounted(() => {
   updateBodyOverflow(false)
+  destroyCaptcha()
 })
 </script>
 
@@ -165,16 +215,14 @@ onUnmounted(() => {
                 :disabled="isLoading"
               />
             </div>
-            <div class="form-group">
-              <div
-                id="captcha-container"
-                style="height: 100px"
-                class="smart-captcha"
-                :data-sitekey="config.public.smartcaptchaClientKey"
-                data-hl="ru"
-                :data-callback="onCaptchaSuccess"
-              />
-            </div>
+            <ClientOnly>
+              <div class="form-group">
+                <div
+                  id="captcha-container"
+                  style="min-height: 100px"
+                />
+              </div>
+            </ClientOnly>
             <UiButton
               type="submit"
               class="h-[48px]"
