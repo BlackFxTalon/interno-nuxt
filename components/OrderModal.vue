@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
 const props = defineProps({
   name: {
@@ -53,6 +53,8 @@ const isLoading = ref(false)
 const submitStatus = ref('idle')
 const errorMessage = ref('')
 const showSuccessModal = ref(false)
+const captchaToken = ref('')
+const captchaWidgetId = ref(null)
 
 function resetForm() {
   orderForm.value = {
@@ -62,6 +64,7 @@ function resetForm() {
   }
   submitStatus.value = 'idle'
   errorMessage.value = ''
+  captchaToken.value = ''
 }
 
 function updateBodyOverflow(isOpen) {
@@ -70,61 +73,53 @@ function updateBodyOverflow(isOpen) {
   }
 }
 
-function formatOrderDetails() {
-  const details = []
-  details.push(`Товар: ${props.name}`)
-  details.push(`Цена: ${props.price} ₽`)
-  details.push(`Размер: ${props.currentSize}`)
-
-  if (props.height) {
-    details.push(`Высота: ${props.height} см`)
-  }
-  if (props.weight) {
-    details.push(`Вес: ${props.weight} кг`)
-  }
-  if (props.color) {
-    details.push(`Цвет: ${props.color}`)
-  }
-  if (props.liftingMechanism) {
-    details.push(`Подъемный механизм: ${props.liftingMechanism}`)
-  }
-  if (props.antivandalVelor) {
-    details.push(`Антивандальный велюр: ${props.antivandalVelor}`)
-  }
-  if (props.robotVacuumCleanerLegs) {
-    details.push(`Ножки под робот-пылесос (13 см): ${props.robotVacuumCleanerLegs}`)
+// Подготавливаем данные о товаре для отправки
+function getProductData() {
+  const productData = {
+    name: props.name,
+    price: props.price,
+    currentSize: props.currentSize,
   }
 
-  return details.join('\n')
+  // Добавляем только те поля, которые имеют значения
+  if (props.height !== null)
+    productData.height = props.height
+  if (props.weight !== null)
+    productData.weight = props.weight
+  if (props.color)
+    productData.color = props.color
+  if (props.liftingMechanism)
+    productData.liftingMechanism = props.liftingMechanism
+  if (props.antivandalVelor)
+    productData.antivandalVelor = props.antivandalVelor
+  if (props.robotVacuumCleanerLegs)
+    productData.robotVacuumCleanerLegs = props.robotVacuumCleanerLegs
+
+  return productData
 }
 
 async function submitOrder() {
+  if (!captchaToken.value) {
+    errorMessage.value = 'Пожалуйста, подтвердите, что вы не робот'
+    submitStatus.value = 'error'
+    return
+  }
+
   isLoading.value = true
   submitStatus.value = 'idle'
   errorMessage.value = ''
 
-  const accessKey = config.public.web3formsAccessKeyTwo
-
-  if (!accessKey) {
-    submitStatus.value = 'error'
-    errorMessage.value = 'Не настроен ключ доступа Web3Forms. Пожалуйста, добавьте NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY в переменные окружения.'
-    isLoading.value = false
-    return
-  }
-
   try {
-    const orderDetails = formatOrderDetails()
+    const productData = getProductData()
 
-    const data = await $fetch('https://api.web3forms.com/submit', {
+    const data = await $fetch('/api/send-email', {
       method: 'POST',
       body: {
-        access_key: accessKey,
-        subject: `Новый заказ с сайта Интерно - ${props.name}`,
         name: orderForm.value.name,
         email: orderForm.value.email,
         phone: orderForm.value.phone,
-        from_name: 'Интерно - Форма заказа',
-        message: `Детали заказа:\n\n${orderDetails}`,
+        captchaToken: captchaToken.value,
+        productData, // Отправляем данные о товаре
       },
     })
 
@@ -138,33 +133,89 @@ async function submitOrder() {
       }, 100)
     }
     else {
-      throw new Error(data.message || 'Ошибка при отправке заказа')
+      throw new Error(data.message || 'Ошибка при отправке формы')
     }
   }
   catch (error) {
     submitStatus.value = 'error'
-    errorMessage.value = error?.data?.message || error?.message || 'Произошла ошибка. Попробуйте позже.'
+    errorMessage.value = 'Произошла ошибка. Попробуйте позже.'
+    console.error(error?.data?.message || error?.message)
   }
   finally {
     isLoading.value = false
   }
 }
 
-watch(showOrderForm, (isOpen) => {
+// Callback для SmartCaptcha
+function onCaptchaSuccess(token) {
+  console.log('Captcha success, token:', token)
+  captchaToken.value = token
+  errorMessage.value = ''
+  submitStatus.value = 'idle'
+}
+
+// Инициализация капчи
+function initCaptcha() {
+  if (import.meta.client && window.smartCaptcha) {
+    const container = document.getElementById('captcha-container')
+    if (container && !captchaWidgetId.value) {
+      try {
+        captchaWidgetId.value = window.smartCaptcha.render(container, {
+          sitekey: config.public.smartcaptchaClientKey,
+          hl: 'ru',
+          callback: onCaptchaSuccess,
+        })
+      }
+      catch (error) {
+        console.error('Ошибка инициализации капчи:', error)
+      }
+    }
+  }
+}
+
+// Уничтожение капчи
+function destroyCaptcha() {
+  if (import.meta.client && window.smartCaptcha && captchaWidgetId.value !== null) {
+    try {
+      window.smartCaptcha.destroy(captchaWidgetId.value)
+      captchaWidgetId.value = null
+      captchaToken.value = ''
+    }
+    catch (error) {
+      console.error('Ошибка уничтожения капчи:', error)
+    }
+  }
+}
+
+watch(showOrderForm, async (isOpen) => {
   updateBodyOverflow(isOpen)
   if (isOpen) {
     resetForm()
+    await nextTick()
+    // Даем время на загрузку скрипта, если он еще не загружен
+    setTimeout(() => {
+      initCaptcha()
+    }, 100)
+  }
+  else {
+    destroyCaptcha()
   }
 })
 
 onMounted(() => {
   if (showOrderForm.value) {
     updateBodyOverflow(true)
+    nextTick(() => {
+      setTimeout(() => {
+        initCaptcha()
+      }, 100)
+    })
   }
 })
 
 onUnmounted(() => {
   updateBodyOverflow(false)
+  destroyCaptcha()
 })
 </script>
 
@@ -272,6 +323,14 @@ onUnmounted(() => {
                   :disabled="isLoading"
                 />
               </div>
+              <ClientOnly>
+                <div class="form-group">
+                  <div
+                    id="captcha-container"
+                    style="min-height: 100px"
+                  />
+                </div>
+              </ClientOnly>
               <UiButton
                 class="h-[48px]"
                 type="submit"
