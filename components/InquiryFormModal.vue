@@ -25,6 +25,7 @@ function resetForm() {
   }
   submitStatus.value = 'idle'
   errorMessage.value = ''
+  captchaToken.value = ''
 }
 
 function updateBodyOverflow(isOpen) {
@@ -34,6 +35,12 @@ function updateBodyOverflow(isOpen) {
 }
 
 async function submitInquiry() {
+  if (!captchaToken.value) {
+    errorMessage.value = 'Пожалуйста, подтвердите, что вы не робот'
+    submitStatus.value = 'error'
+    return
+  }
+
   isLoading.value = true
   submitStatus.value = 'idle'
   errorMessage.value = ''
@@ -45,6 +52,7 @@ async function submitInquiry() {
         name: inquiryForm.value.name,
         email: inquiryForm.value.email,
         phone: inquiryForm.value.phone,
+        captchaToken: captchaToken.value,
       },
     })
 
@@ -73,6 +81,7 @@ async function submitInquiry() {
 
 // Callback для SmartCaptcha
 function onCaptchaSuccess(token) {
+  console.log('Captcha success, token:', token)
   captchaToken.value = token
   errorMessage.value = ''
   submitStatus.value = 'idle'
