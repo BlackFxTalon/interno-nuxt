@@ -158,6 +158,14 @@ onUnmounted(() => {
                 :disabled="isLoading"
               />
             </div>
+            <div class="form-group">
+              <div
+                id="captcha-container"
+                style="height: 100px"
+                class="smart-captcha"
+                data-sitekey="ysc1_dYXEkmQFgipR2aU3WcUNt1bfL7V878GM8XHEBm4Xa345c44f"
+              />
+            </div>
             <UiButton
               type="submit"
               class="h-[48px]"
