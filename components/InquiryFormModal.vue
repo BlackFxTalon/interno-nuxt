@@ -2,7 +2,6 @@
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 
 const showModal = defineModel('showModal', { default: false })
-const config = useRuntimeConfig()
 
 const inquiryForm = ref({
   name: '',
@@ -36,25 +35,13 @@ async function submitInquiry() {
   submitStatus.value = 'idle'
   errorMessage.value = ''
 
-  const accessKey = config.public.web3formsAccessKeyOne
-
-  if (!accessKey) {
-    submitStatus.value = 'error'
-    errorMessage.value = 'Не настроен ключ доступа Web3Forms. Пожалуйста, добавьте NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY в переменные окружения.'
-    isLoading.value = false
-    return
-  }
-
   try {
-    const data = await $fetch('https://api.web3forms.com/submit', {
+    const data = await $fetch('/api/send-email', {
       method: 'POST',
       body: {
-        access_key: accessKey,
-        subject: 'Новая заявка с сайта Интерно - Оформить заказ',
         name: inquiryForm.value.name,
         email: inquiryForm.value.email,
         phone: inquiryForm.value.phone,
-        from_name: 'Интерно - Форма обратной связи',
       },
     })
 
