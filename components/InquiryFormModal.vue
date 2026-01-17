@@ -60,7 +60,8 @@ async function submitInquiry() {
   }
   catch (error) {
     submitStatus.value = 'error'
-    errorMessage.value = error?.data?.message || error?.message || 'Произошла ошибка. Попробуйте позже.'
+    errorMessage.value = 'Произошла ошибка. Попробуйте позже.'
+    console.error(error?.data?.message || error?.message)
   }
   finally {
     isLoading.value = false
