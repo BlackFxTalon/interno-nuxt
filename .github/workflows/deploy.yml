@@ -25,9 +25,9 @@ jobs:
         run: |
           npm ci
           npm run generate
-        #env:
+        env:
           # Если нужны переменные для сборки, используйте secrets
-          # PUBLIC_API_BASE: ${{ secrets.PUBLIC_API_BASE }}
+          NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY: ${{ secrets.NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY }}
 
       # 4. Деплой на сервер через SSH
       - name: Deploy to Server

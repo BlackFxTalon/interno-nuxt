@@ -37,12 +37,12 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      // Web3Forms Access Key - подхватывается из переменной окружения NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY
       // eslint-disable-next-line node/prefer-global/process
-      web3formsAccessKeyOne: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY_ONE || '',
-      // eslint-disable-next-line node/prefer-global/process
-      web3formsAccessKeyTwo: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY_TWO || '',
+      smartcaptchaClientKey: process.env.NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY || '',
     },
+    // Серверный ключ (не публичный!)
+    // eslint-disable-next-line node/prefer-global/process
+    smartcaptchaServerKey: process.env.NUXT_PUBLIC_SMARTCAPTCHA_SERVER_KEY || '',
   },
   compatibilityDate: '2025-08-11',
   nitro: {

@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted, ref, watch } from 'vue'
 
 const showModal = defineModel('showModal', { default: false })
+const config = useRuntimeConfig()
 
 const inquiryForm = ref({
   name: '',
@@ -66,6 +67,12 @@ async function submitInquiry() {
   finally {
     isLoading.value = false
   }
+}
+
+// Callback для SmartCaptcha
+function onCaptchaSuccess() {
+  errorMessage.value = ''
+  submitStatus.value = 'idle'
 }
 
 watch(showModal, (isOpen) => {
@@ -163,7 +170,9 @@ onUnmounted(() => {
                 id="captcha-container"
                 style="height: 100px"
                 class="smart-captcha"
-                data-sitekey="ysc1_dYXEkmQFgipR2aU3WcUNt1bfL7V878GM8XHEBm4Xa345c44f"
+                :data-sitekey="config.public.smartcaptchaClientKey"
+                data-hl="ru"
+                :data-callback="onCaptchaSuccess"
               />
             </div>
             <UiButton
