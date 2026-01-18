@@ -179,10 +179,10 @@ useHead({
           Посетите наш выставочный зал или свяжитесь с нами, чтобы узнать больше о нашей продукции и найти свой идеальный матрас.
         </p>
         <div class="flex justify-center gap-4">
-          <button class="bg-white text-primary px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+          <button class="bg-white text-primary rounded-lg p-2 font-semibold hover:bg-gray-100 transition-colors text-sm md:text-lg">
             Перейти в выставочный зал
           </button>
-          <button class="bg-primary border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
+          <button class="bg-primary border-2 border-white p-2 text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors text-sm md:text-lg">
             Связаться с нами
           </button>
         </div>
