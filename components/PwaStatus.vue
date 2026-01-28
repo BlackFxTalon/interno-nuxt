@@ -34,7 +34,7 @@ function dismissInstall() {
   <ClientOnly>
     <div
       v-if="$pwa && $pwa.needRefresh"
-      class="fixed bottom-4 right-4 z-50 max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-lg"
+      class="fixed bottom-0 left-0 md:bottom-4 md:left-4 z-50 w-full md:w-auto md:max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-lg"
     >
       <div class="text-sm font-semibold text-gray-900">
         Доступно обновление
@@ -62,24 +62,24 @@ function dismissInstall() {
 
     <div
       v-if="$pwa && $pwa.showInstallPrompt"
-      class="fixed bottom-4 left-4 z-50 max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-lg"
+      class="fixed bottom-0 left-0 md:bottom-4 md:left-4 z-50 m-[5px] md:m-0 w-[97%] sm:w-[98%] md:w-auto md:max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-lg"
     >
-      <div class="text-sm font-semibold text-gray-900">
+      <div class="text-sm md:text-base font-semibold text-gray-900">
         Установить приложение?
       </div>
-      <div class="mt-1 text-xs text-gray-600">
+      <div class="mt-1 text-xs md:text-sm text-gray-600">
         Будет доступно офлайн и запускаться как отдельное приложение.
       </div>
       <div class="mt-3 flex gap-2">
         <button
-          class="rounded-md bg-primary px-3 py-1.5 text-xs font-semibold text-white"
+          class="rounded-md bg-primary px-3 py-1.5 text-xs md:text-sm font-semibold text-white"
           type="button"
           @click="installApp"
         >
           Установить
         </button>
         <button
-          class="rounded-md border border-gray-200 px-3 py-1.5 text-xs font-semibold text-gray-700"
+          class="rounded-md border border-gray-200 px-3 py-1.5 text-xs md:text-sm font-semibold text-gray-700"
           type="button"
           @click="dismissInstall"
         >
