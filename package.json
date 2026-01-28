@@ -13,7 +13,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 logo.svg"
   },
   "dependencies": {
     "@dargmuesli/nuxt-cookie-control": "^9.1.12",

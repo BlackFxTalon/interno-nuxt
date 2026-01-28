@@ -22,6 +22,7 @@ useHead({
     <ClientOnly>
       <CookieControl locale="ru" />
     </ClientOnly>
+    <NuxtPwaAssets />
   </Body>
 </template>
 
