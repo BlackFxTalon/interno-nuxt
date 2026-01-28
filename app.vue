@@ -17,6 +17,7 @@ useHead({
 <template>
   <Body class="font-Inter">
     <Header />
+    <PwaStatus />
     <NuxtPage />
     <Footer />
     <ClientOnly>
