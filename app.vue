@@ -26,8 +26,10 @@ useHead({
     <NuxtPwaAssets />
 
     <!-- Глобальные компоненты -->
-    <SuccessModal />
-    <Loader />
+    <LazySuccessModal />
+    <Teleport to="body">
+      <LazyLoader />
+    </Teleport>
   </Body>
 </template>
 
