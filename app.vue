@@ -27,7 +27,7 @@ useHead({
 
     <!-- Глобальные компоненты -->
     <LazySuccessModal />
-    <Teleport to="body">
+    <Teleport to="#teleports">
       <LazyLoader />
     </Teleport>
   </Body>
