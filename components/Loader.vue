@@ -21,7 +21,7 @@ watch(isLoading, (newVal) => {
 
 <style lang="scss" scoped>
 .loader {
-    @apply fixed flex justify-center items-center inset-0 w-full h-full z-10 bg-black/60;
+    @apply fixed flex justify-center items-center inset-0 w-full h-full z-[70] bg-black/60;
 }
 
 .pulse {
