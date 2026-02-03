@@ -14,7 +14,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['handleClose', 'handleSubmit'])
+const emit = defineEmits(['handleClose'])
 
 const showModal = defineModel('showModal', { type: Boolean })
 
@@ -56,6 +56,7 @@ async function handleSubmit() {
   const success = await submitForm(findMatrassForm.value)
   if (success) {
     resetForm()
+    handleClose()
   }
 }
 </script>

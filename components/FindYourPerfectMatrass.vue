@@ -50,22 +50,18 @@ const recommendedMattressPrice = computed(() => {
   return recommendedMattress.value.prices[selections.value.size]
 })
 
-function openMatrassForm() {
+function openMatrassModal() {
   showModal.value = true
 }
 
-function resetForm() {
+function resetSteps() {
   currentStep.value = 0
   selections.value = {}
 }
 
 function closeMatrassForm() {
   showModal.value = false
-  resetForm()
-}
-
-function submitForm() {
-  closeMatrassForm()
+  resetSteps()
 }
 </script>
 
@@ -161,7 +157,7 @@ function submitForm() {
                   <UiButton
                     type="button"
                     class="h-[48px]"
-                    @click="openMatrassForm"
+                    @click="openMatrassModal"
                   >
                     Оформить заказ
                   </UiButton>
@@ -180,7 +176,6 @@ function submitForm() {
     :matrass-form-image="recommendedMattressImage"
     :matrass-form-name="recommendedMattressName"
     @handle-close="closeMatrassForm"
-    @handle-submit="submitForm"
   />
 </template>
 
