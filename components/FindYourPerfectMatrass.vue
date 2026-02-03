@@ -174,7 +174,7 @@ function submitForm() {
     </div>
   </section>
 
-  <FindYourPerfectMatrassForm
+  <FindYourPerfectMatrassModal
     v-model:show-modal="showModal"
     :matrass-form-price="recommendedMattressPrice"
     :matrass-form-image="recommendedMattressImage"
