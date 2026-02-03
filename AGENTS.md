@@ -1,34 +1,53 @@
-# AGENTS.md — interno-nuxt
+# Repository Guidelines
 
-## Проект
-- Nuxt 4 (SPA), `ssr: false`; статическая генерация через Nitro (`preset: "static"`).
-- Деплой — статик (`npm run generate`), output: `.output/public`.
-- Каталог товаров: данные в `data/*.json`, страницы `/product/:id` генерируются из этих данных.
+## Структура проекта и модули
+- Nuxt 4 SPA с `ssr: false`, статическая генерация через Nitro, артефакт деплоя: `.output/public`.
+- Страницы — в `pages/`, карточка товара: `pages/product/[id].vue`.
+- UI-компоненты — в `components/`, лейауты — в `layouts/`, плагины — в `plugins/`.
+- Данные каталога — в `data/*.json`, агрегатор — `server/api/products.get.ts`.
+- Статика и PWA-ассеты — в `public/`, генерация иконок из `logo.svg`.
+- Конфиг Netlify — `netlify.toml`, prerender маршрутов настраивается в `nuxt.config.ts`.
 
-## Быстрый старт
-- Требуется Node `>=20.19.0` (см. `.nvmrc`, `.node-version`).
-- Команды: `npm install`, `npm run dev`, `npm run generate`, `npm run build`, `npm run preview`, `npm run lint`.
+## Команды сборки, теста и разработки
+- `npm install` — установка зависимостей (Node >= 20.19.0, npm >= 10).
+- `npm run dev` — локальная разработка.
+- `npm run build` — сборка приложения.
+- `npm run generate` — статическая генерация в `.output/public`.
+- `npm run preview` — локальный предпросмотр сборки.
+- `npm run lint` / `npm run lint:fix` — проверка/автоисправление ESLint.
+- `npm run generate-pwa-assets` — пересоздание PWA иконок из `logo.svg`.
 
-## Структура и потоки данных
-- `pages/` — основные страницы; карточка товара: `pages/product/[id].vue`.
-- `server/api/products.get.ts` — агрегирует данные из `data/*.json`.
-- `data/` — источники: `matrasses.json`, `beds.json`, `pillows.json`, `toppers.json`.
-- `nuxt.config.ts` — hook `nitro:config` добавляет routes `/product/:id` для пререндеринга.
-- Для кроватей изображения формируются по шаблону:
-  `https://storage.yandexcloud.net/interno-images/optimized/public/images/beds/<bedId>/<bedId>-<colorCode>-<view>.webp`
-  где `<bedId>` — kebab-case, `<view>`: `aside|lifting|front`, `<colorCode>` = hex без `#`.
+## Стиль кода и именование
+- ESLint: `@antfu/eslint-config` + Nuxt flat config, отступ — 2 пробела.
+- Vue SFC по стандартам Nuxt; для изображений предпочтителен `NuxtImg`.
+- Идентификаторы товаров в `data/*.json` должны совпадать с роутами и именами ассетов.
+- Формат изображений кроватей:  
+  `.../beds/<bedId>/<bedId>-<colorCode>-<view>.webp`,  
+  где `<bedId>` — kebab-case, `<view>` — `aside|lifting|front`.
 
-## Формы и капча
-- Модалки: `components/InquiryFormModal.vue`, `components/OrderModal.vue`.
-- Отправка в `/api/send-email` — эндпоинт в репо отсутствует; перед доработками проверь/добавь серверный хендлер.
-- SmartCaptcha: скрипт подключён в `nuxt.config.ts`, ключ берётся из `NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY` (значение не коммитить).
+## Тестирование
+- Тесты сейчас не настроены.
+- При добавлении тестов: задокументируйте фреймворк, добавьте скрипт в `package.json`, размещайте файлы в `tests/` или `__tests__/`.
 
-## Изображения и PWA
-- `@nuxt/image` используется для оптимизации; предпочтительно `NuxtImg` + `public/images`.
-- PWA/Workbox настроен в `nuxt.config.ts`, ассеты генерируются из `logo.svg`.
+## Коммиты и Pull Request
+- Сообщения коммитов короткие, повелительное наклонение; допустимы RU/EN (например, “Add SmartCaptcha configuration”).
+- В PR укажите описание, ссылку на задачу (если есть), скриншоты для UI-правок.
+- Отдельно отмечайте изменения в `data/*.json` и новые переменные окружения.
 
-## Деплой
-- Netlify: `netlify.toml` запускает `npm run generate`, публикует `.output/public`, есть SPA redirect на `/index.html`.
+## Безопасность, конфиг и MCP/Codex
+- Секреты не коммитить. Для SmartCaptcha используется `NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY`.
+- Эндпоинт `/api/send-email` отсутствует — перед интеграцией форм добавьте/проверьте серверный хендлер.
+- MCP для Codex настраивается в `.codex/config.toml` (проектно). Для локальных stdio-серверов задайте `FIRECRAWL_API_KEY` и `CONTEXT7_API_KEY` в окружении запускающего процесса.
 
-## Известные несоответствия
-- В документации есть ссылки на `utils/image-optimizer.js`, но файла нет — не полагайся на него без проверки.
+## Примеры `.codex/config.toml`
+```toml
+[mcp_servers.firecrawl]
+command = "npx"
+args = ["-y", "firecrawl-mcp"]
+env_vars = ["FIRECRAWL_API_KEY"]
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+env_vars = ["CONTEXT7_API_KEY"]
+```

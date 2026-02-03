@@ -2,27 +2,7 @@
 import { CheckCircle } from 'lucide-vue-next'
 import { onMounted, onUnmounted, watch } from 'vue'
 
-const props = defineProps({
-  show: {
-    type: Boolean,
-    default: false,
-  },
-  title: {
-    type: String,
-    default: 'Успешно!',
-  },
-  message: {
-    type: String,
-    default: 'Операция выполнена успешно.',
-  },
-})
-
-const emit = defineEmits(['update:show', 'close'])
-
-function closeModal() {
-  emit('update:show', false)
-  emit('close')
-}
+const { show, title, message, closeSuccessModal } = useSuccessModal()
 
 function updateBodyOverflow(isOpen) {
   if (import.meta.client && document?.body) {
@@ -30,12 +10,12 @@ function updateBodyOverflow(isOpen) {
   }
 }
 
-watch(() => props.show, (isOpen) => {
+watch(show, (isOpen) => {
   updateBodyOverflow(isOpen)
 })
 
 onMounted(() => {
-  if (props.show) {
+  if (show.value) {
     updateBodyOverflow(true)
   }
 })
@@ -50,7 +30,7 @@ onUnmounted(() => {
     <div
       v-if="show"
       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60]"
-      @click.self="closeModal"
+      @click.self="closeSuccessModal"
     >
       <Transition name="modal">
         <div
@@ -72,7 +52,7 @@ onUnmounted(() => {
           </p>
           <UiButton
             class="h-[48px]"
-            @click="closeModal"
+            @click="closeSuccessModal"
           >
             Закрыть
           </UiButton>

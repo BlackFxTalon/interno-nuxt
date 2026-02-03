@@ -1,6 +1,5 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
-import Loader from './Loader.vue'
 
 const props = defineProps({
   title: {
@@ -13,7 +12,7 @@ const props = defineProps({
   },
 })
 
-const isLoading = ref(false)
+const { withLoader } = useLoader()
 
 const itemsPerPage = 6
 const currentPage = ref(1)
@@ -23,79 +22,66 @@ const items = ref(props.itemsData)
 const firmnessFilter = ref('')
 
 async function applyFirmnessFilter() {
-  try {
-    isLoading.value = true
-    await new Promise(resolve => setTimeout(resolve, 1000))
+  await withLoader(async () => {
+    try {
+      const itemsArray = Array.isArray(props.itemsData)
+        ? props.itemsData
+        : Object.values(props.itemsData)
 
-    const itemsArray = Array.isArray(props.itemsData)
-      ? props.itemsData
-      : Object.values(props.itemsData)
-
-    if (!firmnessFilter.value || firmnessFilter.value === 'Все') {
-      items.value = itemsArray
-      return
+      if (!firmnessFilter.value || firmnessFilter.value === 'Все') {
+        items.value = itemsArray
+        return
+      }
+      else {
+        items.value = itemsArray.filter((item) => {
+          if (!item.firmness)
+            return false
+          return item.firmness.toLowerCase() === firmnessFilter.value.toLowerCase()
+        })
+      }
+      currentPage.value = 1
     }
-    else {
-      items.value = itemsArray.filter((item) => {
-        if (!item.firmness)
-          return false
-        return item.firmness.toLowerCase() === firmnessFilter.value.toLowerCase()
-      })
+    catch (error) {
+      console.error('Ошибка при поиске:', error)
+      items.value = Array.isArray(props.itemsData)
+        ? props.itemsData
+        : Object.values(props.itemsData)
     }
-    currentPage.value = 1
-  }
-  catch (error) {
-    console.error('Ошибка при поиске:', error)
-    items.value = Array.isArray(props.itemsData)
-      ? props.itemsData
-      : Object.values(props.itemsData)
-  }
-  finally {
-    isLoading.value = false
-  }
+  }, 1000)
 }
 
 watch(firmnessFilter, () => applyFirmnessFilter())
 
 async function handleSearchQuery(value) {
-  try {
-    isLoading.value = true
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    const query = value?.toLowerCase().trim()
-    // console.log('Search query:', query);
-    // console.log('Original items:', props.itemsData);
+  await withLoader(async () => {
+    try {
+      const query = value?.toLowerCase().trim()
 
-    // Проверяем, что props.itemsData это массив
-    const itemsArray = Array.isArray(props.itemsData)
-      ? props.itemsData
-      : Object.values(props.itemsData)
+      const itemsArray = Array.isArray(props.itemsData)
+        ? props.itemsData
+        : Object.values(props.itemsData)
 
-    // console.log('Items array:', itemsArray);
+      if (!query) {
+        items.value = itemsArray
+      }
+      else {
+        const filteredItems = itemsArray.filter((item) => {
+          return item.name.toLowerCase().includes(query)
+        })
 
-    if (!query) {
-      items.value = itemsArray
+        items.value = filteredItems
+      }
+
+      currentPage.value = 1
     }
-    else {
-      const filteredItems = itemsArray.filter((item) => {
-        return item.name.toLowerCase().includes(query)
-      })
-
-      // console.log('Filtered items:', filteredItems);
-      items.value = filteredItems
+    catch (error) {
+      console.error('Ошибка при поиске:', error)
+      const defaultItems = Array.isArray(props.itemsData)
+        ? props.itemsData
+        : Object.values(props.itemsData)
+      items.value = defaultItems
     }
-
-    currentPage.value = 1
-  }
-  catch (error) {
-    console.error('Ошибка при поиске:', error)
-    const defaultItems = Array.isArray(props.itemsData)
-      ? props.itemsData
-      : Object.values(props.itemsData)
-    items.value = defaultItems
-  }
-  finally {
-    isLoading.value = false
-  }
+  }, 1000)
 }
 
 const sortOrder = ref('')
@@ -105,7 +91,7 @@ function getMinPrice(item) {
 }
 
 // Функция сортировки с обработкой ошибок
-async function sortItems(items, order) {
+function sortItems(items, order) {
   try {
     if (!order)
       return items
@@ -130,23 +116,17 @@ async function sortItems(items, order) {
     console.error(error)
     return items
   }
-  finally {
-    isLoading.value = true
-  }
 }
 
 watch(sortOrder, async (newOrder) => {
-  try {
-    isLoading.value = true
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    items.value = await sortItems(items.value, newOrder)
-  }
-  catch (error) {
-    throw new Error(error)
-  }
-  finally {
-    isLoading.value = false
-  }
+  await withLoader(async () => {
+    try {
+      items.value = sortItems(items.value, newOrder)
+    }
+    catch (error) {
+      console.error('Ошибка сортировки:', error)
+    }
+  }, 1000)
 })
 
 const displayedItems = computed(() => {
@@ -158,17 +138,14 @@ const hasMoreItems = computed(() => {
 })
 
 async function loadMore() {
-  try {
-    isLoading.value = true
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    currentPage.value++
-  }
-  catch (error) {
-    throw new Error(error)
-  }
-  finally {
-    isLoading.value = false
-  }
+  await withLoader(async () => {
+    try {
+      currentPage.value++
+    }
+    catch (error) {
+      console.error('Ошибка загрузки:', error)
+    }
+  }, 1000)
 }
 </script>
 
@@ -249,12 +226,6 @@ async function loadMore() {
         </UiButton>
       </div>
     </div>
-
-    <Teleport to="#teleports">
-      <Loader
-        v-model="isLoading"
-      />
-    </Teleport>
   </section>
 </template>
 

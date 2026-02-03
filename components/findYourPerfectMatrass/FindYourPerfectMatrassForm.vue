@@ -24,33 +24,40 @@ const findMatrassForm = ref({
   phone: '',
 })
 
+const {
+  isLoading,
+  submitStatus,
+  errorMessage,
+  resetFormState,
+  submitForm,
+} = useFormSubmit({
+  showModal,
+  captchaContainerId: 'captcha-container-find-matrass-form',
+  successModal: {
+    title: 'Спасибо!',
+    message: 'Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.',
+  },
+})
+
+function resetForm() {
+  findMatrassForm.value = {
+    name: '',
+    email: '',
+    phone: '',
+  }
+  resetFormState()
+}
+
 function handleClose() {
   emit('handleClose')
 }
 
-function handleSubmit() {
-  emit('handleSubmit')
-  console.log('Заявка успешно отправлена', `Имя: ${findMatrassForm.value.name}, Email: ${findMatrassForm.value.email}, Телефон: ${findMatrassForm.value.phone}`)
+async function handleSubmit() {
+  const success = await submitForm(findMatrassForm.value)
+  if (success) {
+    resetForm()
+  }
 }
-
-watch(showModal, (isOpen) => {
-  if (isOpen) {
-    document.body.style.overflow = 'hidden'
-    findMatrassForm.value = {
-      name: '',
-      email: '',
-      phone: '',
-    }
-  }
-  else {
-    document.body.style.overflow = ''
-    findMatrassForm.value = {
-      name: '',
-      email: '',
-      phone: '',
-    }
-  }
-})
 </script>
 
 <template>
@@ -59,7 +66,7 @@ watch(showModal, (isOpen) => {
       <Transition name="modal">
         <div
           v-if="showModal"
-          class="grid grid-cols-1 md:grid-cols-2 auto-rows-max gap-x-[1rem] bg-white rounded-lg p-8 max-w-[49rem] w-full mx-4 max-h-[550px] overflow-y-scroll overflow-x-hidden [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
+          class="grid grid-cols-1 md:grid-cols-2 auto-rows-max gap-x-[1rem] bg-white rounded-lg p-8 max-w-[49rem] w-full mx-4 max-h-full lg:max-h-[550px] overflow-y-scroll overflow-x-hidden [&::-webkit-scrollbar]:hidden [scrollbar-width:none]"
         >
           <div class="flex justify-between items-center mb-4 col-[span_2]">
             <p class="text-base sm:text-xl font-semibold text-center">
@@ -91,7 +98,22 @@ watch(showModal, (isOpen) => {
             >
               Для более подробной информации заполните форму и наши специалисты свяжутся с вами
             </p> -->
-            <form action="#" method="post" class="space-y-4 mt-4 md:mt-0" @submit.prevent="handleSubmit">
+            <form
+              action="#"
+              method="post"
+              class="space-y-4 mt-4 md:mt-0"
+              @submit.prevent="handleSubmit"
+            >
+              <!-- Сообщение об ошибке -->
+              <div
+                v-if="submitStatus === 'error'"
+                class="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800"
+              >
+                <p class="font-medium">
+                  {{ errorMessage || 'Произошла ошибка. Попробуйте позже.' }}
+                </p>
+              </div>
+
               <div class="form-group">
                 <UiLabel for="name">
                   Имя
@@ -101,6 +123,7 @@ watch(showModal, (isOpen) => {
                   v-model="findMatrassForm.name"
                   placeholder="Введите ваше имя"
                   required
+                  :disabled="isLoading"
                 />
               </div>
               <div class="form-group">
@@ -113,6 +136,7 @@ watch(showModal, (isOpen) => {
                   placeholder="Введите вашу почту"
                   type="email"
                   required
+                  :disabled="isLoading"
                 />
               </div>
               <div class="form-group">
@@ -125,11 +149,21 @@ watch(showModal, (isOpen) => {
                   v-maska="'+7(9##)###-##-##'"
                   placeholder="+7(9XX)XXX-XX-XX"
                   required
+                  :disabled="isLoading"
                 />
               </div>
+              <ClientOnly>
+                <div class="form-group">
+                  <div
+                    id="captcha-container-find-matrass-form"
+                    style="min-height: 100px"
+                  />
+                </div>
+              </ClientOnly>
               <UiButton
                 class="h-[48px]"
                 type="submit"
+                :disabled="isLoading"
               >
                 Отправить
               </UiButton>

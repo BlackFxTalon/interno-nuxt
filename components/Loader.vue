@@ -1,12 +1,11 @@
 <script setup>
-const isLoading = defineModel()
+import { watch } from 'vue'
+
+const { isLoading } = useLoader()
 
 watch(isLoading, (newVal) => {
-  if (newVal === true) {
-    document.body.style.overflow = 'hidden'
-  }
-  else {
-    document.body.style.overflow = ''
+  if (import.meta.client && document?.body) {
+    document.body.style.overflow = newVal ? 'hidden' : ''
   }
 })
 </script>

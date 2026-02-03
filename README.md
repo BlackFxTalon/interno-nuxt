@@ -21,6 +21,39 @@ This project requires **Node.js version 20.19.0 or higher** due to dependencies 
 - Set Node.js version to 20.19.0+ in your deployment configuration
 - Use the `.nvmrc` or `.node-version` files if supported
 
+## MCP (Codex) Checks
+
+Quick smoke checks to confirm MCP is configured for this repo.
+
+### 1) Config file is present
+
+PowerShell:
+```powershell
+Test-Path .codex/config.toml
+Get-Content .codex/config.toml
+```
+
+Bash/Zsh:
+```bash
+test -f .codex/config.toml && cat .codex/config.toml
+```
+
+### 2) Required env vars are set (non-empty)
+
+PowerShell:
+```powershell
+Write-Output $env:FIRECRAWL_API_KEY
+Write-Output $env:CONTEXT7_API_KEY
+```
+
+Bash/Zsh:
+```bash
+echo "$FIRECRAWL_API_KEY"
+echo "$CONTEXT7_API_KEY"
+```
+
+If any output is empty, set the variable in your shell before starting Codex.
+
 ## Roadmap
 
 <ul>

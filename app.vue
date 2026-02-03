@@ -24,6 +24,10 @@ useHead({
       <CookieControl locale="ru" />
     </ClientOnly>
     <NuxtPwaAssets />
+
+    <!-- Глобальные компоненты -->
+    <SuccessModal />
+    <Loader />
   </Body>
 </template>
 
@@ -92,7 +96,7 @@ html, body {
 
 /* Form Styles */
 .form-group {
-  @apply relative;
+  position: relative;
 }
 
 /* Custom Scrollbar */

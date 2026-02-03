@@ -1,8 +1,7 @@
 <script setup>
-import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { ref } from 'vue'
 
 const showModal = defineModel('showModal', { default: false })
-const config = useRuntimeConfig()
 
 const inquiryForm = ref({
   name: '',
@@ -10,12 +9,20 @@ const inquiryForm = ref({
   phone: '',
 })
 
-const isLoading = ref(false)
-const submitStatus = ref('idle')
-const errorMessage = ref('')
-const showSuccessModal = ref(false)
-const captchaToken = ref('')
-const captchaWidgetId = ref(null)
+const {
+  isLoading,
+  submitStatus,
+  errorMessage,
+  resetFormState,
+  submitForm,
+} = useFormSubmit({
+  showModal,
+  captchaContainerId: 'captcha-container',
+  successModal: {
+    title: 'Спасибо!',
+    message: 'Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.',
+  },
+})
 
 function resetForm() {
   inquiryForm.value = {
@@ -23,133 +30,15 @@ function resetForm() {
     email: '',
     phone: '',
   }
-  submitStatus.value = 'idle'
-  errorMessage.value = ''
-  captchaToken.value = ''
-}
-
-function updateBodyOverflow(isOpen) {
-  if (import.meta.client && document?.body) {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
-  }
+  resetFormState()
 }
 
 async function submitInquiry() {
-  if (!captchaToken.value) {
-    errorMessage.value = 'Пожалуйста, подтвердите, что вы не робот'
-    submitStatus.value = 'error'
-    return
-  }
-
-  isLoading.value = true
-  submitStatus.value = 'idle'
-  errorMessage.value = ''
-
-  try {
-    const data = await $fetch('/api/send-email', {
-      method: 'POST',
-      body: {
-        name: inquiryForm.value.name,
-        email: inquiryForm.value.email,
-        phone: inquiryForm.value.phone,
-        captchaToken: captchaToken.value,
-      },
-    })
-
-    if (data.success) {
-      resetForm()
-      // Сначала закрываем форму, затем открываем модальное окно успеха
-      showModal.value = false
-      // Небольшая задержка для плавного перехода
-      setTimeout(() => {
-        showSuccessModal.value = true
-      }, 100)
-    }
-    else {
-      throw new Error(data.message || 'Ошибка при отправке формы')
-    }
-  }
-  catch (error) {
-    submitStatus.value = 'error'
-    errorMessage.value = 'Произошла ошибка. Попробуйте позже.'
-    console.error(error?.data?.message || error?.message)
-  }
-  finally {
-    isLoading.value = false
-  }
-}
-
-// Callback для SmartCaptcha
-function onCaptchaSuccess(token) {
-  console.log('Captcha success, token:', token)
-  captchaToken.value = token
-  errorMessage.value = ''
-  submitStatus.value = 'idle'
-}
-
-// Инициализация капчи
-function initCaptcha() {
-  if (import.meta.client && window.smartCaptcha) {
-    const container = document.getElementById('captcha-container')
-    if (container && !captchaWidgetId.value) {
-      try {
-        captchaWidgetId.value = window.smartCaptcha.render(container, {
-          sitekey: config.public.smartcaptchaClientKey,
-          hl: 'ru',
-          callback: onCaptchaSuccess,
-        })
-      }
-      catch (error) {
-        console.error('Ошибка инициализации капчи:', error)
-      }
-    }
-  }
-}
-
-// Уничтожение капчи
-function destroyCaptcha() {
-  if (import.meta.client && window.smartCaptcha && captchaWidgetId.value !== null) {
-    try {
-      window.smartCaptcha.destroy(captchaWidgetId.value)
-      captchaWidgetId.value = null
-      captchaToken.value = ''
-    }
-    catch (error) {
-      console.error('Ошибка уничтожения капчи:', error)
-    }
-  }
-}
-
-watch(showModal, async (isOpen) => {
-  updateBodyOverflow(isOpen)
-  if (isOpen) {
+  const success = await submitForm(inquiryForm.value)
+  if (success) {
     resetForm()
-    await nextTick()
-    // Даем время на загрузку скрипта, если он еще не загружен
-    setTimeout(() => {
-      initCaptcha()
-    }, 100)
   }
-  else {
-    destroyCaptcha()
-  }
-})
-
-onMounted(() => {
-  if (showModal.value) {
-    updateBodyOverflow(true)
-    nextTick(() => {
-      setTimeout(() => {
-        initCaptcha()
-      }, 100)
-    })
-  }
-})
-
-onUnmounted(() => {
-  updateBodyOverflow(false)
-  destroyCaptcha()
-})
+}
 </script>
 
 <template>
@@ -245,13 +134,6 @@ onUnmounted(() => {
       </Transition>
     </div>
   </Transition>
-
-  <!-- Модальное окно успеха -->
-  <LazySuccessModal
-    v-model:show="showSuccessModal"
-    title="Спасибо!"
-    message="Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время."
-  />
 </template>
 
 <style lang="scss" scoped>
