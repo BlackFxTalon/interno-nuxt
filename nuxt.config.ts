@@ -36,7 +36,6 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@dargmuesli/nuxt-cookie-control',
   ],
-  ssr: false,
   devtools: { enabled: false },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
@@ -80,7 +79,7 @@ export default defineNuxtConfig({
         '@splidejs/splide',
         'maska/vue',
         'workbox-window',
-        'lucide-vue-next'
+        'lucide-vue-next',
       ],
     },
   },
