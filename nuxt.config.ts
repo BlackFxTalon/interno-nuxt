@@ -1,6 +1,30 @@
+/// <reference types="node" />
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineNuxtConfig } from 'nuxt/config'
+
+interface ProductRouteSource {
+  id: string
+}
+
+function readProductRoutes(fileName: string, key: string) {
+  const dataDir = resolve(dirname(fileURLToPath(import.meta.url)), 'data')
+  const data = JSON.parse(readFileSync(resolve(dataDir, fileName), 'utf-8')) as Record<string, ProductRouteSource[] | undefined>
+
+  return (data[key] || []).map(product => `/product/${product.id}`)
+}
+
+const productRoutes = [
+  ...readProductRoutes('matrasses.json', 'matrasses'),
+  ...readProductRoutes('beds.json', 'beds'),
+  ...readProductRoutes('childrenBeds.json', 'childrenBeds'),
+  ...readProductRoutes('pillows.json', 'pillows'),
+  ...readProductRoutes('toppers.json', 'toppers'),
+]
+
+console.log(`[Prerender] Will generate ${productRoutes.length} product pages`)
 
 export default defineNuxtConfig({
   modules: [
@@ -47,6 +71,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       failOnError: true,
+      routes: productRoutes,
     },
   },
   vite: {
@@ -57,38 +82,6 @@ export default defineNuxtConfig({
         'workbox-window',
         'lucide-vue-next'
       ],
-    },
-  },
-  // Хук для генерации всех product страниц и оптимизации изображений
-  hooks: {
-    'nitro:config': async function (nitroConfig) {
-      if (nitroConfig.prerender) {
-        // Получаем все ID продуктов из ваших JSON файлов
-        const dataDir = resolve(__dirname, 'data')
-
-        const matrasses = JSON.parse(readFileSync(resolve(dataDir, 'matrasses.json'), 'utf-8')).matrasses || []
-        const beds = JSON.parse(readFileSync(resolve(dataDir, 'beds.json'), 'utf-8')).beds || []
-        const childrenBeds = JSON.parse(readFileSync(resolve(dataDir, 'childrenBeds.json'), 'utf-8')).childrenBeds || []
-        const pillows = JSON.parse(readFileSync(resolve(dataDir, 'pillows.json'), 'utf-8')).pillows || []
-        const toppers = JSON.parse(readFileSync(resolve(dataDir, 'toppers.json'), 'utf-8')).toppers || []
-
-        // Формируем список маршрутов
-        const productRoutes = [
-          ...matrasses.map((p: { id: string }) => `/product/${p.id}`),
-          ...beds.map((p: { id: string }) => `/product/${p.id}`),
-          ...childrenBeds.map((p: { id: string }) => `/product/${p.id}`),
-          ...pillows.map((p: { id: string }) => `/product/${p.id}`),
-          ...toppers.map((p: { id: string }) => `/product/${p.id}`),
-        ]
-
-        // Добавляем маршруты в prerender
-        if (!nitroConfig.prerender.routes) {
-          nitroConfig.prerender.routes = []
-        }
-        nitroConfig.prerender.routes.push(...productRoutes)
-
-        console.log(`[Prerender] Will generate ${productRoutes.length} product pages`)
-      }
     },
   },
   cookieControl: {
