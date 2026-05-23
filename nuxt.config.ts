@@ -49,6 +49,16 @@ export default defineNuxtConfig({
       failOnError: true,
     },
   },
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@splidejs/splide',
+        'maska/vue',
+        'workbox-window',
+        'lucide-vue-next'
+      ],
+    },
+  },
   // Хук для генерации всех product страниц и оптимизации изображений
   hooks: {
     'nitro:config': async function (nitroConfig) {
@@ -58,6 +68,7 @@ export default defineNuxtConfig({
 
         const matrasses = JSON.parse(readFileSync(resolve(dataDir, 'matrasses.json'), 'utf-8')).matrasses || []
         const beds = JSON.parse(readFileSync(resolve(dataDir, 'beds.json'), 'utf-8')).beds || []
+        const childrenBeds = JSON.parse(readFileSync(resolve(dataDir, 'childrenBeds.json'), 'utf-8')).childrenBeds || []
         const pillows = JSON.parse(readFileSync(resolve(dataDir, 'pillows.json'), 'utf-8')).pillows || []
         const toppers = JSON.parse(readFileSync(resolve(dataDir, 'toppers.json'), 'utf-8')).toppers || []
 
@@ -65,6 +76,7 @@ export default defineNuxtConfig({
         const productRoutes = [
           ...matrasses.map((p: { id: string }) => `/product/${p.id}`),
           ...beds.map((p: { id: string }) => `/product/${p.id}`),
+          ...childrenBeds.map((p: { id: string }) => `/product/${p.id}`),
           ...pillows.map((p: { id: string }) => `/product/${p.id}`),
           ...toppers.map((p: { id: string }) => `/product/${p.id}`),
         ]
@@ -141,7 +153,7 @@ export default defineNuxtConfig({
       maximumFileSizeToCacheInBytes: 10485760, // 10 MB limit to cache large images
       runtimeCaching: [
         {
-          urlPattern: ({ url }) => url.origin === globalThis.location.origin && url.pathname.startsWith('/images/'),
+          urlPattern: /^\/images\/(?!optimized\/)/,
           handler: 'CacheFirst',
           options: {
             cacheName: 'interno-images',
@@ -155,7 +167,7 @@ export default defineNuxtConfig({
           },
         },
         {
-          urlPattern: ({ url }) => url.origin === globalThis.location.origin && url.pathname.startsWith('/images/optimized/'),
+          urlPattern: /^\/images\/optimized\//,
           handler: 'CacheFirst',
           options: {
             cacheName: 'interno-optimized-images',
@@ -169,7 +181,7 @@ export default defineNuxtConfig({
           },
         },
         {
-          urlPattern: ({ url }) => ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'].includes(url.origin),
+          urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\//,
           handler: 'CacheFirst',
           options: {
             cacheName: 'google-fonts',
@@ -183,7 +195,7 @@ export default defineNuxtConfig({
           },
         },
         {
-          urlPattern: ({ url }) => url.origin === globalThis.location.origin && url.pathname.startsWith('/api/'),
+          urlPattern: /^\/api\//,
           handler: 'NetworkFirst',
           options: {
             cacheName: 'interno-api',

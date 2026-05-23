@@ -22,7 +22,7 @@ const headerMenuLinks = [
   { to: '/#toppers', text: 'Топперы' },
   { to: '/#pillows', text: 'Подушки' },
   { to: '/#beds', text: 'Кровати' },
-  { to: '/#children-beds', text: 'Детские кровати' },
+  { to: '/#childrenBeds', text: 'Детские кровати' },
 ]
 </script>
 

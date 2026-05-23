@@ -27,7 +27,7 @@
     "floating-vue": "^5.2.2",
     "lucide-vue-next": "^0.553.0",
     "maska": "^3.2.0",
-    "nuxt": "^4.2.2",
+    "nuxt": "^4.4.6",
     "vue": "latest",
     "vue-image-zoomer": "^2.4.4",
     "vue-router": "latest"

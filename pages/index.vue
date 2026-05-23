@@ -9,9 +9,10 @@ useHead({
 })
 
 const { data: productData } = await useAsyncData('products', async () => {
-  const [matrasses, beds, pillows, toppers] = await Promise.all([
+  const [matrasses, beds, childrenBeds, pillows, toppers] = await Promise.all([
     import('~/data/matrasses.json'),
     import('~/data/beds.json'),
+    import('~/data/childrenBeds.json'),
     import('~/data/pillows.json'),
     import('~/data/toppers.json'),
   ])
@@ -19,6 +20,7 @@ const { data: productData } = await useAsyncData('products', async () => {
   return {
     matrasses: matrasses.default.matrasses || [],
     beds: beds.default.beds || [],
+    childrenBeds: childrenBeds.default.childrenBeds || [],
     pillows: pillows.default.pillows || [],
     toppers: toppers.default.toppers || [],
   }
@@ -28,6 +30,40 @@ const matrasses = computed(() => productData.value?.matrasses ?? [])
 const toppers = computed(() => productData.value?.toppers ?? [])
 const pillows = computed(() => productData.value?.pillows ?? [])
 const beds = computed(() => productData.value?.beds ?? [])
+const childrenBeds = computed(() => productData.value?.childrenBeds ?? [])
+
+const productListSections = [
+  {
+    id: 'mattresses',
+    class: 'bg-gray-50',
+    title: 'Матрасы',
+    itemsData: matrasses,
+  },
+  {
+    id: 'toppers',
+    class: 'bg-white',
+    title: 'Топперы',
+    itemsData: toppers,
+  },
+  {
+    id: 'pillows',
+    class: 'bg-white',
+    title: 'Подушки',
+    itemsData: pillows,
+  },
+  {
+    id: 'beds',
+    class: 'bg-gray-50',
+    title: 'Кровати',
+    itemsData: beds,
+  },
+  {
+    id: 'childrenBeds',
+    class: 'bg-white',
+    title: 'Детские кровати',
+    itemsData: childrenBeds,
+  },
+]
 </script>
 
 <template>
@@ -37,43 +73,16 @@ const beds = computed(() => productData.value?.beds ?? [])
     <FindYourPerfectMatrass />
 
     <ProductsListSection
-      id="mattresses"
-      class="bg-gray-50"
-      title="Матрасы"
-      :items-data="matrasses"
-    />
-
-    <ProductsListSection
-      id="toppers"
-      class="bg-white"
-      title="Топперы"
-      :items-data="toppers"
-    />
-
-    <Features />
-
-    <ProductsListSection
-      id="pillows"
-      class="bg-white"
-      title="Подушки"
-      :items-data="pillows"
-    />
-
-    <ProductsListSection
-      id="beds"
-      class="bg-gray-50"
-      title="Кровати"
-      :items-data="beds"
+      v-for="section in productListSections"
+      :id="section.id"
+      :key="section.id"
+      :class="section.class"
+      :title="section.title"
+      :items-data="section.itemsData"
     />
 
     <!-- LimitedTimeOffer -->
     <!-- <LimitedTimeOffer/> -->
-
-    <!-- Beds -->
-    <!-- <Beds/> -->
-
-    <!-- Children Beds -->
-    <!-- <ChildrenBeds/> -->
 
     <!-- <WhatOurCustomersSay/> -->
   </main>

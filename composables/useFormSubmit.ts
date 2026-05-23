@@ -10,20 +10,39 @@ import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
  * @param {string} [options.successModal.message] - Сообщение модального окна успеха
  * @returns {object} Объект с методами и состояниями формы
  */
-export function useFormSubmit(options = {}) {
-  const { showModal, captchaContainerId = 'captcha-container', successModal = {} } = options
+
+interface UseFormSubmitOptions {
+  showModal?: Ref<boolean>
+  captchaContainerId: string
+  successModal?: {
+    title: string
+    message: string
+  }
+}
+
+interface FormData {
+  name: string
+  email: string
+  phone: string
+}
+
+interface ApiResponse {
+  success: boolean
+  message?: string
+}
+
+export function useFormSubmit(options: UseFormSubmitOptions) {
+  const { showModal, captchaContainerId = 'captcha-container', successModal = { title: '', message: '' } } = options
 
   const config = useRuntimeConfig()
-  // eslint-disable-next-line no-undef
   const { showSuccessModal } = useSuccessModal()
-  // eslint-disable-next-line no-undef
   const { isLoading, setLoading } = useLoader()
 
   // Состояния
   const submitStatus = ref('idle')
   const errorMessage = ref('')
   const captchaToken = ref('')
-  const captchaWidgetId = ref(null)
+  const captchaWidgetId = ref<string | null>(null)
 
   /**
    * Сброс формы к начальному состоянию
@@ -37,7 +56,7 @@ export function useFormSubmit(options = {}) {
   /**
    * Управление overflow body для модального окна
    */
-  function updateBodyOverflow(isOpen) {
+  function updateBodyOverflow(isOpen: boolean) {
     if (import.meta.client && document?.body) {
       document.body.style.overflow = isOpen ? 'hidden' : ''
     }
@@ -46,7 +65,7 @@ export function useFormSubmit(options = {}) {
   /**
    * Callback для успешной проверки капчи
    */
-  function onCaptchaSuccess(token) {
+  function onCaptchaSuccess(token: string) {
     captchaToken.value = token
     errorMessage.value = ''
     submitStatus.value = 'idle'
@@ -98,7 +117,7 @@ export function useFormSubmit(options = {}) {
    * @param {object} [additionalData] - Дополнительные данные для отправки (например, productData)
    * @returns {Promise<boolean>} Успешность отправки
    */
-  async function submitForm(formData, additionalData = {}) {
+  async function submitForm(formData: FormData, additionalData = {}) {
     if (!captchaToken.value) {
       errorMessage.value = 'Пожалуйста, подтвердите, что вы не робот'
       submitStatus.value = 'error'
@@ -110,7 +129,7 @@ export function useFormSubmit(options = {}) {
     errorMessage.value = ''
 
     try {
-      const data = await $fetch('/api/send-email', {
+      const data = await $fetch<ApiResponse>('/api/send-email', {
         method: 'POST',
         body: {
           name: formData.name,
@@ -140,7 +159,7 @@ export function useFormSubmit(options = {}) {
     catch (error) {
       submitStatus.value = 'error'
       errorMessage.value = 'Произошла ошибка. Попробуйте позже.'
-      console.error(error?.data?.message || error?.message)
+      console.error((error as { data?: { message?: string }; message?: string })?.data?.message || (error as { message?: string })?.message)
       return false
     }
     finally {
@@ -150,7 +169,7 @@ export function useFormSubmit(options = {}) {
 
   // Настройка watchers и lifecycle hooks если передан showModal
   if (showModal) {
-    watch(showModal, async (isOpen) => {
+    watch(showModal, async (isOpen: boolean) => {
       updateBodyOverflow(isOpen)
       if (isOpen) {
         resetFormState()

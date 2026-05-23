@@ -22,9 +22,3 @@ logs
 .env
 .env.*
 !.env.example
-
-
-.cursor
-
-AGENTS.md
-CLAUDE.md

@@ -1,0 +1,1604 @@
+{
+  "childrenBeds": [
+    {
+      "id": "EllieLight",
+      "name": "Элли Лайт",
+      "description": "Кровать \"Элли Лайт\" – лаконичное и выверенное решение востребованного дизайна. Лёгкость, естественность и простота — отличительные черты данной модели. Многообразие цветовых решений станет лучшим предложением для тех, кто ценит сдержанный скандинавский дизайн, но предпочитает разнообразить его яркими акцентами.",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону"
+      ],
+      "images": [
+        {
+          "id": "ellie-light-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-e3deda.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-025649.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-cfbea4.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-977d64.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-594a37.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-71726c.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-667072.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-9e8066.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-454344.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-c6b1ac.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-80959a.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-b6a2ad.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-8f887e.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-8cb4b3.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-558eac.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-7e6990.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-1b3b6e.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-584b45.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-bba784.webp",
+          "alt": "Кровать Элли Лайт"
+        },
+        {
+          "id": "ellie-light-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/ellie-light/ellie-light-bea28c.webp",
+          "alt": "Кровать Элли Лайт"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    },
+    {
+      "id": "Viola",
+      "name": "Виола",
+      "description": "Угловая кровать \"Виола\" – является классическим вариантом для создания весьма гармоничного и стильного дизайна. Она наполнит спальню романтичностью, свежестью, сочными красочными акцентами и придаст ей праздничный вид, и позитивное настроение.",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону"
+      ],
+      "images": [
+        {
+          "id": "viola-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-e3deda.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-025649.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-cfbea4.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-977d64.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-594a37.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-71726c.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-667072.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-9e8066.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-454344.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-c6b1ac.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-80959a.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-b6a2ad.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-8f887e.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-8cb4b3.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-558eac.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-7e6990.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-1b3b6e.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-584b45.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-bba784.webp",
+          "alt": "Детская кровать Виола"
+        },
+        {
+          "id": "viola-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/viola/viola-bea28c.webp",
+          "alt": "Детская кровать Виола"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    },
+    {
+      "id": "Mia",
+      "name": "Мия",
+      "description": "Угловая кровать \"Мия\" – прекрасно впишется в интерьер любой детской комнаты. Мягкие спинки кровати защитят ребенка от падения и холодных стен. Это трендовая модель, вдохновленная природными мотивами и интересом к ретро.",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят.",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт.",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону."
+      ],
+      "images": [
+        {
+          "id": "mia-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-e3deda.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-025649.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-cfbea4.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-977d64.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-594a37.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-71726c.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-667072.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-9e8066.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-454344.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-c6b1ac.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-80959a.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-b6a2ad.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-8f887e.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-8cb4b3.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-558eac.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-7e6990.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-1b3b6e.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-584b45.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-bba784.webp",
+          "alt": "Детская кровать Мия"
+        },
+        {
+          "id": "mia-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/mia/mia-bea28c.webp",
+          "alt": "Детская кровать Мия"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    },
+    {
+      "id": "Chloe",
+      "name": "Хлоя",
+      "description": "Гениальная, как все простое, строгая, геометричная \"Хлоя\", выполнена в виде угловой модели. Кровать является истинным приверженцем философии хюгге и всем видом призывает снять всё лишнее, закутаться в мягкий плед и вдохнуть аромат горячего чая. Ровные линии и ретро-мотивы модели не просто умиляют, но определённо греют душу.",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят.",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт.",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону."
+      ],
+      "images": [
+        {
+          "id": "chloe-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-e3deda.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-025649.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-cfbea4.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-977d64.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-594a37.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-71726c.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-667072.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-9e8066.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-454344.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-c6b1ac.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-80959a.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-b6a2ad.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-8f887e.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-8cb4b3.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-558eac.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-7e6990.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-1b3b6e.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-584b45.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-bba784.webp",
+          "alt": "Детская кровать Хлоя"
+        },
+        {
+          "id": "chloe-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe/chloe-bea28c.webp",
+          "alt": "Детская кровать Хлоя"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    },
+    {
+      "id": "Lilu",
+      "name": "Лилу",
+      "description": "Одним лишь названием данная кровать смело заявляет о себе. В ней идеально сочетается изящество и современность. Линии в кровати плавно перетекают в полукруглые очертания. Великолепная и роскошная, она, несомненно, придаст обстановке спальни дополнительной яркости и живости. Отсутствие резких переходов обеспечивает безупречную эргономику ежедневного использования.",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят.",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт.",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону."
+      ],
+      "images": [
+        {
+          "id": "lilu-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-e3deda.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-025649.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-cfbea4.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-977d64.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-594a37.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-71726c.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-667072.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-9e8066.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-454344.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-c6b1ac.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-80959a.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-b6a2ad.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-8f887e.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-8cb4b3.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-558eac.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-7e6990.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-1b3b6e.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-584b45.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-bba784.webp",
+          "alt": "Детская кровать Лилу"
+        },
+        {
+          "id": "lilu-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/lilu/lilu-bea28c.webp",
+          "alt": "Детская кровать Лилу"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    },
+    {
+      "id": "Leslie",
+      "name": "Лэсли",
+      "description": "Угловая кровать \"Лэсли\" может обмануть своей непростой формой — с одного ракурса покажется прямой и строгой, но стоит только подойти поближе, как можно увидеть неповторимый силуэт, который надолго притягивает взгляд.",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят.",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт.",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону."
+      ],
+      "images": [
+        {
+          "id": "leslie-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-e3deda.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-025649.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-cfbea4.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-977d64.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-594a37.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-71726c.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-667072.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-9e8066.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-454344.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-c6b1ac.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-80959a.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-b6a2ad.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-8f887e.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-8cb4b3.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-558eac.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-7e6990.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-1b3b6e.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-584b45.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-bba784.webp",
+          "alt": "Детская кровать Лэсли"
+        },
+        {
+          "id": "leslie-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/leslie/leslie-bea28c.webp",
+          "alt": "Детская кровать Лэсли"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    },
+    {
+      "id": "Nikki",
+      "name": "Никки",
+      "description": "Кровать \"Никки\", благодаря плавным переходам и мягким оттенкам, добавит комнате света и легкости. Вместительные ящики будут лаконично смотреться на минималистичной мебели, свободной от излишеств. Прямолинейная кровать указывает верный путь к комфорту, практичности и гармоничности в интерьере.",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят.",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт.",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону."
+      ],
+      "images": [
+        {
+          "id": "nikki-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-e3deda.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-025649.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-cfbea4.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-977d64.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-594a37.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-71726c.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-667072.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-9e8066.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-454344.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-c6b1ac.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-80959a.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-b6a2ad.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-8f887e.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-8cb4b3.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-558eac.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-7e6990.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-1b3b6e.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-584b45.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-bba784.webp",
+          "alt": "Детская кровать Никки"
+        },
+        {
+          "id": "nikki-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/nikki/nikki-bea28c.webp",
+          "alt": "Детская кровать Никки"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    },
+    {
+      "id": "Chloe-premium",
+      "name": "Хлоя Премиум",
+      "description": "Абсолютно лаконичная кровать на высоких ножках и надёжным основанием. Кровать \"Хлоя Премиум\"становится достойным украшением пространства и обладает достаточно необычным, оригинальным, и немного дерзким обликом, по сравнению с привычными традиционными конструкциями",
+      "advantages": [
+        "Конструкция ортопедического основания выполнена из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт. Ламели надежные и долговечные, не трескаются и не скрипят.",
+        "Ортопедическое основание выполнено из металла, а спальное место формируется березовыми ламелями – гибкие и упругие, они придают вашей постели дополнительный комфорт.",
+        "Подъёмный механизм с газлифтами обеспечивает плавность и лёгкость хода",
+        "Кровать с подъемным механизмом идет с центральной продольной траверсой (дополнительно усиливает ортопедическое основание), бельевое дно состоит из поликов на липучках. Которые выдерживают достаточное наполнение (в пределах разумного). Плюс липучек в том, что они фиксируют ящики в кровати образуя единый монолит и благодаря этому периметр кровати не будет двигаться из стороны в сторону."
+      ],
+      "images": [
+        {
+          "id": "chloe-premium-e3deda",
+          "label": "#e3deda",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-e3deda.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-025649",
+          "label": "#025649",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-025649.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-cfbea4",
+          "label": "#cfbea4",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-cfbea4.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-977d64",
+          "label": "#977d64",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-977d64.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-594a37",
+          "label": "#594a37",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-594a37.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-71726c",
+          "label": "#71726c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-71726c.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-667072",
+          "label": "#667072",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-667072.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-9e8066",
+          "label": "#9e8066",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-9e8066.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-454344",
+          "label": "#454344",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-454344.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-c6b1ac",
+          "label": "#c6b1ac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-c6b1ac.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-80959a",
+          "label": "#80959a",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-80959a.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-b6a2ad",
+          "label": "#b6a2ad",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-b6a2ad.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-8f887e",
+          "label": "#8f887e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-8f887e.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-8cb4b3",
+          "label": "#8cb4b3",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-8cb4b3.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-558eac",
+          "label": "#558eac",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-558eac.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-7e6990",
+          "label": "#7e6990",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-7e6990.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-1b3b6e",
+          "label": "#1b3b6e",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-1b3b6e.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-584b45",
+          "label": "#584b45",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-584b45.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-bba784",
+          "label": "#bba784",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-bba784.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        },
+        {
+          "id": "chloe-premium-bea28c",
+          "label": "#bea28c",
+          "url": "https://ya.internomebel.ru/optimized/public/images/childrenBeds/chloe-premium/chloe-premium-bea28c.webp",
+          "alt": "Детская кровать Хлоя Премиум"
+        }
+      ],
+      "colors": [
+        { "id": "Темно-бежевый", "label": "#cfbea0" },
+        { "id": "Ярко-бирюзовый", "label": "#40c4d0" },
+        { "id": "Темная бирюза", "label": "#4283bb" },
+        { "id": "Графит", "label": "#71726c" },
+        { "id": "Белоснежный", "label": "#d7dcd8" },
+        { "id": "Розово-сиреневый", "label": "#b7768e" },
+        { "id": "Светло-серый", "label": "#b4b6b3" },
+        { "id": "Темно-серый", "label": "#9b9da9" },
+        { "id": "Сиреневый", "label": "#5f6ea5" },
+        { "id": "Розовый", "label": "#d1b4b6" },
+        { "id": "Ярко-розовый", "label": "#d388af" },
+        { "id": "Темно-розовый", "label": "#cf5c7d" },
+        { "id": "Лимон", "label": "#e4d862" },
+        { "id": "Нежно-салатовый", "label": "#b3cf84" },
+        { "id": "Зеленый", "label": "#025649" },
+        { "id": "Синий", "label": "#1b3b6e" },
+        { "id": "Бледно-голубой", "label": "#bed3d6" },
+        { "id": "Мох", "label": "#93a746" },
+        { "id": "Сирень", "label": "#986da2" },
+        { "id": "Мята", "label": "#44b5b3" },
+        { "id": "Незабудка", "label": "#3fc5de" },
+        { "id": "Морозное небо", "label": "#1660c9" }
+      ],
+      "liftingMechanism": ["Нет", "Есть"],
+      "antivandalVelor": ["Не нужен", "Нужен"],
+      "smallbackPosition": ["Не выбрано", "Левый угол", "Правый угол"],
+      "sizes": [
+        {
+          "id": "80×190",
+          "label": "80×190"
+        },
+        {
+          "id": "80×200",
+          "label": "80×200"
+        },
+        {
+          "id": "90×190",
+          "label": "90×190"
+        },
+        {
+          "id": "90×200",
+          "label": "90×200"
+        },
+        {
+          "id": "120×190",
+          "label": "120×190"
+        },
+        {
+          "id": "120×200",
+          "label": "120×200"
+        }
+      ],
+      "prices": {
+        "80×190": 18750,
+        "80×200": 18750,
+        "90×190": 19580,
+        "90×200": 19580,
+        "120×190": 22840,
+        "120×200": 22840,
+        "140×190": 24420,
+        "140×200": 24420,
+        "160×190": 25540,
+        "160×200": 25540,
+        "180×190": 26750,
+        "180×200": 26750
+      }
+    }
+  ]
+}

@@ -3,12 +3,14 @@ export default defineEventHandler(async () => {
     // Import all product data
     const matrasses = await import('~/data/matrasses.json')
     const beds = await import('~/data/beds.json')
+    const childrenBeds = await import('~/data/childrenBeds.json')
     const pillows = await import('~/data/pillows.json')
     const toppers = await import('~/data/toppers.json')
 
     return {
       matrasses: matrasses.default.matrasses || [],
       beds: beds.default.beds || [],
+      childrenBeds: childrenBeds.default.childrenBeds || [],
       pillows: pillows.default.pillows || [],
       toppers: toppers.default.toppers || [],
     }

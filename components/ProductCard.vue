@@ -13,12 +13,6 @@ const props = defineProps({
   },
 })
 
-const router = useRouter()
-
-function handleRoute(item) {
-  router.push(`/product/${item.id}`)
-}
-
 const isMobile = useMediaQuery('(max-width: 768px)', {
   ssrWidth: 768,
 })
@@ -43,7 +37,6 @@ const btnText = computed(() => {
         loading="lazy"
         decoding="async"
         class="card-image cursor-pointer"
-        @click="handleRoute(props.item)"
       />
       <NuxtLink
         :to="`/product/${props.item.id}`"
@@ -53,7 +46,6 @@ const btnText = computed(() => {
     <div class="card-content">
       <h3
         class="text-base md:text-xl font-semibold mb-4 cursor-pointer"
-        @click="handleRoute(props.item)"
       >
         <NuxtLink
           :to="`/product/${props.item.id}`"

@@ -45,6 +45,11 @@ function openInquiryForm() {
                 Кровати
               </NuxtLink>
             </li>
+            <li>
+              <NuxtLink to="#childrenBeds" class="text-gray-400 hover:text-white">
+                Детские кровати
+              </NuxtLink>
+            </li>
           </ul>
         </div>
         <div>

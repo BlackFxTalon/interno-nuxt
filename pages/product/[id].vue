@@ -22,9 +22,10 @@ const showOrderForm = ref(false)
 const currentImages = ref([])
 
 const { data: productData } = await useAsyncData('products', async () => {
-  const [matrasses, beds, pillows, toppers] = await Promise.all([
+  const [matrasses, beds, childrenBeds, pillows, toppers] = await Promise.all([
     import('~/data/matrasses.json'),
     import('~/data/beds.json'),
+    import('~/data/childrenBeds.json'),
     import('~/data/pillows.json'),
     import('~/data/toppers.json'),
   ])
@@ -32,6 +33,7 @@ const { data: productData } = await useAsyncData('products', async () => {
   return {
     matrasses: matrasses.default.matrasses || [],
     beds: beds.default.beds || [],
+    childrenBeds: childrenBeds.default.childrenBeds || [],
     pillows: pillows.default.pillows || [],
     toppers: toppers.default.toppers || [],
   }
@@ -44,6 +46,8 @@ const getProductCategory = computed(() => {
   const productId = route.params.id
   if (productData.value.beds?.find(item => item.id === productId))
     return 'beds'
+  if (productData.value.childrenBeds?.find(item => item.id === productId))
+    return 'childrenBeds'
   if (productData.value.matrasses?.find(item => item.id === productId))
     return 'matrasses'
   if (productData.value.pillows?.find(item => item.id === productId))
@@ -63,6 +67,7 @@ const product = computed(() => {
   const allProducts = [
     ...(productData.value.matrasses || []),
     ...(productData.value.beds || []),
+    ...(productData.value.childrenBeds || []),
     ...(productData.value.pillows || []),
     ...(productData.value.toppers || []),
   ]
@@ -208,7 +213,7 @@ function generateColorImages(colorLabel) {
   const generatedImages = views.map(view => ({
     id: `${bedId}-${colorCode}-${view}`,
     label: colorLabel,
-    url: `https://storage.yandexcloud.net/interno-images/optimized/public/images/beds/${bedId}/${bedId}-${colorCode}-${view}.webp`,
+    url: `https://ya.internomebel.ru/optimized/public/images/beds/${bedId}/${bedId}-${colorCode}-${view}.webp`,
     alt: `${selectedItem.value.name} - ${getViewName(view)}`,
   }))
 
