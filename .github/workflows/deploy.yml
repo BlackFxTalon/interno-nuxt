@@ -2,7 +2,7 @@ name: Deploy to Timeweb Cloud
 
 on:
   push:
-    branches: [ main ] # Запускать при пуше в ветку main
+    branches: [main] # Запускать при пуше в ветку main
 
 jobs:
   build-and-deploy:
@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 'lts/*' # Последняя версия из актуального LTS-канала[citation:1]
-          cache: 'npm'
+          cache: npm
 
       # 3. Устанавливаем зависимости и собираем проект
       - name: Install dependencies and build
@@ -36,7 +36,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ".output/public/*"
+          source: '.output/public/*'
           target: ${{ secrets.DEPLOY_PATH }}
           strip_components: 2 # Важно! Исключает из пути папки .output/public
 

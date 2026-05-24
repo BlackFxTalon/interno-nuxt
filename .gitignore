@@ -24,3 +24,8 @@ logs
 !.env.example
 
 package-lock.json
+
+.codex
+.supervibe
+AGENTS.md
+AGENTS.md.supervibe.bak

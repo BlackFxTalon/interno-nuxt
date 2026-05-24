@@ -1,0 +1,2 @@
+# Tier 2: validate commit message via commitlint
+npx --no-install commitlint --edit "$1"

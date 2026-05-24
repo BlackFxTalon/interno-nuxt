@@ -1,0 +1,2 @@
+# Tier 1: fast checks on staged files only
+npx lint-staged

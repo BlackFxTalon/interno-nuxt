@@ -14,7 +14,8 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 logo.svg"
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 logo.svg",
+    "prepare": "husky"
   },
   "dependencies": {
     "@dargmuesli/nuxt-cookie-control": "^9.1.12",
@@ -34,9 +35,13 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
+    "@commitlint/cli": "^21.0.1",
+    "@commitlint/config-conventional": "^21.0.1",
     "@nuxt/eslint": "^1.2.0",
     "@types/node": "^24.2.1",
     "eslint": "^9.23.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.5",
     "sass-embedded": "^1.85.1",
     "sharp": "^0.33.5",
     "typescript": "^5.8.2"

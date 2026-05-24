@@ -32,7 +32,11 @@ interface ApiResponse {
 }
 
 export function useFormSubmit(options: UseFormSubmitOptions) {
-  const { showModal, captchaContainerId = 'captcha-container', successModal = { title: '', message: '' } } = options
+  const {
+    showModal,
+    captchaContainerId = 'captcha-container',
+    successModal = { title: '', message: '' },
+  } = options
 
   const config = useRuntimeConfig()
   const { showSuccessModal } = useSuccessModal()
@@ -96,7 +100,11 @@ export function useFormSubmit(options: UseFormSubmitOptions) {
    * Уничтожение виджета SmartCaptcha
    */
   function destroyCaptcha() {
-    if (import.meta.client && window.smartCaptcha && captchaWidgetId.value !== null) {
+    if (
+      import.meta.client
+        && window.smartCaptcha
+        && captchaWidgetId.value !== null
+    ) {
       try {
         window.smartCaptcha.destroy(captchaWidgetId.value)
         captchaWidgetId.value = null
@@ -159,7 +167,9 @@ export function useFormSubmit(options: UseFormSubmitOptions) {
     catch (error) {
       submitStatus.value = 'error'
       errorMessage.value = 'Произошла ошибка. Попробуйте позже.'
-      console.error((error as { data?: { message?: string }; message?: string })?.data?.message || (error as { message?: string })?.message)
+      console.error(
+        (error as { data?: { message?: string }, message?: string })?.data?.message || (error as { message?: string })?.message,
+      )
       return false
     }
     finally {
