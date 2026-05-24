@@ -1,135 +1,142 @@
-# Nuxt Minimal Starter
+# Интерно Nuxt
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Статический Nuxt-сайт для каталога товаров ООО "Интерно": матрасы, топперы, подушки, кровати и детские кровати. Проект собирается в статическую выдачу, пререндерит карточки товаров из JSON-данных и содержит PWA-настройки для установки сайта как приложения.
 
-## Node.js Version Requirements
+## Что есть в проекте
 
-This project requires **Node.js version 20.19.0 or higher** due to dependencies like `oxc-parser@0.80.0` and `vite@7.1.1`.
+- Главная страница с hero-блоком, подборщиком матраса и секциями каталога.
+- Каталог из локальных JSON-файлов: 42 товара в 5 категориях.
+- Страницы товаров `/product/[id]` с размерами, ценами, весом, цветами, галереей и формой заказа.
+- Статические страницы: "О нас", FAQ, возвраты и политика конфиденциальности.
+- PWA-манифест, service worker, генерация PWA-иконок и cookie-control.
+- Yandex SmartCaptcha в формах заявок и заказов.
+- Статический деплой через `npm run generate` в `.output/public`.
 
-**Current Node.js version in package.json:** `>=20.19.0`
+## Стек
 
-### For Local Development:
-- Ensure you have Node.js 20.19.0+ installed
-- Use `.nvmrc` file: `nvm use` (if using nvm)
-- Or manually switch: `nvm install 20.19.0 && nvm use 20.19.0`
+- Nuxt 4, Vue 3, TypeScript
+- Tailwind CSS
+- Nuxt Image
+- Vite PWA / Workbox
+- VueUse, Floating Vue, Splide, Maska, lucide-vue-next
+- ESLint flat config на базе `@antfu/eslint-config`
+- Husky, lint-staged, commitlint
 
-### For Deployment (Netlify):
-- The `netlify.toml` file automatically sets Node.js version to 20.19.0
-- If issues persist, manually set environment variable: `NODE_VERSION = "20.19.0"`
+## Требования
 
-### For Other Platforms:
-- Set Node.js version to 20.19.0+ in your deployment configuration
-- Use the `.nvmrc` or `.node-version` files if supported
+В `package.json` указано:
 
-## MCP (Codex) Checks
+- Node.js `>=20.19.0`
+- npm `>=10.0.0`
 
-Quick smoke checks to confirm MCP is configured for this repo.
-
-### 1) Config file is present
-
-PowerShell:
-```powershell
-Test-Path .codex/config.toml
-Get-Content .codex/config.toml
-```
-
-Bash/Zsh:
-```bash
-test -f .codex/config.toml && cat .codex/config.toml
-```
-
-### 2) Required env vars are set (non-empty)
-
-PowerShell:
-```powershell
-Write-Output $env:FIRECRAWL_API_KEY
-Write-Output $env:CONTEXT7_API_KEY
-```
-
-Bash/Zsh:
-```bash
-echo "$FIRECRAWL_API_KEY"
-echo "$CONTEXT7_API_KEY"
-```
-
-If any output is empty, set the variable in your shell before starting Codex.
-
-## Roadmap
-
-<ul>
-<li>
-сгенерить картинки для слайдера (под шапкой)
-</li>
-</ul>
-
-## Setup
-
-Make sure to install dependencies:
+Файлы `.nvmrc` и `.node-version` сейчас указывают Node `22`, поэтому для локальной разработки безопаснее использовать Node 22:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+nvm use
 ```
 
-## Development Server
+Если `nvm` не установлен, поставьте Node.js 20.19.0 или новее.
 
-Start the development server on `http://localhost:3000`:
+## Переменные окружения
+
+Для SmartCaptcha нужен публичный ключ:
 
 ```bash
-# npm
+NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY=your-client-key
+```
+
+Формы в `useFormSubmit` отправляют данные на `/api/send-email`. В текущем репозитории есть только `server/api/products.get.ts`, route `server/api/send-email.*` отсутствует. Для рабочей отправки заявок нужно добавить Nitro route, serverless function или внешний proxy на стороне деплоя.
+
+Для GitHub Actions деплоя в Timeweb используются secrets:
+
+- `NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY`
+- `SSH_HOST`
+- `SSH_USERNAME`
+- `SSH_PRIVATE_KEY`
+- `DEPLOY_PATH`
+
+## Установка
+
+```bash
+npm ci
+```
+
+## Разработка
+
+```bash
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+По умолчанию Nuxt запускается на `http://localhost:3000`.
 
-Build the application for production:
+## Основные команды
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm run dev                 # dev-сервер
+npm run build               # production build
+npm run generate            # статическая генерация в .output/public
+npm run preview             # локальный preview production-сборки
+npm run lint                # проверка ESLint
+npm run lint:fix            # автоисправление ESLint
+npm run generate-pwa-assets # генерация PWA assets из logo.svg
 ```
 
-Locally preview production build:
+## Структура
+
+```text
+pages/                 Маршруты Nuxt
+components/            Vue-компоненты интерфейса
+components/ui/         Базовые UI-компоненты
+components/header/     Компоненты шапки
+composables/           Переиспользуемая логика форм, loader и success modal
+data/                  JSON-данные каталога и подборщика матраса
+server/api/            Nitro API routes
+public/                Иконки, favicon, robots.txt и публичные ассеты
+nuxt.config.ts         Nuxt, PWA, prerender и runtime config
+netlify.toml           Настройки статического деплоя Netlify
+.github/workflows/     CI/CD деплой в Timeweb Cloud
+```
+
+## Данные каталога
+
+Товары хранятся в `data/*.json`:
+
+- `matrasses.json` - 15 матрасов
+- `beds.json` - 9 кроватей
+- `childrenBeds.json` - 8 детских кроватей
+- `pillows.json` - 5 подушек
+- `toppers.json` - 5 топперов
+
+`nuxt.config.ts` читает эти файлы во время сборки и добавляет все `/product/{id}` в `nitro.prerender.routes`.
+
+## Деплой
+
+Статическая сборка:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+npm run generate
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Результат публикуется из:
+
+```text
+.output/public
+```
+
+В репозитории есть два сценария деплоя:
+
+- `netlify.toml` - сборка `npm run generate`, publish directory `.output/public`, SPA fallback и cache headers.
+- `.github/workflows/deploy.yml` - GitHub Actions деплой в Timeweb Cloud через SCP, затем проверка и reload Nginx.
+
+На хостинге укажите Node.js 22 или минимум 20.19.0.
+
+## Проверки перед изменениями
+
+Минимальный набор:
+
+```bash
+npm run lint
+npm run generate
+```
+
+Если менялись только данные каталога, дополнительно проверьте валидность JSON и откройте несколько карточек товаров после генерации.
