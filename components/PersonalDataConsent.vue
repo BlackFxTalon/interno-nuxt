@@ -35,6 +35,7 @@ const accepted = defineModel<boolean>({ default: false })
       </NuxtLink>.
       Email необязателен. Это не согласие на рекламную рассылку.
       После отметки загрузится Яндекс SmartCaptcha для защиты формы от спама.
+      Этот внешний сервис может использовать cookies Яндекса.
     </p>
   </div>
 </template>
