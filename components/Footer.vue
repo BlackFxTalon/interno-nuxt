@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { CONSENT_DOCUMENT_PATH } from '~/utils/consent'
 
 const showInquiryModal = ref(false)
 
@@ -18,6 +19,14 @@ function openInquiryForm() {
           </h4>
           <p class="text-gray-400">
             ООО "Интерно" - предоставляем качественные решения для сна
+          </p>
+          <p class="mt-4 text-sm text-gray-400">
+            ИНН 6679130434 · КПП 667901001<br>
+            ОГРН 1196658087724
+          </p>
+          <p class="mt-2 text-sm text-gray-400">
+            Юридический адрес: 620902, Свердловская область, с. Горный Щит,
+            ул. Буденного, д. 87, помещ. 3а
           </p>
         </div>
         <div>
@@ -72,6 +81,11 @@ function openInquiryForm() {
               </NuxtLink>
             </li>
             <li>
+              <NuxtLink :to="CONSENT_DOCUMENT_PATH" class="text-gray-400 hover:text-white">
+                Согласие на обработку данных
+              </NuxtLink>
+            </li>
+            <li>
               <NuxtLink to="/returns" class="text-gray-400 hover:text-white">
                 Возвраты
               </NuxtLink>
@@ -91,6 +105,18 @@ function openInquiryForm() {
           >
             Свяжитесь с нами
           </button>
+          <ul class="mb-4 space-y-2 text-gray-400">
+            <li>
+              <a href="tel:+73433467166" class="hover:text-white">
+                +7 (343) 346-71-66
+              </a>
+            </li>
+            <li>
+              <a href="mailto:mebelme8@yandex.ru" class="break-all hover:text-white">
+                mebelme8@yandex.ru
+              </a>
+            </li>
+          </ul>
           <div class="flex space-x-4">
             <NuxtLink to="https://vk.com/matraskrovatiekb" class="text-gray-400 hover:text-white">
               <span class="sr-only">Вконтакте</span>

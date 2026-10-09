@@ -13,11 +13,13 @@ const {
   isLoading,
   submitStatus,
   errorMessage,
+  consentGiven,
   resetFormState,
   submitForm,
 } = useFormSubmit({
   showModal,
-  captchaContainerId: 'captcha-container',
+  captchaContainerId: 'captcha-container-inquiry',
+  formId: 'inquiry',
   successModal: {
     title: 'Спасибо!',
     message: 'Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.',
@@ -45,7 +47,7 @@ async function submitInquiry() {
   <Transition name="modal-backdrop">
     <div v-if="showModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <Transition name="modal">
-        <div v-if="showModal" class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+        <div v-if="showModal" class="bg-white rounded-lg p-8 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-2xl font-semibold">
               Оформить заказ
@@ -79,6 +81,7 @@ async function submitInquiry() {
                 id="inquiryFormName"
                 v-model="inquiryForm.name"
                 name="Имя"
+                maxlength="120"
                 placeholder="Введите ваше имя"
                 type="text"
                 required
@@ -87,15 +90,15 @@ async function submitInquiry() {
             </div>
             <div class="form-group">
               <UiLabel for="inquiryFormEmail">
-                Email
+                Email (необязательно)
               </UiLabel>
               <UiInput
                 id="inquiryFormEmail"
                 v-model="inquiryForm.email"
                 name="email"
+                maxlength="254"
                 placeholder="Введите вашу почту"
                 type="email"
-                required
                 :disabled="isLoading"
               />
             </div>
@@ -113,10 +116,11 @@ async function submitInquiry() {
                 :disabled="isLoading"
               />
             </div>
+            <PersonalDataConsent id="consent-inquiry" v-model="consentGiven" :disabled="isLoading" />
             <ClientOnly>
               <div class="form-group">
                 <div
-                  id="captcha-container"
+                  id="captcha-container-inquiry"
                   style="min-height: 100px"
                 />
               </div>

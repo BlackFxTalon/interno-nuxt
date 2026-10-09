@@ -28,11 +28,13 @@ const {
   isLoading,
   submitStatus,
   errorMessage,
+  consentGiven,
   resetFormState,
   submitForm,
 } = useFormSubmit({
   showModal,
   captchaContainerId: 'captcha-container-find-matrass-form',
+  formId: 'mattress',
   successModal: {
     title: 'Спасибо!',
     message: 'Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.',
@@ -122,6 +124,7 @@ async function handleSubmit() {
                 <UiInput
                   id="name"
                   v-model="findMatrassForm.name"
+                  maxlength="120"
                   placeholder="Введите ваше имя"
                   required
                   :disabled="isLoading"
@@ -129,14 +132,14 @@ async function handleSubmit() {
               </div>
               <div class="form-group">
                 <UiLabel for="email">
-                  Email
+                  Email (необязательно)
                 </UiLabel>
                 <UiInput
                   id="email"
                   v-model="findMatrassForm.email"
+                  maxlength="254"
                   placeholder="Введите вашу почту"
                   type="email"
-                  required
                   :disabled="isLoading"
                 />
               </div>
@@ -153,6 +156,7 @@ async function handleSubmit() {
                   :disabled="isLoading"
                 />
               </div>
+              <PersonalDataConsent id="consent-mattress" v-model="consentGiven" :disabled="isLoading" />
               <ClientOnly>
                 <div class="form-group">
                   <div

@@ -1,0 +1,24 @@
+[Unit]
+Description=Delete expired Interno consent receipts
+
+[Service]
+Type=oneshot
+User=interno-mail
+Group=interno-mail
+ExecStart=/usr/bin/node /var/www/email-service/scripts/consents-admin.cjs prune --execute
+StateDirectory=interno-email
+StateDirectoryMode=0700
+LogNamespace=interno-email
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+ReadOnlyPaths=/var/www/email-service

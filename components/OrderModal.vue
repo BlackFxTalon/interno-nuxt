@@ -52,11 +52,13 @@ const {
   isLoading,
   submitStatus,
   errorMessage,
+  consentGiven,
   resetFormState,
   submitForm,
 } = useFormSubmit({
   showModal: showOrderForm,
-  captchaContainerId: 'captcha-container',
+  captchaContainerId: 'captcha-container-order',
+  formId: 'order',
   successModal: {
     title: 'Спасибо за заказ!',
     message: 'Ваш заказ успешно оформлен. Мы свяжемся с вами в ближайшее время для подтверждения.',
@@ -176,6 +178,7 @@ async function submitOrder() {
                   id="orderFormName"
                   v-model="orderForm.name"
                   name="Имя"
+                  maxlength="120"
                   placeholder="Введите ваше имя"
                   type="text"
                   required
@@ -184,15 +187,15 @@ async function submitOrder() {
               </div>
               <div class="form-group">
                 <UiLabel for="orderFormEmail">
-                  Email
+                  Email (необязательно)
                 </UiLabel>
                 <UiInput
                   id="orderFormEmail"
                   v-model="orderForm.email"
                   name="email"
+                  maxlength="254"
                   placeholder="Введите вашу почту"
                   type="email"
-                  required
                   :disabled="isLoading"
                 />
               </div>
@@ -210,10 +213,11 @@ async function submitOrder() {
                   :disabled="isLoading"
                 />
               </div>
+              <PersonalDataConsent id="consent-order" v-model="consentGiven" :disabled="isLoading" />
               <ClientOnly>
                 <div class="form-group">
                   <div
-                    id="captcha-container"
+                    id="captcha-container-order"
                     style="min-height: 100px"
                   />
                 </div>

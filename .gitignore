@@ -24,6 +24,7 @@ logs
 !.env.example
 
 package-lock.json
+!/services/email/package-lock.json
 
 .codex
 .supervibe

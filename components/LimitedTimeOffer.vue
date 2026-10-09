@@ -46,17 +46,19 @@ const offerForm = ref({
   phone: '',
 })
 
-function submitOffer() {
-  // Here you would typically send the form data to your backend
-  // console.log('Offer form submitted:', offerForm.value)
+const { isLoading, submitStatus, errorMessage, consentGiven, submitForm } = useFormSubmit({
+  showModal: showOfferModal,
+  captchaContainerId: 'captcha-container-offer',
+  formId: 'offer',
+  successModal: {
+    title: 'Спасибо!',
+    message: 'Заявка на предложение отправлена. Мы свяжемся с вами.',
+  },
+})
 
-  // Close the modal and reset form
-  showOfferModal.value = false
-  offerForm.value = {
-    name: '',
-    email: '',
-    phone: '',
-  }
+async function submitOffer() {
+  if (await submitForm(offerForm.value))
+    offerForm.value = { name: '', email: '', phone: '' }
 }
 </script>
 
@@ -122,7 +124,7 @@ function submitOffer() {
   <Transition name="modal-backdrop">
     <div v-if="showOfferModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-y-auto">
       <Transition name="modal">
-        <div v-if="showOfferModal" class="bg-white rounded-lg p-8 max-w-md w-full mx-4 my-8">
+        <div v-if="showOfferModal" class="bg-white rounded-lg p-8 max-w-md w-full mx-4 my-8 max-h-[90vh] overflow-y-auto">
           <div class="flex justify-between items-center mb-6">
             <h3 class="text-2xl font-semibold text-gray-900">
               Получите скидку 10%
@@ -135,39 +137,51 @@ function submitOffer() {
           </div>
 
           <form class="space-y-6" @submit.prevent="submitOffer">
+            <p v-if="submitStatus === 'error'" role="alert" class="text-red-700">
+              {{ errorMessage }}
+            </p>
             <div class="form-group">
-              <label class="form-label">Имя</label>
+              <label for="offer-name" class="form-label">Имя</label>
               <input
+                id="offer-name"
                 v-model="offerForm.name"
+                maxlength="120"
+                :disabled="isLoading"
                 type="text"
                 required
                 class="form-input"
               >
             </div>
             <div class="form-group">
-              <label class="form-label">Почта</label>
+              <label for="offer-email" class="form-label">Почта (необязательно)</label>
               <input
+                id="offer-email"
                 v-model="offerForm.email"
+                maxlength="254"
+                :disabled="isLoading"
                 type="email"
-                required
                 class="form-input"
               >
             </div>
             <div class="form-group">
-              <label class="form-label">Телефон</label>
+              <label for="offer-phone" class="form-label">Телефон</label>
               <input
+                id="offer-phone"
                 v-model="offerForm.phone"
+                v-maska="'+7(9##)###-##-##'"
+                :disabled="isLoading"
                 type="tel"
                 required
                 class="form-input"
               >
             </div>
-            <button
-              type="submit"
-              class="primary-btn"
-            >
-              Отправить заявку
-            </button>
+            <PersonalDataConsent id="consent-offer" v-model="consentGiven" :disabled="isLoading" />
+            <ClientOnly>
+              <div id="captcha-container-offer" style="min-height: 100px" />
+            </ClientOnly>
+            <UiButton type="submit" :disabled="isLoading">
+              {{ isLoading ? 'Отправка...' : 'Отправить заявку' }}
+            </UiButton>
           </form>
         </div>
       </Transition>
@@ -176,5 +190,13 @@ function submitOffer() {
 </template>
 
 <style scoped>
+@reference "../assets/css/tailwind.css";
 
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.form-input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary;
+}
 </style>

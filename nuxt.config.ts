@@ -51,7 +51,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'floating-vue/nuxt',
     '@vite-pwa/nuxt',
-    '@dargmuesli/nuxt-cookie-control',
   ],
   devtools: { enabled: false },
   app: {
@@ -60,22 +59,11 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
-        },
-      ],
-      script: [
-        {
-          src: 'https://smartcaptcha.cloud.yandex.ru/captcha.js',
-          defer: true,
-        },
+        { name: 'referrer', content: 'no-referrer' },
       ],
     },
   },
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/fonts.css', '~/assets/css/tailwind.css'],
   runtimeConfig: {
     public: {
       smartcaptchaClientKey: process.env.NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY || '',
@@ -103,21 +91,6 @@ export default defineNuxtConfig({
         '@lucide/vue',
       ],
     },
-  },
-  cookieControl: {
-    barPosition: 'bottom-full',
-    // The cookies that are to be controlled.
-    // See detailed explanation further down below!
-    cookies: {
-      necessary: [],
-      optional: [],
-    },
-    // The milliseconds from now until expiry of the cookies that are being set by this module.
-    cookieExpiryOffsetMs: 1000 * 60 * 60 * 24 * 365, // one year
-    // Switch to toggle the button that opens the configuration modal.
-    isControlButtonEnabled: false,
-    // The locales to include.
-    locales: ['ru'],
   },
   eslint: {
     config: {
@@ -161,9 +134,10 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,json,webp}'],
+      importScripts: ['/sw-privacy-cleanup.js'],
+      globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,json,webp,woff2}'],
       globIgnores: ['**/_payload.json', 'admin/**'],
-      navigateFallbackDenylist: [/^\/admin(?:\/|$)/],
+      navigateFallbackDenylist: [/^\/admin(?:\/|$)/, /^\/api(?:\/|$)/],
       maximumFileSizeToCacheInBytes: 10485760, // 10 MB limit to cache large images
       runtimeCaching: [
         {
@@ -192,28 +166,6 @@ export default defineNuxtConfig({
             cacheableResponse: {
               statuses: [0, 200],
             },
-          },
-        },
-        {
-          urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\//,
-          handler: 'CacheFirst',
-          options: {
-            cacheName: 'google-fonts',
-            cacheableResponse: {
-              statuses: [0, 200],
-            },
-            expiration: {
-              maxEntries: 30,
-              maxAgeSeconds: 60 * 60 * 24 * 365,
-            },
-          },
-        },
-        {
-          urlPattern: /^\/api\//,
-          handler: 'NetworkFirst',
-          options: {
-            cacheName: 'interno-api',
-            networkTimeoutSeconds: 10,
           },
         },
       ],

@@ -3,8 +3,8 @@
  */
 
 interface SmartCaptchaWidget {
-  render: (container: HTMLElement, options: SmartCaptchaOptions) => string
-  destroy: (widgetId: string) => void
+  render: (container: HTMLElement, options: SmartCaptchaOptions) => number
+  destroy: (widgetId: number) => void
 }
 
 interface SmartCaptchaOptions {

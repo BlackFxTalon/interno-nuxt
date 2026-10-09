@@ -20,9 +20,6 @@ useHead({
     <PwaStatus />
     <NuxtPage />
     <Footer />
-    <ClientOnly>
-      <CookieControl locale="ru" />
-    </ClientOnly>
     <NuxtPwaAssets />
 
     <!-- Глобальные компоненты -->

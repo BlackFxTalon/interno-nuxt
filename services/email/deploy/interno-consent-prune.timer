@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily expiry cleanup for Interno consent receipts
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=15m
+Unit=interno-consent-prune.service
+
+[Install]
+WantedBy=timers.target

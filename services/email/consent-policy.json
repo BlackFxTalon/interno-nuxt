@@ -1,0 +1,12 @@
+{
+  "version": "2026-10-09-v1",
+  "documentPath": "/consent/2026-10-09-v1",
+  "documentSha256": "918d4d6ebb7d28acb00080507ed3a8ad76288eeb81edda727057b351cd198f2b",
+  "retentionDays": 90,
+  "formIds": [
+    "inquiry",
+    "order",
+    "mattress",
+    "offer"
+  ]
+}

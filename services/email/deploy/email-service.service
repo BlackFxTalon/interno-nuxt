@@ -1,0 +1,36 @@
+[Unit]
+Description=Interno email and consent service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=interno-mail
+Group=interno-mail
+WorkingDirectory=/var/www/email-service
+Environment=NODE_ENV=production
+Environment=CONSENT_REQUIRED=true
+ExecStart=/usr/bin/node /var/www/email-service/server.cjs
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+StateDirectory=interno-email
+StateDirectoryMode=0700
+LogNamespace=interno-email
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+CapabilityBoundingSet=
+AmbientCapabilities=
+ReadOnlyPaths=/var/www/email-service
+
+[Install]
+WantedBy=multi-user.target
