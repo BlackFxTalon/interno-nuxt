@@ -1,5 +1,5 @@
 <script setup>
-import { CheckCircle } from 'lucide-vue-next'
+import { CheckCircle } from '@lucide/vue'
 import { onMounted, onUnmounted, watch } from 'vue'
 
 const { show, title, message, closeSuccessModal } = useSuccessModal()
@@ -29,7 +29,7 @@ onUnmounted(() => {
   <Transition name="modal-backdrop">
     <div
       v-if="show"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60]"
+      class="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]"
       @click.self="closeSuccessModal"
     >
       <Transition name="modal">
@@ -62,7 +62,7 @@ onUnmounted(() => {
   </Transition>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .modal-backdrop-enter-active,
 .modal-backdrop-leave-active {
   transition: opacity 0.3s ease;

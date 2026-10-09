@@ -86,7 +86,7 @@ function closeMatrassForm() {
             <div
               v-for="step in mattressSteps.steps"
               :key="step.id"
-              class="w-full flex-shrink-0"
+              class="w-full shrink-0"
             >
               <p class="text-base sm:text-xl font-semibold mb-8 text-center">
                 {{ step.title }}
@@ -131,7 +131,7 @@ function closeMatrassForm() {
             </div>
 
             <!-- Final Step: Recommendation -->
-            <div class="w-full flex-shrink-0">
+            <div class="w-full shrink-0">
               <p class="md:text-xl mb-4 text-center">
                 Ваш идеальный выбор:
               </p>
@@ -179,7 +179,7 @@ function closeMatrassForm() {
   />
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .slide-enter-active,
 .slide-leave-active {
   transition: all 0.3s ease-in-out;

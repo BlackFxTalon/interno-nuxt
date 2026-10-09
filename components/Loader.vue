@@ -19,7 +19,9 @@ watch(isLoading, (newVal) => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "../assets/css/tailwind.css";
+
 .loader {
     @apply fixed flex justify-center items-center inset-0 w-full h-full z-[70] bg-black/60;
 }
@@ -31,14 +33,13 @@ watch(isLoading, (newVal) => {
 }
 
 @keyframes pulse {
-    0% {
-        @apply scale-[0.6] opacity-40;
+    0%, 100% {
+        transform: scale(0.6);
+        opacity: 0.4;
     }
     50% {
-        @apply scale-100 opacity-100;
-    }
-    100% {
-        @apply scale-[0.6] opacity-40;
+        transform: scale(1);
+        opacity: 1;
     }
 }
 </style>

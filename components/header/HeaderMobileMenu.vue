@@ -41,6 +41,6 @@ const isMenuOpen = defineModel()
   </transition>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

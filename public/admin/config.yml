@@ -1,0 +1,259 @@
+locale: ru
+publish_mode: simple
+
+backend:
+  name: github
+  repo: BlackFxTalon/interno-nuxt
+  branch: main
+  # REQUIRED before production login: replace with your Decap-compatible OAuth service.
+  # This reserved example domain intentionally prevents use of an unconfigured provider.
+  base_url: https://cms-auth.example.com
+  auth_endpoint: auth
+  commit_messages:
+    create: 'content: create {{collection}} {{slug}}'
+    update: 'content: update {{collection}} {{slug}}'
+    delete: 'content: delete {{collection}} {{slug}}'
+    uploadMedia: 'content: upload {{path}}'
+    deleteMedia: 'content: delete {{path}}'
+
+# Used only on localhost; never expose the local proxy publicly.
+local_backend:
+  url: http://localhost:8081/api/v1
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+editor:
+  preview: false
+
+collections:
+  - name: matrasses
+    label: Матрасы
+    label_singular: Матрас
+    folder: content/products/matrasses
+    create: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: '{{fields.slug}}'
+    summary: '{{name}} — {{fields.slug}}'
+    fields:
+      - &productSlug
+          {name: slug, label: Код товара (slug), widget: string, pattern: ['^[A-Za-zА-Яа-яЁё0-9_-]+$', 'Используйте буквы, цифры, дефис или подчёркивание без пробелов.'], hint: Уникален во всём каталоге. Изменение slug меняет адрес товара.}
+      - {name: category, widget: hidden, default: matrasses}
+      - &productName {name: name, label: Название, widget: string}
+      - &description {name: description, label: Описание, widget: text, required: false}
+      - &advantages {name: advantages, label: Преимущества, widget: list, required: false, field: {name: item, label: Преимущество, widget: string}}
+      - &images
+          name: images
+          label: Изображения
+          widget: list
+          required: false
+          default: []
+          summary: '{{fields.alt}}'
+          fields:
+            - {name: id, label: Код изображения, widget: string, required: false}
+            - {name: url, label: Изображение, widget: image, choose_url: true}
+            - {name: alt, label: Описание для доступности, widget: string}
+            - {name: label, label: Подпись, widget: string, required: false}
+      - &sizes
+          name: sizes
+          label: Размеры
+          widget: list
+          required: false
+          summary: '{{fields.label}}'
+          fields:
+            - {name: id, label: Код размера, widget: string, hint: 'Например, 80×190. Тот же код используется в ценах и весе.'}
+            - {name: label, label: Название размера, widget: string, hint: 'Для текущего сайта указывайте тот же размер, что и в коде.'}
+      - &prices {name: prices, label: Цены по размерам (₽), widget: size-record, required: false, default: {}, value_label: Цена (₽), hint: Добавьте строки «размер → цена». Размер должен совпадать с кодом в разделе «Размеры».}
+      - &weights {name: weights, label: Вес по размерам (кг), widget: size-record, required: false, value_label: Вес (кг)}
+      - &height {name: height, label: Высота (см), widget: number, value_type: float, min: 0, required: false}
+      - &foundation {name: foundation, label: Основание, widget: string, required: false}
+      - &materials {name: materials, label: Материалы, widget: list, required: false, field: {name: item, label: Материал, widget: string}}
+      - &case {name: case, label: Чехол, widget: text, required: false}
+      - &firmness {name: firmness, label: Жёсткость, widget: string, required: false}
+      - {name: pressure, label: Максимальная нагрузка, widget: string, required: false}
+      - {name: side, label: Сторона / цвет, widget: string, required: false}
+
+  - name: beds
+    label: Кровати
+    label_singular: Кровать
+    folder: content/products/beds
+    create: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: '{{fields.slug}}'
+    summary: '{{name}} — {{fields.slug}}'
+    fields:
+      - *productSlug
+      - {name: category, widget: hidden, default: beds}
+      - *productName
+      - *description
+      - *advantages
+      - *images
+      - *sizes
+      - *prices
+      - *weights
+      - *foundation
+      - &colors
+          name: colors
+          label: Цвета
+          widget: list
+          required: false
+          summary: '{{fields.id}} — {{fields.label}}'
+          fields:
+            - {name: id, label: Название цвета, widget: string}
+            - {name: label, label: Цвет (#hex), widget: string, hint: 'Например, #025649. Используется как CSS-цвет.'}
+      - &liftingMechanism {name: liftingMechanism, label: Подъёмный механизм, widget: list, required: false, field: {name: item, label: Вариант, widget: string}}
+      - &antivandalVelor {name: antivandalVelor, label: Антивандальный велюр, widget: list, required: false, field: {name: item, label: Вариант, widget: string}}
+      - {name: robotVacuumCleanerLegs, label: Ножки для робота-пылесоса, widget: list, required: false, field: {name: item, label: Вариант, widget: string}}
+
+  - name: childrenBeds
+    label: Детские кровати
+    label_singular: Детская кровать
+    folder: content/products/childrenBeds
+    create: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: '{{fields.slug}}'
+    summary: '{{name}} — {{fields.slug}}'
+    fields:
+      - *productSlug
+      - {name: category, widget: hidden, default: childrenBeds}
+      - *productName
+      - *description
+      - *advantages
+      - *images
+      - *sizes
+      - *prices
+      - *weights
+      - *colors
+      - *liftingMechanism
+      - *antivandalVelor
+      - {name: smallbackPosition, label: Положение малого борта, widget: list, required: false, field: {name: item, label: Вариант, widget: string}}
+
+  - name: pillows
+    label: Подушки
+    label_singular: Подушка
+    folder: content/products/pillows
+    create: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: '{{fields.slug}}'
+    summary: '{{name}} — {{fields.slug}}'
+    fields:
+      - *productSlug
+      - {name: category, widget: hidden, default: pillows}
+      - *productName
+      - *description
+      - *advantages
+      - *images
+      - *sizes
+      - *prices
+      - *weights
+      - *firmness
+      - *case
+      - *height
+      - {name: compound, label: Состав, widget: text, required: false}
+      - {name: textile, label: Ткань, widget: string, required: false}
+      - {name: pillowSize, label: Габариты подушки, widget: string, required: false}
+      - {name: package, label: Упаковка, widget: string, required: false}
+      - {name: pillowCare, label: Уход за подушкой, widget: text, required: false}
+      - {name: removableCoverCare, label: Уход за съёмным чехлом, widget: text, required: false}
+      - {name: packageCount, label: Количество в упаковке, widget: number, value_type: int, min: 0, required: false}
+      - {name: foamColor, label: Цвет пены, widget: string, required: false}
+      - &depth {name: depth, label: Толщина / глубина (см), widget: number, value_type: float, min: 0, required: false}
+      - {name: width, label: Ширина (см), widget: number, value_type: float, min: 0, required: false}
+      - {name: length, label: Длина (см), widget: number, value_type: float, min: 0, required: false}
+
+  - name: toppers
+    label: Топперы
+    label_singular: Топпер
+    folder: content/products/toppers
+    create: true
+    format: json
+    extension: json
+    identifier_field: name
+    slug: '{{fields.slug}}'
+    summary: '{{name}} — {{fields.slug}}'
+    fields:
+      - *productSlug
+      - {name: category, widget: hidden, default: toppers}
+      - *productName
+      - *description
+      - *advantages
+      - *images
+      - *sizes
+      - *prices
+      - *weights
+      - *depth
+      - *materials
+      - *firmness
+      - *case
+
+  - name: pages
+    label: Страницы сайта
+    files:
+      - name: about
+        label: О нас
+        file: content/pages/about.md
+        fields:
+          - {name: slug, widget: hidden, default: about}
+          - &pageTitle {name: title, label: Заголовок, widget: string}
+          - *description
+          - &body {name: body, label: Содержание, widget: markdown}
+      - name: faq
+        label: Частые вопросы
+        file: content/pages/faq.md
+        fields:
+          - {name: slug, widget: hidden, default: faq}
+          - *pageTitle
+          - *description
+          - *body
+      - name: returns
+        label: Возвраты
+        file: content/pages/returns.md
+        fields:
+          - {name: slug, widget: hidden, default: returns}
+          - *pageTitle
+          - *description
+          - *body
+      - name: policy
+        label: Политика конфиденциальности
+        file: content/pages/policy.md
+        fields:
+          - {name: slug, widget: hidden, default: policy}
+          - *pageTitle
+          - *description
+          - *body
+
+  - name: settings
+    label: Навигация и главная
+    files:
+      - name: header
+        label: Меню в шапке
+        file: content/navigation/header.json
+        fields:
+          - name: links
+            label: Ссылки
+            widget: list
+            summary: '{{fields.text}}'
+            fields:
+              - {name: text, label: Текст ссылки, widget: string}
+              - {name: to, label: Адрес ссылки, widget: string, hint: 'Например, /about или /#beds'}
+      - name: hero
+        label: Главный баннер
+        file: content/sections/hero.json
+        fields:
+          - *pageTitle
+          - {name: description, label: Описание, widget: text}
+          - {name: buttonText, label: Текст кнопки, widget: string}
+          - name: images
+            label: Изображения
+            widget: list
+            summary: '{{fields.alt}}'
+            fields:
+              - {name: src, label: Изображение, widget: image, choose_url: true}
+              - {name: alt, label: Описание для доступности, widget: string}

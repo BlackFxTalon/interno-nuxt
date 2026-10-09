@@ -1,34 +1,51 @@
 /// <reference types="node" />
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { readFileSync } from 'node:fs'
-import { dirname, resolve } from 'node:path'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
+import tailwindcss from '@tailwindcss/vite'
 import { defineNuxtConfig } from 'nuxt/config'
 
-interface ProductRouteSource {
-  id: string
+const contentProductsDir = fileURLToPath(new URL('./content/products', import.meta.url))
+
+function collectJsonFiles(dir: string): string[] {
+  if (!existsSync(dir))
+    return []
+
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const path = join(dir, entry.name)
+
+    if (entry.isDirectory())
+      return collectJsonFiles(path)
+
+    return entry.isFile() && entry.name.endsWith('.json') ? [path] : []
+  })
 }
 
-function readProductRoutes(fileName: string, key: string) {
-  const dataDir = resolve(dirname(fileURLToPath(import.meta.url)), 'data')
-  const data = JSON.parse(readFileSync(resolve(dataDir, fileName), 'utf-8')) as Record<string, ProductRouteSource[] | undefined>
+function getContentProductRoutes(): string[] {
+  return collectJsonFiles(contentProductsDir).flatMap((file) => {
+    try {
+      const product = JSON.parse(readFileSync(file, 'utf8')) as { slug?: unknown }
 
-  return (data[key] || []).map(product => `/product/${product.id}`)
+      return typeof product.slug === 'string'
+        ? [`/product/${encodeURIComponent(product.slug)}`]
+        : []
+    }
+    catch (error) {
+      console.warn(`[Prerender] Failed to read product content file ${file}`, error)
+      return []
+    }
+  })
 }
 
-const productRoutes = [
-  ...readProductRoutes('matrasses.json', 'matrasses'),
-  ...readProductRoutes('beds.json', 'beds'),
-  ...readProductRoutes('childrenBeds.json', 'childrenBeds'),
-  ...readProductRoutes('pillows.json', 'pillows'),
-  ...readProductRoutes('toppers.json', 'toppers'),
-]
+const productRoutes = getContentProductRoutes()
 
-console.log(`[Prerender] Will generate ${productRoutes.length} product pages`)
+console.log(`[Prerender] Will generate ${productRoutes.length} content product pages`)
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss',
+    '@nuxt/content',
     '@nuxt/image',
     '@nuxt/eslint',
     '@vueuse/nuxt',
@@ -58,15 +75,18 @@ export default defineNuxtConfig({
       ],
     },
   },
+  css: ['~/assets/css/tailwind.css'],
   runtimeConfig: {
     public: {
-      // eslint-disable-next-line node/prefer-global/process
       smartcaptchaClientKey: process.env.NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY || '',
     },
   },
   compatibilityDate: '2025-08-11',
   nitro: {
-    preset: 'static',
+    // Nuxt 4.6 resolves runtime imports to file URLs; keep them bundled on Windows too.
+    externals: {
+      inline: [/[/\\]nuxt[/\\]dist[/\\]/, /[/\\]@nuxt[/\\]nitro-server[/\\]dist[/\\]/],
+    },
     prerender: {
       crawlLinks: true,
       failOnError: true,
@@ -74,12 +94,13 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    plugins: [tailwindcss()],
     optimizeDeps: {
       include: [
         '@splidejs/splide',
         'maska/vue',
         'workbox-window',
-        'lucide-vue-next',
+        '@lucide/vue',
       ],
     },
   },
@@ -141,7 +162,8 @@ export default defineNuxtConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest,json,webp}'],
-      globIgnores: ['**/_payload.json'],
+      globIgnores: ['**/_payload.json', 'admin/**'],
+      navigateFallbackDenylist: [/^\/admin(?:\/|$)/],
       maximumFileSizeToCacheInBytes: 10485760, // 10 MB limit to cache large images
       runtimeCaching: [
         {
@@ -201,7 +223,7 @@ export default defineNuxtConfig({
       periodicSyncForUpdates: 60 * 60 * 12,
     },
     devOptions: {
-      enabled: true,
+      enabled: false,
       suppressWarnings: true,
     },
     pwaAssets: {

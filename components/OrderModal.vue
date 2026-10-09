@@ -109,7 +109,7 @@ async function submitOrder() {
 <template>
   <div>
     <Transition name="modal-backdrop">
-      <div v-if="showOrderForm" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div v-if="showOrderForm" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
         <Transition name="modal">
           <div v-if="showOrderForm" class="bg-white rounded-lg p-8 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-6">
@@ -234,7 +234,7 @@ async function submitOrder() {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .modal-backdrop-enter-active,
 .modal-backdrop-leave-active {
   transition: opacity 0.3s ease;

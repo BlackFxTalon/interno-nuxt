@@ -9,21 +9,7 @@ useHead({
 })
 
 const { data: productData } = await useAsyncData('products', async () => {
-  const [matrasses, beds, childrenBeds, pillows, toppers] = await Promise.all([
-    import('~/data/matrasses.json'),
-    import('~/data/beds.json'),
-    import('~/data/childrenBeds.json'),
-    import('~/data/pillows.json'),
-    import('~/data/toppers.json'),
-  ])
-
-  return {
-    matrasses: matrasses.default.matrasses || [],
-    beds: beds.default.beds || [],
-    childrenBeds: childrenBeds.default.childrenBeds || [],
-    pillows: pillows.default.pillows || [],
-    toppers: toppers.default.toppers || [],
-  }
+  return await $fetch('/api/products')
 })
 
 const matrasses = computed(() => productData.value?.matrasses ?? [])

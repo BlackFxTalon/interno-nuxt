@@ -1,19 +1,11 @@
-export default defineEventHandler(async () => {
-  try {
-    // Import all product data
-    const matrasses = await import('~/data/matrasses.json')
-    const beds = await import('~/data/beds.json')
-    const childrenBeds = await import('~/data/childrenBeds.json')
-    const pillows = await import('~/data/pillows.json')
-    const toppers = await import('~/data/toppers.json')
+import { queryCollection } from '@nuxt/content/server'
+import { getProductCatalogFromContent } from '../services/products'
 
-    return {
-      matrasses: matrasses.default.matrasses || [],
-      beds: beds.default.beds || [],
-      childrenBeds: childrenBeds.default.childrenBeds || [],
-      pillows: pillows.default.pillows || [],
-      toppers: toppers.default.toppers || [],
-    }
+export default defineEventHandler(async (event) => {
+  try {
+    const products = await queryCollection(event, 'products').all()
+
+    return getProductCatalogFromContent(products)
   }
   catch (error) {
     console.error('Error loading product data:', error)

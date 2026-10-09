@@ -1,0 +1,294 @@
+{
+  "slug": "Eva",
+  "category": "beds",
+  "name": "ЕВА",
+  "description": "Изысканная кровать с мягким изголовьем в технике капитоне – это настоящая жемчужина интерьера. Объёмная спинка с геометричным рельефом из утопленных пуговиц и ромбовидных складок создаёт эффектный акцент, придавая пространству благородный лоск. Эта не просто кровать – а произведение мебельного искусства, где безупречный вкус сочетается с бескомпромиссным комфортом.",
+  "advantages": [
+    "Декоративные пуговицы и чёткие складки формируют элегантную фактуру",
+    "Техника капитоне фиксирует наполнитель, предотвращая его деформацию",
+    "Мягкая стёганая обивка добавляет тактильного уюта",
+    "Визуальная доминанта для спальни в классическом или современном стиле",
+    "Безупречная эргономика с медицинским подходом к отдыху"
+  ],
+  "images": [
+    {
+      "id": "eva-e3deda",
+      "label": "#e3deda",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-e3deda.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-025649",
+      "label": "#025649",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-025649.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-cfbea4",
+      "label": "#cfbea4",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-cfbea4.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-977d64",
+      "label": "#977d64",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-977d64.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-594a37",
+      "label": "#594a37",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-594a37.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-71726c",
+      "label": "#71726c",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-71726c.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-667072",
+      "label": "#667072",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-667072.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-9e8066",
+      "label": "#9e8066",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-9e8066.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-454344",
+      "label": "#454344",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-454344.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-c6b1ac",
+      "label": "#c6b1ac",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-c6b1ac.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-80959a",
+      "label": "#80959a",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-80959a.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-b6a2ad",
+      "label": "#b6a2ad",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-b6a2ad.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-8f887e",
+      "label": "#8f887e",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-8f887e.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-8cb4b3",
+      "label": "#8cb4b3",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-8cb4b3.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-558eac",
+      "label": "#558eac",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-558eac.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-7e6990",
+      "label": "#7e6990",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-7e6990.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-1b3b6e",
+      "label": "#1b3b6e",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-1b3b6e.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-584b45",
+      "label": "#584b45",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-584b45.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-bba784",
+      "label": "#bba784",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-bba784.webp",
+      "alt": "Кровать Ева"
+    },
+    {
+      "id": "eva-bea28c",
+      "label": "#bea28c",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/eva/eva-bea28c.webp",
+      "alt": "Кровать Ева"
+    }
+  ],
+  "colors": [
+    {
+      "id": "Слоновая кость",
+      "label": "#e3deda"
+    },
+    {
+      "id": "Зеленый",
+      "label": "#025649"
+    },
+    {
+      "id": "Светло-бежевый",
+      "label": "#cfbea4"
+    },
+    {
+      "id": "Кофе с молоком",
+      "label": "#977d64"
+    },
+    {
+      "id": "Коричневый",
+      "label": "#594a37"
+    },
+    {
+      "id": "Графит",
+      "label": "#71726c"
+    },
+    {
+      "id": "Мокрый асфальт",
+      "label": "#667072"
+    },
+    {
+      "id": "Какао с молоком",
+      "label": "#9e8066"
+    },
+    {
+      "id": "Черный",
+      "label": "#454344"
+    },
+    {
+      "id": "Розовая пудра",
+      "label": "#c6b1ac"
+    },
+    {
+      "id": "Серо-голубой",
+      "label": "#80959a"
+    },
+    {
+      "id": "Лавандовый",
+      "label": "#b6a2ad"
+    },
+    {
+      "id": "Пепел",
+      "label": "#8f887e"
+    },
+    {
+      "id": "Ментоловый",
+      "label": "#8cb4b3"
+    },
+    {
+      "id": "Морская волна",
+      "label": "#558eac"
+    },
+    {
+      "id": "Темно фиолетовый",
+      "label": "#7e6990"
+    },
+    {
+      "id": "Синий",
+      "label": "#1b3b6e"
+    },
+    {
+      "id": "Темный шоколад",
+      "label": "#584b45"
+    },
+    {
+      "id": "Бежевый",
+      "label": "#bba784"
+    },
+    {
+      "id": "Миндаль",
+      "label": "#bea28c"
+    }
+  ],
+  "liftingMechanism": [
+    "Нет",
+    "Есть"
+  ],
+  "antivandalVelor": [
+    "Не нужен",
+    "Нужен"
+  ],
+  "robotVacuumCleanerLegs": [
+    "Не нужны",
+    "Нужны"
+  ],
+  "sizes": [
+    {
+      "id": "80×190",
+      "label": "80×190"
+    },
+    {
+      "id": "80×200",
+      "label": "80×200"
+    },
+    {
+      "id": "90×190",
+      "label": "90×190"
+    },
+    {
+      "id": "90×200",
+      "label": "90×200"
+    },
+    {
+      "id": "120×190",
+      "label": "120×190"
+    },
+    {
+      "id": "120×200",
+      "label": "120×200"
+    },
+    {
+      "id": "140×190",
+      "label": "140×190"
+    },
+    {
+      "id": "140×200",
+      "label": "140×200"
+    },
+    {
+      "id": "160×190",
+      "label": "160×190"
+    },
+    {
+      "id": "160×200",
+      "label": "160×200"
+    },
+    {
+      "id": "180×190",
+      "label": "180×190"
+    },
+    {
+      "id": "180×200",
+      "label": "180×200"
+    }
+  ],
+  "prices": {
+    "80×190": 29750,
+    "80×200": 29750,
+    "90×190": 31580,
+    "90×200": 31580,
+    "120×190": 33860,
+    "120×200": 33860,
+    "140×190": 35420,
+    "140×200": 35420,
+    "160×190": 38540,
+    "160×200": 38540,
+    "180×190": 42750,
+    "180×200": 42750
+  },
+  "foundation": "Металлическое ортопедическое основание премиум-класса"
+}

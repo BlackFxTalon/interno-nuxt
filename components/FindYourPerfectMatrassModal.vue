@@ -63,7 +63,7 @@ async function handleSubmit() {
 
 <template>
   <Transition name="modal-backdrop">
-    <div v-if="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div v-if="showModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <Transition name="modal">
         <div
           v-if="showModal"
@@ -176,6 +176,6 @@ async function handleSubmit() {
   </Transition>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

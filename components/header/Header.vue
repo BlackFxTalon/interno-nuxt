@@ -15,8 +15,7 @@ if (import.meta.client) {
   })
 }
 
-// Mobile menu links
-const headerMenuLinks = [
+const defaultHeaderMenuLinks = [
   { to: '/about', text: 'О нас' },
   { to: '/#mattresses', text: 'Матрасы' },
   { to: '/#toppers', text: 'Топперы' },
@@ -24,6 +23,18 @@ const headerMenuLinks = [
   { to: '/#beds', text: 'Кровати' },
   { to: '/#childrenBeds', text: 'Детские кровати' },
 ]
+
+const { data: headerNavigation } = await useAsyncData('header-navigation', () => {
+  return queryCollection('navigation')
+    .where('stem', '=', 'navigation/header')
+    .first()
+})
+
+const headerMenuLinks = computed(() => {
+  return headerNavigation.value?.links?.length
+    ? headerNavigation.value.links
+    : defaultHeaderMenuLinks
+})
 </script>
 
 <template>
@@ -66,13 +77,13 @@ const headerMenuLinks = [
     >
       <div
         v-if="isMenuOpen"
-        class="fixed inset-0 bg-black bg-opacity-20 lg:hidden z-30"
+        class="fixed inset-0 bg-black/20 lg:hidden z-30"
         @click="isMenuOpen = false"
       />
     </transition>
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

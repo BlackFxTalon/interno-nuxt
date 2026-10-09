@@ -1,0 +1,23 @@
+{
+  "title": "Качественный сон, лучшая жизнь",
+  "buttonText": "Купить сейчас",
+  "description": "Откройте для себя нашу премиальную коллекцию матрасов, разработанную для максимального комфорта и поддержки.",
+  "images": [
+    {
+      "src": "https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-1.webp",
+      "alt": "Коллекция товаров для сна Интерно"
+    },
+    {
+      "src": "https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-2.webp",
+      "alt": "Матрас Интерно в интерьере спальни"
+    },
+    {
+      "src": "https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-3.webp",
+      "alt": "Кровать и матрас Интерно"
+    },
+    {
+      "src": "https://storage.yandexcloud.net/interno-images/optimized/public/images/heroSection/herosection-img-4.webp",
+      "alt": "Спальня с продукцией Интерно"
+    }
+  ]
+}

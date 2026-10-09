@@ -15,7 +15,7 @@ useHead({
 </script>
 
 <template>
-  <Body class="font-Inter">
+  <Body class="font-inter">
     <Header />
     <PwaStatus />
     <NuxtPage />
@@ -35,7 +35,9 @@ useHead({
   </Body>
 </template>
 
-<style lang="scss">
+<style>
+@reference "./assets/css/tailwind.css";
+
 html, body {
   scroll-behavior: smooth;
 }
@@ -132,6 +134,6 @@ html, body {
 }
 
 :root {
-  --primary-color: rgb(5, 128, 199);
+  --primary-color: var(--color-primary);
 }
 </style>

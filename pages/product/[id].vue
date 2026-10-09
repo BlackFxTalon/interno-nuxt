@@ -22,21 +22,7 @@ const showOrderForm = ref(false)
 const currentImages = ref([])
 
 const { data: productData } = await useAsyncData('products', async () => {
-  const [matrasses, beds, childrenBeds, pillows, toppers] = await Promise.all([
-    import('~/data/matrasses.json'),
-    import('~/data/beds.json'),
-    import('~/data/childrenBeds.json'),
-    import('~/data/pillows.json'),
-    import('~/data/toppers.json'),
-  ])
-
-  return {
-    matrasses: matrasses.default.matrasses || [],
-    beds: beds.default.beds || [],
-    childrenBeds: childrenBeds.default.childrenBeds || [],
-    pillows: pillows.default.pillows || [],
-    toppers: toppers.default.toppers || [],
-  }
+  return await $fetch('/api/products')
 })
 
 // Function to determine product category
@@ -554,7 +540,7 @@ function generateColorImages(colorLabel) {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .color::before {
   content: "";
   border-radius: 50%;

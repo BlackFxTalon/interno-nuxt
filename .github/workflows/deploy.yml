@@ -17,14 +17,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 'lts/*' # Последняя версия из актуального LTS-канала[citation:1]
+          node-version-file: .nvmrc
           cache: npm
 
-      # 3. Устанавливаем зависимости и собираем проект
-      - name: Install dependencies and build
-        run: |
-          npm ci
-          npm run generate
+      # 3. Устанавливаем зависимости, проверяем и собираем проект
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check types
+        run: npm run typecheck
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Generate static site
+        run: npm run generate
         env:
           # Если нужны переменные для сборки, используйте secrets
           NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY: ${{ secrets.NUXT_PUBLIC_SMARTCAPTCHA_CLIENT_KEY }}

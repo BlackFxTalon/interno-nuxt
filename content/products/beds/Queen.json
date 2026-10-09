@@ -1,0 +1,292 @@
+{
+  "slug": "Queen",
+  "category": "beds",
+  "name": "Квин",
+  "description": "Для тех, кто ценит современный дизайн без компромиссов, кровать \"Квин\" предлагает идеальный баланс лаконичности и выразительности. Её геометричное изголовье с четырьмя рельефными прямоугольниками создаёт эффектный визуальный ритм, превращая спальное место в стильный интерьерный акцент.",
+  "advantages": [
+    "Архитектурная четкость линий – воплощение современной эстетики",
+    "Игра объёмов в изголовье – мягкие прямоугольники добавляют тактильный уют",
+    "Универсальная палитра – органично впишется как в монохромные, так и в цветные интерьеры"
+  ],
+  "images": [
+    {
+      "id": "queen-e3deda",
+      "label": "#e3deda",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-e3deda.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-025649",
+      "label": "#025649",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-025649.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-cfbea4",
+      "label": "#cfbea4",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-cfbea4.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-977d64",
+      "label": "#977d64",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-977d64.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-594a37",
+      "label": "#594a37",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-594a37.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-71726c",
+      "label": "#71726c",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-71726c.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-667072",
+      "label": "#667072",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-667072.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-9e8066",
+      "label": "#9e8066",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-9e8066.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-454344",
+      "label": "#454344",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-454344.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-c6b1ac",
+      "label": "#c6b1ac",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-c6b1ac.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-80959a",
+      "label": "#80959a",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-80959a.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-b6a2ad",
+      "label": "#b6a2ad",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-b6a2ad.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-8f887e",
+      "label": "#8f887e",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-8f887e.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-8cb4b3",
+      "label": "#8cb4b3",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-8cb4b3.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-558eac",
+      "label": "#558eac",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-558eac.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-7e6990",
+      "label": "#7e6990",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-7e6990.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-1b3b6e",
+      "label": "#1b3b6e",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-1b3b6e.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-584b45",
+      "label": "#584b45",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-584b45.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-bba784",
+      "label": "#bba784",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-bba784.webp",
+      "alt": "Кровать Квин"
+    },
+    {
+      "id": "queen-bea28c",
+      "label": "#bea28c",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/queen/queen-bea28c.webp",
+      "alt": "Кровать Квин"
+    }
+  ],
+  "colors": [
+    {
+      "id": "Слоновая кость",
+      "label": "#e3deda"
+    },
+    {
+      "id": "Зеленый",
+      "label": "#025649"
+    },
+    {
+      "id": "Светло-бежевый",
+      "label": "#cfbea4"
+    },
+    {
+      "id": "Кофе с молоком",
+      "label": "#977d64"
+    },
+    {
+      "id": "Коричневый",
+      "label": "#594a37"
+    },
+    {
+      "id": "Графит",
+      "label": "#71726c"
+    },
+    {
+      "id": "Мокрый асфальт",
+      "label": "#667072"
+    },
+    {
+      "id": "Какао с молоком",
+      "label": "#9e8066"
+    },
+    {
+      "id": "Черный",
+      "label": "#454344"
+    },
+    {
+      "id": "Розовая пудра",
+      "label": "#c6b1ac"
+    },
+    {
+      "id": "Серо-голубой",
+      "label": "#80959a"
+    },
+    {
+      "id": "Лавандовый",
+      "label": "#b6a2ad"
+    },
+    {
+      "id": "Пепел",
+      "label": "#8f887e"
+    },
+    {
+      "id": "Ментоловый",
+      "label": "#8cb4b3"
+    },
+    {
+      "id": "Морская волна",
+      "label": "#558eac"
+    },
+    {
+      "id": "Темно фиолетовый",
+      "label": "#7e6990"
+    },
+    {
+      "id": "Синий",
+      "label": "#1b3b6e"
+    },
+    {
+      "id": "Темный шоколад",
+      "label": "#584b45"
+    },
+    {
+      "id": "Бежевый",
+      "label": "#bba784"
+    },
+    {
+      "id": "Миндаль",
+      "label": "#bea28c"
+    }
+  ],
+  "liftingMechanism": [
+    "Нет",
+    "Есть"
+  ],
+  "antivandalVelor": [
+    "Не нужен",
+    "Нужен"
+  ],
+  "robotVacuumCleanerLegs": [
+    "Не нужны",
+    "Нужны"
+  ],
+  "sizes": [
+    {
+      "id": "80×190",
+      "label": "80×190"
+    },
+    {
+      "id": "80×200",
+      "label": "80×200"
+    },
+    {
+      "id": "90×190",
+      "label": "90×190"
+    },
+    {
+      "id": "90×200",
+      "label": "90×200"
+    },
+    {
+      "id": "120×190",
+      "label": "120×190"
+    },
+    {
+      "id": "120×200",
+      "label": "120×200"
+    },
+    {
+      "id": "140×190",
+      "label": "140×190"
+    },
+    {
+      "id": "140×200",
+      "label": "140×200"
+    },
+    {
+      "id": "160×190",
+      "label": "160×190"
+    },
+    {
+      "id": "160×200",
+      "label": "160×200"
+    },
+    {
+      "id": "180×190",
+      "label": "180×190"
+    },
+    {
+      "id": "180×200",
+      "label": "180×200"
+    }
+  ],
+  "prices": {
+    "80×190": 26820,
+    "80×200": 26820,
+    "90×190": 27200,
+    "90×200": 27200,
+    "120×190": 28990,
+    "120×200": 28990,
+    "140×190": 31460,
+    "140×200": 31460,
+    "160×190": 33180,
+    "160×200": 33180,
+    "180×190": 35960,
+    "180×200": 35960
+  },
+  "foundation": "Ортопедическое основание"
+}

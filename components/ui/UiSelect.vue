@@ -13,7 +13,9 @@ const select = defineModel()
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
+@reference "../../assets/css/tailwind.css";
+
 .select-container {
   @apply relative w-full;
 
@@ -42,8 +44,8 @@ const select = defineModel()
     @apply w-full px-4 border-2
          bg-white text-gray-700
          transition-colors duration-200
-         placeholder-gray-400
-         focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none  border-gray-300 rounded-md
+         placeholder:text-gray-400
+         focus:outline-hidden focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none  border-gray-300 rounded-md
          cursor-pointer h-[40px];
          padding-right: 2.5rem;
         text-indent: 1px;
@@ -58,7 +60,7 @@ const select = defineModel()
   }
 
   &:focus {
-    @apply outline-none ring-2 ring-primary/20 border-primary;
+    @apply outline-hidden ring-2 ring-primary/20 border-primary;
   }
 
   &:hover:not(:focus) {

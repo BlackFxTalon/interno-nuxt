@@ -1,0 +1,294 @@
+{
+  "advantages": [
+    "Усиленная поддержка матраса",
+    "Оптимальная вентиляция",
+    "Защита от деформации",
+    "Долговечность даже при повышенных нагрузках"
+  ],
+  "antivandalVelor": [
+    "Не нужен",
+    "Нужен"
+  ],
+  "category": "beds",
+  "colors": [
+    {
+      "id": "Слоновая кость",
+      "label": "#e3deda"
+    },
+    {
+      "id": "Зеленый",
+      "label": "#025649"
+    },
+    {
+      "id": "Светло-бежевый",
+      "label": "#cfbea4"
+    },
+    {
+      "id": "Кофе с молоком",
+      "label": "#977d64"
+    },
+    {
+      "id": "Коричневый",
+      "label": "#594a37"
+    },
+    {
+      "id": "Графит",
+      "label": "#71726c"
+    },
+    {
+      "id": "Мокрый асфальт",
+      "label": "#667072"
+    },
+    {
+      "id": "Какао с молоком",
+      "label": "#9e8066"
+    },
+    {
+      "id": "Черный",
+      "label": "#454344"
+    },
+    {
+      "id": "Розовая пудра",
+      "label": "#c6b1ac"
+    },
+    {
+      "id": "Серо-голубой",
+      "label": "#80959a"
+    },
+    {
+      "id": "Лавандовый",
+      "label": "#b6a2ad"
+    },
+    {
+      "id": "Пепел",
+      "label": "#8f887e"
+    },
+    {
+      "id": "Ментоловый",
+      "label": "#8cb4b3"
+    },
+    {
+      "id": "Морская волна",
+      "label": "#558eac"
+    },
+    {
+      "id": "Темно фиолетовый",
+      "label": "#7e6990"
+    },
+    {
+      "id": "Синий",
+      "label": "#1b3b6e"
+    },
+    {
+      "id": "Темный шоколад",
+      "label": "#584b45"
+    },
+    {
+      "id": "Бежевый",
+      "label": "#bba784"
+    },
+    {
+      "id": "Миндаль",
+      "label": "#bea28c"
+    }
+  ],
+  "description": "Кровать \"Асти\" – это воплощение элегантности и современного дизайна. Ее главная особенность – мягкое изголовье с глубоким кубическим рельефом и утопающими пуговицами, которое придает спальне особый шарм и уют. Обивка из качественной ткани подчеркивает статусность модели, делая ее идеальным выбором для тех, кто ценит стиль и комфорт.",
+  "images": [
+    {
+      "id": "asti-e3deda",
+      "label": "#e3deda",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-e3deda.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-025649",
+      "label": "#025649",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-025649.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-cfbea4",
+      "label": "#cfbea4",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-cfbea4.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-977d64",
+      "label": "#977d64",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-977d64.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-594a37",
+      "label": "#594a37",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-594a37.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-71726c",
+      "label": "#71726c",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-71726c.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-667072",
+      "label": "#667072",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-667072.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-9e8066",
+      "label": "#9e8066",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-9e8066.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-454344",
+      "label": "#454344",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-454344.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-c6b1ac",
+      "label": "#c6b1ac",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-c6b1ac.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-80959a",
+      "label": "#80959a",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-80959a.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-b6a2ad",
+      "label": "#b6a2ad",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-b6a2ad.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-8f887e",
+      "label": "#8f887e",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-8f887e.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-8cb4b3",
+      "label": "#8cb4b3",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-8cb4b3.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-558eac",
+      "label": "#558eac",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-558eac.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-7e6990",
+      "label": "#7e6990",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-7e6990.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-1b3b6e",
+      "label": "#1b3b6e",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-1b3b6e.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-584b45",
+      "label": "#584b45",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-584b45.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-bba784",
+      "label": "#bba784",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-bba784.webp",
+      "alt": "Кровать Асти"
+    },
+    {
+      "id": "asti-bea28c",
+      "label": "#bea28c",
+      "url": "https://ya.internomebel.ru/optimized/public/images/beds/asti/asti-bea28c.webp",
+      "alt": "Кровать Асти"
+    }
+  ],
+  "liftingMechanism": [
+    "Нет",
+    "Есть"
+  ],
+  "name": "Асти",
+  "prices": {
+    "80×190": 23450,
+    "80×200": 23450,
+    "90×190": 24070,
+    "90×200": 24070,
+    "120×190": 25790,
+    "120×200": 25790,
+    "140×190": 27600,
+    "140×200": 27600,
+    "160×190": 29710,
+    "160×200": 29710,
+    "180×190": 31250,
+    "180×200": 31250
+  },
+  "robotVacuumCleanerLegs": [
+    "Не нужны",
+    "Нужны"
+  ],
+  "sizes": [
+    {
+      "id": "80×190",
+      "label": "80×190"
+    },
+    {
+      "id": "80×200",
+      "label": "80×200"
+    },
+    {
+      "id": "90×190",
+      "label": "90×190"
+    },
+    {
+      "id": "90×200",
+      "label": "90×200"
+    },
+    {
+      "id": "120×190",
+      "label": "120×190"
+    },
+    {
+      "id": "120×200",
+      "label": "120×200"
+    },
+    {
+      "id": "140×190",
+      "label": "140×190"
+    },
+    {
+      "id": "140×200",
+      "label": "140×200"
+    },
+    {
+      "id": "160×190",
+      "label": "160×190"
+    },
+    {
+      "id": "160×200",
+      "label": "160×200"
+    },
+    {
+      "id": "180×190",
+      "label": "180×190"
+    },
+    {
+      "id": "180×200",
+      "label": "180×200"
+    }
+  ],
+  "slug": "Asti",
+  "weights": {},
+  "foundation": "Прочное металлическое ортопедическое основание с березовыми ламелями"
+}

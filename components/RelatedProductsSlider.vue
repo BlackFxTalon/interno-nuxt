@@ -102,39 +102,39 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+}
 
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: #374151;
-  }
+:deep(.splide__arrow svg) {
+  width: 20px;
+  height: 20px;
+  fill: #374151;
 }
 
 :deep(.splide__arrow--prev) {
   left: -30px;
-
-  @media (max-width: 768px) {
-    left: -10px;
-  }
 }
 
 :deep(.splide__arrow--next) {
   right: -30px;
-
-  @media (max-width: 768px) {
-    right: -10px;
-  }
 }
 
 @media (max-width: 768px) {
+  :deep(.splide__arrow--prev) {
+    left: -10px;
+  }
+
+  :deep(.splide__arrow--next) {
+    right: -10px;
+  }
+
   :deep(.splide__arrow) {
     width: 20px;
     height: 20px;
+  }
 
-    svg {
-      width: 10px;
-      height: 10px;
-    }
+  :deep(.splide__arrow svg) {
+    width: 10px;
+    height: 10px;
   }
 }
 </style>

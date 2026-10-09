@@ -42,6 +42,6 @@ function handleBtn() {
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

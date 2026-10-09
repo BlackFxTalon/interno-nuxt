@@ -322,62 +322,54 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-.image-carousel {
-  .main-carousel {
-    margin-bottom: 1rem;
+<style scoped>
+.image-carousel .main-carousel {
+  margin-bottom: 1rem;
+}
+
+.image-carousel .thumbnail-carousel {
+  margin-top: 1rem;
+}
+
+.image-carousel .thumbnail-carousel__splide-list {
+  flex-wrap: wrap;
+}
+
+.image-carousel .main-image {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.image-carousel .thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .image-carousel .single-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .thumbnail-carousel {
-    margin-top: 1rem;
-  }
-
-  .thumbnail-carousel__splide-list {
-    flex-wrap: wrap;
-  }
-
-  .main-image {
-    width: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-
-  .thumbnail-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .single-image {
-    @media (max-width: 768px) {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-    }
-  }
-
-  .single-image :deep(img) {
-    @media (max-width: 768px) {
-      max-width: 500px;
-    }
-    @media (max-width: 500px) {
-      max-width: 300px;
-    }
+  .image-carousel .single-image :deep(img),
+  .main-carousel :deep(.splide__slide img) {
+    max-width: 500px;
   }
 }
 
-.main-carousel :deep(.splide__slide img) {
-  @media (max-width: 768px) {
-      max-width: 500px;
-    }
-    @media (max-width: 500px) {
-      max-width: 300px;
-    }
+@media (max-width: 500px) {
+  .image-carousel .single-image :deep(img),
+  .main-carousel :deep(.splide__slide img) {
+    max-width: 300px;
+  }
 }
 
-// Splide carousel custom styles
+/* Splide carousel custom styles */
 :deep(.splide__arrow) {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
@@ -387,28 +379,20 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+}
 
-  svg {
-    width: 20px;
-    height: 20px;
-    fill: #374151;
-  }
+:deep(.splide__arrow svg) {
+  width: 20px;
+  height: 20px;
+  fill: #374151;
 }
 
 :deep(.splide__arrow--prev) {
   left: -30px;
-
-  @media (max-width: 768px) {
-    left: -10px;
-  }
 }
 
 :deep(.splide__arrow--next) {
   right: -30px;
-
-  @media (max-width: 768px) {
-    right: -10px;
-  }
 }
 
 :deep(.splide__slide) {
@@ -417,32 +401,38 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-// Thumbnail styles
-:deep(.splide--nav) {
-  .splide__slide {
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
+/* Thumbnail styles */
+:deep(.splide--nav .splide__slide) {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
 
-    &.is-active {
-      opacity: 0.8;
-    }
-  }
+:deep(.splide--nav .splide__slide.is-active) {
+  opacity: 0.8;
 }
 
 :deep(.splide__track--nav>.splide__list>.splide__slide.is-active) {
   border: 2px solid black;
 }
 
-// Responsive adjustments
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  :deep(.splide__arrow--prev) {
+    left: -10px;
+  }
+
+  :deep(.splide__arrow--next) {
+    right: -10px;
+  }
+
   :deep(.splide__arrow) {
     width: 20px;
     height: 20px;
+  }
 
-    svg {
-      width: 10px;
-      height: 10px;
-    }
+  :deep(.splide__arrow svg) {
+    width: 10px;
+    height: 10px;
   }
 }
 </style>

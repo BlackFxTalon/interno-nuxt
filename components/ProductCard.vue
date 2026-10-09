@@ -84,16 +84,16 @@ const btnText = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "../assets/css/tailwind.css";
+
 .product-card {
     min-width: 320px;
     width: 100%;
     min-height: 420px;
     border-radius: 0.5rem;
     padding: 10px;
-    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    @apply shadow-lg;
     display: flex;
     flex-direction: column;
 

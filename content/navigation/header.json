@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "to": "/#beds",
+      "text": "Кровати"
+    },
+    {
+      "to": "/#mattresses",
+      "text": "Матрасы"
+    },
+    {
+      "to": "/#toppers",
+      "text": "Топперы"
+    },
+    {
+      "to": "/#pillows",
+      "text": "Подушки"
+    },
+    {
+      "to": "/#childrenBeds",
+      "text": "Детские кровати"
+    },
+    {
+      "to": "/about",
+      "text": "О наc"
+    }
+  ]
+}

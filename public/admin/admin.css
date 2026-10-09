@@ -1,0 +1,40 @@
+.size-record {
+  display: grid;
+  gap: 12px;
+}
+
+.size-record__row {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.size-record label {
+  display: grid;
+  flex: 1 1 140px;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.size-record input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #aab3bd;
+  border-radius: 4px;
+}
+
+.size-record button {
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px solid #aab3bd;
+  border-radius: 4px;
+  background: #f4f6f8;
+  color: #172b4d;
+}
+
+.size-record__error {
+  margin: 0;
+  color: #b42318;
+}

@@ -21,12 +21,14 @@ const props = defineProps({
   </component>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
+@reference "../../assets/css/tailwind.css";
+
 .primary-btn {
   @apply w-full text-white text-sm md:text-base bg-primary rounded-lg
          font-medium transition-all duration-200
          hover:bg-primary/90 hover:shadow-lg
-         focus:outline-none focus:ring-2 focus:ring-primary/50
+         focus:outline-hidden focus:ring-2 focus:ring-primary/50
          active:transform active:scale-[0.98] flex items-center justify-center px-5 relative;
 
   &:disabled {
